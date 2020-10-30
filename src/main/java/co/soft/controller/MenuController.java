@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.soft.domain.LocationInfoBean;
+import co.soft.domain.MenuInfoBean;
 import co.soft.service.MenuService;
 
 @Controller
@@ -17,10 +17,10 @@ public class MenuController {
 	private MenuService menuservice;
 	
 	@RequestMapping("/getboard")
-	public String getboard(Model model, LocationInfoBean locinfo) {
-		List<LocationInfoBean> menuList=menuservice.getLocationList(locinfo);
-		model.addAttribute("boardList", menuList);
-		return "getboard";
+	public String getboard(Model model, MenuInfoBean menuinfo) {
+		List<MenuInfoBean> menuList=menuservice.getMenuList(menuinfo);
+		model.addAttribute("menuList", menuList);
+		return "menu";
 	}
 	
 }
