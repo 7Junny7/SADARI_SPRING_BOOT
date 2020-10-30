@@ -18,7 +18,7 @@ public class MenuController {
 	
 	@RequestMapping("/getboard")
 	public String getboard(Model model, LocationInfoBean locinfo) {
-		List<LocationInfoBean> menuList=locationService.getLocationList(locinfo);
+		List<LocationInfoBean> menuList=menuservice.getLocationList(locinfo);
 		model.addAttribute("boardList", menuList);
 		return "getboard";
 	}

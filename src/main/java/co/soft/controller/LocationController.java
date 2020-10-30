@@ -78,6 +78,6 @@ public class LocationController {
 //		}
 
 		LocationService.deleteBoard(loc);
-		return "forward:getBoardList";
+		return "forward:getLocationList";
 	}
 }
