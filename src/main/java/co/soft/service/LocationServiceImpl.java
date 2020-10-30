@@ -39,7 +39,7 @@ public class LocationServiceImpl implements LocationService {
 				locBoard.setHour(locinfo.getHour()); //원하는 시간 수정
 				locBoard.setWantWho(locinfo.getWantWho()); //같이 먹고 싶은 사람 수정
 				locBoard.setFoodComment(locinfo.getFoodComment()); //글 내용 수정
-				locBoard.setFoodPicture(locinfo.getFoodPicture()); //음식 사진 수정
+//				locBoard.setFoodPicture(locinfo.getFoodPicture()); //음식 사진 수정
 				boardRepo.save(locBoard);		
 	}
 	

@@ -72,7 +72,7 @@ public class LocationInfoBean {
 	@Column(nullable = true)
 	private String foodComment; //글 내용, 빈칸 가능
 
-	@Column(nullable = true)
-	private MultipartFile foodPicture; //음식사진, 업로드
+//	@Column(nullable = true)  // 에러남 확인 요
+//	private MultipartFile foodPicture; //음식사진, 업로드
 	
 }

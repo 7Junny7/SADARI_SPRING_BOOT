@@ -1,6 +1,7 @@
 package co.soft.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -14,6 +15,7 @@ import lombok.ToString;
 @Table(name = "USER_INFO_TABLE")
 public class UserInfoBean {
 
+	@Id
 	private int useridx;
 	private boolean userIdExist;
 	private boolean userLogin;

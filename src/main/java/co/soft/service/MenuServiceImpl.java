@@ -3,7 +3,6 @@ package co.soft.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import co.soft.domain.MenuInfoBean;
 import co.soft.persistence.MenuRepository;
 
