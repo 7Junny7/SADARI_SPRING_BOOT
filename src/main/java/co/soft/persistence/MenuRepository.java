@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import co.soft.domain.MenuInfoBean;
 
-public interface BoardRepository extends JpaRepository<MenuInfoBean, Long>{
+public interface MenuRepository extends JpaRepository<MenuInfoBean, Long>{
 
 }
