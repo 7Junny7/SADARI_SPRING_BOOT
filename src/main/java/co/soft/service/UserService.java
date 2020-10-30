@@ -2,8 +2,10 @@ package co.soft.service;
 
 import java.util.List;
 
-import co.soft.domain.UserInfoBean;
 
+import org.springframework.stereotype.Service;
+
+import co.soft.domain.UserInfoBean;
 public interface UserService {
 	//회원정보입력
 	void insertUser(UserInfoBean userinfo);
