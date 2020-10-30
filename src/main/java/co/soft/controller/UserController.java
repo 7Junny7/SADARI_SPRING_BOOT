@@ -32,10 +32,12 @@ public class UserController {
 	
 	@PostMapping("/join_pro")
 	public String join_pro(@Valid @ModelAttribute("joinUSerBean") UserInfoBean joinUserBean,BindingResult result) {
-	if(result.hasErrors()) {
-		return "/user/join";
-	}
+//	
+//	if(result.hasErrors()) {
+//		return "/user/false";
+//	}
+		
 	userService.insertUser(joinUserBean);
-	return "/user/join_success";
+	return "redirct:/user/join_success";
 	}
 }

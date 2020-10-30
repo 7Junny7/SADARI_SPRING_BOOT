@@ -3,10 +3,11 @@ package co.soft.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.soft.domain.UserInfoBean;
 import co.soft.persistence.UserRepository;
-
+@Service
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepo;
