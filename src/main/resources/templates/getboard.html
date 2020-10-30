@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>getboard</h2>
+	<tr th:each="board, i: ${boardList}">
+		<td th:text="${board.menu_info_idx}"></td>
+		<td th:text="${board.menu_info_name}"></td>
+	</tr>
+	
+</body>
+</html>
