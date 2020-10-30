@@ -27,7 +27,7 @@ public class MenuInfoBean {
 	
 	@Id
 	@Column(insertable = false, updatable = false)
-	private int menu_info_idx;
+	private Long menu_info_idx;
 	@Column(insertable = false, updatable = false)
 	private String menu_info_name;
 	
