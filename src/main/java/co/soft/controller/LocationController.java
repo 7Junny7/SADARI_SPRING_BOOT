@@ -77,7 +77,7 @@ public class LocationController {
 //			return "redirect:login";
 //		}
 
-		LocationService.deleteBoard(loc);
+		LocationService.deleteLocation(loc);
 		return "forward:getLocationList";
 	}
 }
