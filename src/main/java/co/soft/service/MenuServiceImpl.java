@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 
 import co.soft.domain.MenuInfoBean;
 import co.soft.persistence.MenuRepository;
+
 @Service
-public class MenuServiceImpl implements MenuService{
+public class MenuServiceImpl implements MenuService {
 
 	@Autowired
 	private MenuRepository menuRepo;
-	
+
 	@Override
 	public List<MenuInfoBean> getMenuList(MenuInfoBean menuinfo) {
 		return (List<MenuInfoBean>) menuRepo.findAll();
