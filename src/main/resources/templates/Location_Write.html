@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="location_pro" method="post">
+	제목: <input type="text" name="l_title" id="l_title"><br>
+	
+	글 암호 : <input type="password" name="l_pw" id="l_pw"><br>
+	작성자 : <span th:text="${nickName}"></span>
+	남<input type="radio" name="l_gender" id="l_gender" value="M"> 여 <input type="radio" name="l_gender" id="l_gender" value="F"><br>
+	지역: <select name="l_loc" id="l_loc">
+	<option>강남구</option>
+	<option>강동구</option>
+	<option>강북구</option>
+	<option>강서구</option>
+	<option>관악구</option>
+	<option>광진구</option>
+	<option>금천구</option>
+	<option>구로구</option>
+	<option>노원구</option>
+	<option>도봉구</option>
+	<option>동대문구</option>
+	<option>동작구</option>
+	<option>마포구</option>
+	<option>서대문구</option>
+	<option>서초구</option>
+	<option>성동구</option>
+	<option>성북구</option>
+	<option>송파구</option>
+	<option>양천구</option>
+	<option>영등포구</option>
+	<option>용산구</option>
+	<option>은평구</option>
+	<option>종로구</option>
+	<option>중구</option>
+	<option>중랑구</option>
+	</select><br>
+	장소: <input type="text" name="l_res" id="l_res"><br>
+	메뉴: <select name="l_menu" id="l_menu" style="width: 100px">
+	<optgroup label="한식">
+	<option value="11">면류</option>
+	<option value="12">육류</option>
+	<option value="13">탕/국/찌개/전골</option>
+	<option value="14">일반한식</option>
+	</optgroup>
+	
+	<optgroup label="중식">
+	<option value="21">일반중식</option>
+	<option value="22">마라</option>
+	<option value="23">양꼬치</option>
+	</optgroup>
+	
+	<optgroup label="일식">
+	<option value="31">회/초밥</option>
+	<option value="32">면류</option>
+	<option value="33">일본가정식</option>
+	<option value="34">튀김</option>
+	<option value="35">꼬치</option>
+	</optgroup>
+	<optgroup label="분식">
+	<option value="4">분식</option>
+	</optgroup>
+		<optgroup label="양식">
+	<option value="5">양식</option>
+	</optgroup>
+	<optgroup label="패스트푸드">
+	<option value="61">피자</option>
+	<option value="62">치킨</option>
+	<option value="63">햄버거</option>
+	</optgroup>
+	</select>
+	<input type="text" name="l_menu2" id="l_menu2" placeholder="상세메뉴(안적어도 괜찮아요)">
+	<br>
+	시간: <input type="date" name="l_date" id="l_date"> <input type="time" name="l_time" id="l_time"><br>
+	내용<br>
+	<textarea rows="10" cols="50" name="l_text" id="l_text"></textarea><br>
+	<input type="submit" value="작성">
+	<input type="button" value="취소">
+</form>
+
+</body>
+</html>

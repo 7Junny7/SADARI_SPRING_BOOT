@@ -37,7 +37,7 @@ public class LocationController {
 //			return "redirect:login";
 //		}
 
-		return "insertLocation";
+		return "Location_write";
 	}
 
 	@PostMapping("/insertLocation")
