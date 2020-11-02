@@ -28,7 +28,7 @@ public class LocationController {
 
 		List<LocationInfoBean> locationList = locationService.getLocationList(loc);
 		model.addAttribute("locationList", locationList);
-		return "LocationList";
+		return "/loaction/LocationList";
 	}
 
 	@GetMapping("/insertLocation")
@@ -37,7 +37,7 @@ public class LocationController {
 //			return "redirect:login";
 //		}
 
-		return "Location_write";
+		return "/location/Location_write";
 	}
 
 	@PostMapping("/insertLocation")
@@ -47,7 +47,7 @@ public class LocationController {
 //		}
 
 //		LocationService.insertLocation(loc);
-		return "redirect:getBoardList";
+		return "redirect:getLocationList";
 	}
 
 	@GetMapping("/getLocation")
