@@ -1,6 +1,7 @@
 package co.soft.controller;
 
 import javax.annotation.Resource;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import co.soft.domain.UserInfoBean;
 import co.soft.service.UserService;
 
+@SessionAttributes("UserInfoBean")
 @Controller
 public class UserController {
 
@@ -46,6 +50,29 @@ public class UserController {
 	@RequestMapping("/getUserInfoList")
 	public String getUserInfoList(Model model, UserInfoBean userinfo) {
 		return "userinfo";
+	}
+	
+	@GetMapping("/login")
+	public String loginView(@ModelAttribute("loginUserBean") UserInfoBean user) {
+		return "/user/login";
+	}
+
+	@PostMapping("/login_pro")
+	public String login(@ModelAttribute("loginUserBean") UserInfoBean user, Model model) {
+		UserInfoBean findUser = userService.getUserInfo(user);
+
+		if (findUser != null && findUser.getUserPassword().equals(user.getUserPassword())) {
+			model.addAttribute("member", findUser);
+			return "forward:getBoardList";
+		} else {
+			return "redirect:/login";
+		}
+	}
+	
+	@GetMapping("/logout")
+	public String logout(SessionStatus status) {
+		status.setComplete();
+		return "redirect:/join";		
 	}
 	
 }

@@ -1,6 +1,7 @@
 package co.soft.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
 		userRepo.findById(userinfo.getUseridx()).get();
 	}
 
-	// 회원정보 불러오기
+	// 모든 회원정보 불러오기
 	@Override
 	public List<UserInfoBean> selectUserAll(UserInfoBean userinfo) {
 		return (List<UserInfoBean>) userRepo.findAll();
@@ -49,9 +50,16 @@ public class UserServiceImpl implements UserService {
 		UserInfoBean userIdx = userRepo.findById(userinfo.getUseridx()).get();
 	}
 
+	// 1인 회원정보 불러오기
 	@Override
 	public UserInfoBean getUserInfo(UserInfoBean userinfo) {
-		return userRepo.findById(userinfo.getUseridx()).get();
+		Optional<UserInfoBean> findUser=Optional.of(userRepo.findById(userinfo.getUseridx()).get());
+		if(findUser.isPresent()) {
+			return findUser.get();
+		}else {
+			return null;
+		}
+//		return userRepo.findById(userinfo.getUseridx()).get();
 	}
 
 }

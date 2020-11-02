@@ -31,9 +31,9 @@ public class UserInfoBean {
 	@Transient
 	private boolean userLogin;
 	
-	@Size(min = 4, max = 10)
-	@Pattern(regexp = "[가-힣]*")
-	private String userName; // 이름
+//	@Size(min = 4, max = 10)
+//	@Pattern(regexp = "[가-힣]*")
+//	private String userName; // 이름
 
 	@Size(min = 2, max = 20)
 	@Pattern(regexp = "[가-힣a-zA-Z0-9]*")
@@ -56,9 +56,9 @@ public class UserInfoBean {
 	
 	private String userGender; // 성별
 
-	@Size(min=4, max=30)
-	@Email
-	private String userEmail; // 이메일
+//	@Size(min=4, max=30)
+//	@Email
+//	private String userEmail; // 이메일
 
 	@Size(min = 11,max = 11)
 	private String userPhone; // 전화번호
