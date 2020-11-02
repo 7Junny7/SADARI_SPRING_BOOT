@@ -8,5 +8,5 @@ public interface MenuService {
 
 	List<MenuInfoBean> getMenuList(MenuInfoBean menuinfo);
 	
-	MenuInfoBean getMenu(MenuInfoBean menuinfo);
+	MenuInfoBean getMenu(MenuInfoBean menuinfo);	// No
 }

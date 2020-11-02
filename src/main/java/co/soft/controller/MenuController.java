@@ -19,13 +19,13 @@ public class MenuController {
 	@Lazy
 	private MenuService menuService;
 	
-	@GetMapping("/getMenuList")
+	@GetMapping("/getMenuList") // OK
 	public String getMenuList(Model model, MenuInfoBean menuinfo) {
 		List<MenuInfoBean> menuList=menuService.getMenuList(menuinfo);
 		model.addAttribute("menuList", menuList);
 		return "menu";
 	}
-	@GetMapping("/getMenu")
+	@GetMapping("/getMenu") // Error
 	public String getMenu(Model model, MenuInfoBean menuinfo) {
 		model.addAttribute("menu",menuService.getMenu(menuinfo));
 		return "menu";

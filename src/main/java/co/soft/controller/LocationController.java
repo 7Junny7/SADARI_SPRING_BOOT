@@ -47,7 +47,7 @@ public class LocationController {
 //			return "redirect:login";
 //		}
 
-		LocationService.insertLocation(loc);
+//		LocationService.insertLocation(loc);
 		return "redirect:getBoardList";
 	}
 
@@ -57,7 +57,7 @@ public class LocationController {
 //			return "redirect:login";
 //		}
 
-		model.addAttribute("location", LocationService.getLocation(loc));
+//		model.addAttribute("location", LocationService.getLocation(loc));
 		return "getLocation";
 	}
 
@@ -67,7 +67,7 @@ public class LocationController {
 //			return "redirect:login";
 //		}
 
-		LocationService.updateLocation(loc);
+//		LocationService.updateLocation(loc);
 		return "forward:getLocationdList";
 	}
 
@@ -77,7 +77,7 @@ public class LocationController {
 //			return "redirect:login";
 //		}
 
-		LocationService.deleteLocation(loc);
+//		LocationService.deleteLocation(loc);
 		return "forward:getLocationList";
 	}
 }
