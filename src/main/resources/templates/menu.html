@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -10,7 +11,27 @@
 		<td th:text="${board.menu_info_idx}"></td>
 		<td th:text="${board.menu_info_name}"></td>
 	</tr>
-	
-	
+	<hr>
+	<ul class="navbar-nav ml-auto">
+		<c:choose>
+			<c:when test="${loginUserBean.userLogin == true }">
+				<li class="nav-item"><a href="${root }user/modify"
+					class="nav-link">정보수정</a></li>
+				<li class="nav-item"><a href="${root }user/logout"
+					class="nav-link">로그아웃</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="nav-item"><a href="${root }user/login"
+					class="nav-link">로그인</a></li>
+				<li class="nav-item"><a href="${root }user/join"
+					class="nav-link">회원가입</a></li>
+			</c:otherwise>
+		</c:choose>
+
+
+	</ul>
+
+
+
 </body>
 </html>

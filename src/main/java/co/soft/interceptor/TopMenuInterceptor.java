@@ -2,7 +2,6 @@ package co.soft.interceptor;
 
 import java.util.List;
 
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import co.soft.domain.MenuInfoBean;
+import co.soft.domain.UserInfoBean;
 
 
 @Component
@@ -21,9 +21,9 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 	@Autowired
 	private co.soft.service.MenuService MenuService;
 	
-//	@Resource(name = "loginUserBean")	
-//	@Lazy
-//	private UserBean loginUserBean;
+	@Resource(name = "loginUserBean")	
+	@Lazy
+	private UserInfoBean loginUserBean;
 	
 	
 	@Override
@@ -32,7 +32,7 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 		MenuInfoBean menuinfo=new MenuInfoBean();
 		List<MenuInfoBean> topMenuList = MenuService.getMenuList(menuinfo);
 		request.setAttribute("topMenuList", topMenuList);
-//		request.setAttribute("loginUserBean", loginUserBean);
+		request.setAttribute("loginUserBean", loginUserBean);
 		
 		return true;
 	}
