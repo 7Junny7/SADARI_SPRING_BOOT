@@ -53,5 +53,9 @@ public class UserServiceImpl implements UserService {
 	public UserInfoBean getUserInfo(UserInfoBean userinfo) {
 		return userRepo.findById(userinfo.getUseridx()).get();
 	}
-
+	
+	//@Override
+	//public List<UserInfoBean> getUserInfoList(UserInfoBean userinfo) {
+	//	return (List<UserInfoBean>) userRepo.findAll();
+	//}
 }
