@@ -33,11 +33,11 @@ public class UserInfoBean {
 	@Transient
 	private boolean userLogin;
 	
-	@Size(min = 2, max = 4)
+	@Size(min = 4, max = 10)
 	@Pattern(regexp = "[가-힣]*")
 	private String userName; // 이름
 
-	@Size(min = 2, max = 10)
+	@Size(min = 2, max = 20)
 	@Pattern(regexp = "[가-힣a-zA-Z0-9]*")
 	private String userNickName; // 닉네임
 	
