@@ -22,42 +22,42 @@ import lombok.ToString;
 @Entity
 @Table(name = "LOCATION_INFO_TABLE")
 public class LocationInfoBean {
-
+	
 	//음식점 정보
 	
 	@Column(updatable = false)
 	private String restaurant; // 음식점 명ㅋ, 업데이트 불가
 	
 	@Column(updatable = false)
-	private String r_location_x; // 위치x, 업데이트 불가
+	private String r_location_x; // 위치x, 업데이트 불가 히든
 	
 	@Column(updatable = false)
-	private String r_location_y; // 위치y, 업데이트 불가
+	private String r_location_y; // 위치y, 업데이트 불가 히든
 	
 	@Column(updatable = false)
-	private String location; //지역, 업데이트 불가
+	private String location; //지역, 업데이트 불가 
 	
 	@Column(updatable = false)
 	private String foodType; // 음식종류, 업데이트 불가
 	
-	private int foodLikeScore; // 좋아요 점수
+	private int foodLikeScore; // 좋아요 점수  히든
 	
-	private int foodLikePerson; // 투표 인원수  -> 두개 조합으로 좋아요 rate(별점) 계산
+	private int foodLikePerson; // 투표 인원수  -> 두개 조합으로 좋아요 rate(별점) 계산 히든
 	
 	//글내용
 	
 	@Id
 	@GeneratedValue
-	private Long boardidx; //글번호
+	private Long boardidx; //글번호 히든
 	
 	@Column(updatable = false)
 	private String subject; //제목, 업데이트 불가
 	
 	@Temporal(TemporalType.DATE)
-	private Date date; //원하는 날짜 설정
+	private Date date; //원하는 날짜 설정  수정
 	
 	@Temporal(TemporalType.TIME)
-	private Date hour; //원하는 시간 설정
+	private Date hour; //원하는 시간 설정 수정
 	
 	@Column(updatable = false)
 	private String writer; //작성자, 업데이트 불가

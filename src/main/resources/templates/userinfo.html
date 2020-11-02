@@ -5,6 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>userinfo</h2>
+	<h2>userinfo</h2>
+	<tr th:each="uinfo, i: ${UserInfoList}">
+		<td th:text="${uinfo.user_name}"></td>
+		<td th:text="${uinfo.user_nick_name}"></td>
+	</tr>
+	
+	
 </body>
-</html>
+</html>	

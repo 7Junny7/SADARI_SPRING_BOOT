@@ -6,11 +6,64 @@
 </head>
 <body>
 	<h2>location</h2>
-	<tr th:each="loca, i: ${locationList}">
-		<td th:text="${loca.restaurant}"></td>
-		<td th:text="${loca.location}"></td>
-	</tr>
-	
-	
+	<table th:each="loca, i: ${locationList}">
+		<tr>
+			<td>식당이름</td>
+			<td th:text="${loca.restaurant}"></td>
+		</tr>
+		<tr>
+			<td>위치</td>
+			<td th:text="${loca.location}"></td>
+		</tr>
+		<tr>
+			<td th:hidden="${loca.r_location_x}"></td>
+		</tr>
+		<tr>
+			<td th:hidden="${loca.r_location_y}"></td>
+		</tr>
+		<tr>
+			<td>음식종류</td>
+			<td th:text="${loca.foodType}"></td>
+		</tr>
+		<tr>
+			<td th:hidden="${loca.foodLikeScore}"></td>
+		</tr>
+		<tr>
+			<td th:hidden="${loca.foodLikePerson}"></td>
+		</tr>
+		<tr>
+			<td th:hidden="${loca.boardidx}"></td>
+		</tr>
+		<tr>
+			<td>글 제목</td>
+			<td th:text="${loca.subject}"></td>
+		</tr>
+		<tr>
+			<td>날짜</td>
+			<td th:text="${loca.date}"></td>
+		</tr>
+		<tr>
+			<td>시간</td>
+			<td th:text="${loca.hour}"></td>
+		</tr>
+		<tr>
+			<td>작성자</td>
+			<td th:text="${loca.writer}"></td>
+		</tr>
+		<tr>
+			<td>작성시간</td>
+			<td th:text="${loca.writingTime}"></td>
+		</tr>
+		<tr>
+			<td>함께 식사하고 싶은 사람</td>
+			<td th:text="${loca.wantWho}"></td>
+		</tr>
+		<tr>
+			<td>작성내용</td>
+			<td th:text="${loca.foodComment}"></td>
+		</tr>
+	</table>
+
+
 </body>
 </html>
