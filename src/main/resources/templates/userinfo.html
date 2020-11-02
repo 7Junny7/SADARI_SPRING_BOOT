@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h2>userinfo</h2>
-	<tr th:each="uinfo, i: ${UserInfoList}">
+	<tr th:each="uinfo, i: ${selectUserAll}">
 		<td th:text="${uinfo.user_name}"></td>
 		<td th:text="${uinfo.user_nick_name}"></td>
 	</tr>
