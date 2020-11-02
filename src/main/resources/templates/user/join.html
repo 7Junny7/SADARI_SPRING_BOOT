@@ -1,25 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function subj(){
+	alert("ac8");
+	var userId = $("#userId").val();
+	var userPassword = $("#userPasword").val();
+	var userPassword2 = $("#userPassword2").val();
+	var userNickName = $("#userNickName").val();
+	var userBirth = $("userBirth").val();
+	var userPhone =$("userPhone").val();
+	
+	//아이디 빈칸 확인
+	if(userId.length == 0){
+		alert("아이디를 입력해 주세요!");
+		return false;
+	}
+	//암호 빈칸 확인 & 암호 일치 확인
+	if(userPassword.length == 0 || userPassword2.length == 0){
+		alert("비밀번호를 입력해 주세요!");
+		return false;
+	}else if(userPassword != userPassword2){
+		alert("비밀번호가 일치하지 않습니다.");
+		return false;
+	}
+	//닉네임 빈칸 확인
+	if(userNickName.length == 0){
+		alert("닉네임을 입력해 주세요!");
+		return false;
+	}
+	//생년월일 확인
+	if(userBirth.length == 0){
+		alert("생년월일을 입력해 주세요!");
+		return false;
+	}
+	//폰번호 확인
+	if(userPhone.length == 0){
+		alert("핸드폰 번호를 입력해 주세요!");
+		return false;
+	}
+	return true;
+}
+</script>
 </head>
 <body>
-<form action="join_pro" method="post">
-	아이디 : <input type="text" name="userId" id="userId"><br>
-	<button onclick="checkUserIdExist">아이디 중복확인</button>
-	비밀번호 : <input type="text" name="userPassword" id="userPassword"><br>
-	비밀번호확인 : <input type="text" name="userPassword2" id="userPassword2"><br>
-	이름 : <input type="text" name="userName" id="userName"><br>
-	별명 : <input type="text" name="userNickName" id="userNickName"><br>
-	생년월일 : <input type="text" name="userBirth" id="userBirth"><br>
-	남<input type="radio" name="userGender" id="userGender" value="M"> 여 <input type="radio" name="userGender" id="userGender" value="G"><br>
-	이메일 : <input type="text" name="userEmail" id="userEmail"><br>
-	전화번호 : <input type="text" name="userPhone" id="userPhone"><br>
-	<input type="submit" value="보내기">
-</form>
-<script type="text/javascript">
-		
+	<form th:action="@{/join_pro}" th:object="${UserInfoBean}" method="post" onsubmit="return subj();">
+	<input type="hidden" id="userIdExist"> 
+	<table border=1>
+		<tr>
+			<td>아이디 :</td><td><input type="text" th:field="*{userId}" name="userId" id="userId" onkeypress="resetUserIdExist()" placeholder="아이디를 입력하시오"><br>
+				<button class="idCheck" id="temp" onclick="checkUserIdExist()">아이디 중복확인</button>
+				<div class="text-center small mt-2" id="checkMsg" style="color: red"></div></td>
+		</tr>
+		<tr>
+			<td>비밀번호 :</td><td><input type="text" th:field="*{userPassword}" name="userPassword" id="userPassword"><br></td>
+		</tr>
+		<tr>
+			<td>비밀번호확인 :</td><td><input type="text" th:field="*{userPassword2}" name="userPassword2" id="userPassword2"><br></td>
+		</tr>
+		<!-- 이름 : <input type="text" name="userName" id="userName"><br> -->
+		<tr>
+			<td>별명 :</td><td><input type="text" th:field="*{userNickName}" name="userNickName" id="userNickName"><br></td>
+		</tr>
+		<tr>
+			<td>생년월일 :</td><td><input type="text" th:field="*{userBirth}" name="userBirth" id="userBirth"><br></td>
+		</tr>
+		<tr>
+			<td colspan="2">남<input type="radio" th:field="*{userGender}" name="userGender" id="userGender" value="M" checked> 
+							여 <input type="radio" th:field="*{userGender}" name="userGender" id="userGender" value="F"><br></td>
+		</tr>
+		<!-- 이메일 : <input type="text" name="userEmail" id="userEmail"><br> -->
+		<tr>
+			<td>전화번호 :</td><td><input type="text" th:field="*{userPhone}" name="userPhone" id="userPhone"><br></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="보내기"></td>
+		</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+	/*
+	$('.idCheck').click(function(){
+		$.ajax({
+			type:"get",
+			url:"join",
+			data:{
+				"id":$('#userId').val()
+			},
+			success: function(data){
+				if($.trim(data)=="yes"){
+					if($('#userId').val()!=''){
+						$('#checkMsg').html('<p sytle="color:blue">사용 가능한 ID 입니다.</p>');
+					}
+				}else{
+					if($('#userId').val()!=''){
+						$('#checkMsg').html('<p style="color:red">이미 사용중인 ID 입니다.</p>');
+						$('#userId').val('');
+						$('#userId').focus();
+					}
+				}
+			}
+		})
+	});
+	*/
+
+	
+function checkUserIdExist(){
+	alert("ac8");
+	var user_id = $("#userId").val()
+	if(user_id.length == 0){
+		alert('아이디를 입력해주세요')
+		return
+	}
+	$.ajax({
+		url : '${root}user/checkUserIdExist/' + user_id,
+		type : 'get',
+		dataType : 'text',
+		success : function(result){
+			if(result.trim() == 'true'){
+				alert('사용할 수 있는 아이디입니다')
+				$("#userIdExist").val('true')
+			} else {
+				alert('사용할 수 없는 아이디 입니다')
+				$("#userIdExist").val('false')
+			}
+		}
+	})
+}
+
+function resetUserIdExist(){
+	$("#userIdExist").val('false')
+}
 </script>
 </body>
 </html>
