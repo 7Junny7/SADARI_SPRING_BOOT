@@ -6,30 +6,30 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script type="text/javascript">
+	
+</script>
 	<h2>menu</h2>
-	<tr th:each="board, i: ${menuList}">
-		<td th:text="${board.menu_info_idx}"></td>
-		<td th:text="${board.menu_info_name}"></td>
-	</tr>
+	<div th:each="board, i: ${menuList}">
+		<button onclick="Kfood">한식</button>
+	</div>
+		<!-- <td th:text="${board.menu_info_idx}"></td>
+		<td th:text="${board.menu_info_name}"></td> 
+		<td th:if="${#strings.substring(board.menu_info_idx,0,1)} == '1'" th:text="${board.menu_info_name}" ></td><br>-->
 	<hr>
-	<ul class="navbar-nav ml-auto">
-		<c:choose>
-			<c:when test="${loginUserBean.userLogin == true }">
+	 <ul class="navbar-nav ml-auto" th:if="${loginUserBean.userLogin == true }">
 				<li class="nav-item"><a href="${root }user/modify"
 					class="nav-link">정보수정</a></li>
 				<li class="nav-item"><a href="${root }user/logout"
 					class="nav-link">로그아웃</a></li>
-			</c:when>
-			<c:otherwise>
+	</ul>
+			<ul th:unless="${loginUserBean.userLogin == false }">
 				<li class="nav-item"><a href="${root }user/login"
 					class="nav-link">로그인</a></li>
 				<li class="nav-item"><a href="${root }user/join"
 					class="nav-link">회원가입</a></li>
-			</c:otherwise>
-		</c:choose>
+			</ul> 
 
-
-	</ul>
 
 
 
