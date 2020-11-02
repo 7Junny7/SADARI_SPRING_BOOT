@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import co.soft.domain.MenuInfoBean;
 import co.soft.domain.UserInfoBean;
 public interface UserService {
 	//회원정보입력
@@ -21,4 +22,11 @@ public interface UserService {
 	
 	//회원정보수정
 	void updateUser(UserInfoBean userinfo);
+	
+	List<UserInfoBean> getUserInfoList(UserInfoBean userinfo);
+	
+	UserInfoBean getUser(UserInfoBean userinfo);	// No
+
+	UserInfoBean getUserInfo(UserInfoBean userinfo);
+
 }
