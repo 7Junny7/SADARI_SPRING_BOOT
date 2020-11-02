@@ -50,19 +50,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserInfoBean> getUserInfoList(UserInfoBean userinfo) {
-		return (List<UserInfoBean>) userRepo.findAll();
-	}
-
-	@Override
-	public UserInfoBean getUser(UserInfoBean userinfo) {
+	public UserInfoBean getUserInfo(UserInfoBean userinfo) {
 		return userRepo.findById(userinfo.getUseridx()).get();
 	}
-
-	public UserInfoBean getUserInfo(UserInfoBean userinfo) {
-		return null;
-	}//?????????????????????????????????????????이게뭐람..
-	
-
 
 }

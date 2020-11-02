@@ -23,10 +23,6 @@ public interface UserService {
 	//회원정보수정
 	void updateUser(UserInfoBean userinfo);
 	
-	List<UserInfoBean> getUserInfoList(UserInfoBean userinfo);
-	
-	UserInfoBean getUser(UserInfoBean userinfo);	// No
-
 	UserInfoBean getUserInfo(UserInfoBean userinfo);
 
 }
