@@ -21,9 +21,9 @@ public class UserController {
 	@Lazy
 	private UserService userService;
 
-	@Resource(name = "loginUserBean")
-	@Lazy
-	private UserInfoBean loginuserBean;
+//	@Resource(name = "loginUserBean")
+//	@Lazy
+//	private UserInfoBean loginuserBean;
 	
 	@GetMapping("/join")
 	public String join(@ModelAttribute("joinUserBean") UserInfoBean joinUserBean) {
@@ -32,10 +32,10 @@ public class UserController {
 	
 	@PostMapping("/join_pro")
 	public String join_pro(@Valid @ModelAttribute("joinUSerBean") UserInfoBean joinUserBean,BindingResult result) {
-//	
-//	if(result.hasErrors()) {
-//		return "/user/false";
-//	}
+	
+	if(result.hasErrors()) {
+		return "/user/false";
+	}
 		
 	userService.insertUser(joinUserBean);
 	return "redirct:/user/join_success";
