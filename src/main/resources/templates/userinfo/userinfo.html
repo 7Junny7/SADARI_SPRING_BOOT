@@ -5,12 +5,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>userinfo</h2>
+	<h1>회원정보</h1>
 	<table th:each="uinfo, i: ${getUserInfo}">
-		<tr>
-			<td>이름</td>
-			<td th:text="${uinfo.userName}"></td>
-		</tr>
 		<tr>
 			<td>닉네임</td>
 			<td th:text="${uinfo.userNickName}"></td>
@@ -32,15 +28,15 @@
 			<td th:text="${uinfo.userGender}"></td>
 		</tr>
 		<tr>
-			<td>이메일</td>
-			<td th:text="${uinfo.userEmail}"></td>
-		</tr>
-		<tr>
 			<td>전화번호</td>
 			<td th:text="${uinfo.userPhone}"></td>
 		</tr>
+		<tr>
+			<td><a href="${root }main"
+					class="nav-link">확인</a></td>
+			<td><a href="${root }userinfo/userinfo_modify"
+					class="nav-link">정보수정</a></td>
+		</tr>
 	</table>
-
-
 </body>
 </html>

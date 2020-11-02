@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		if (window.name == "modify") {
+			window.opener.parent.location.href = ""; //
+		} else if (window.name == 'delete') {
+			alert('삭제되었습니다.');
+			window.opener.parent.location.href = ""; //
+		}
+		window.close();
+	</script>
+</body>
+</html>
