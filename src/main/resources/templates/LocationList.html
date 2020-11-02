@@ -5,6 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>location</h2>
+	<h2>location</h2>
+	<tr th:each="loca, i: ${locationList}">
+		<td th:text="${loca.restaurant}"></td>
+		<td th:text="${loca.location}"></td>
+	</tr>
+	
+	
 </body>
 </html>

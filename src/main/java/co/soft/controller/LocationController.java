@@ -27,7 +27,6 @@ public class LocationController {
 //		}
 
 		List<LocationInfoBean> locationList = locationService.getLocationList(loc);
-
 		model.addAttribute("locationList", locationList);
 		return "LocationList";
 	}
