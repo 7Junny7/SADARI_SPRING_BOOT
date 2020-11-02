@@ -1,6 +1,7 @@
 package co.soft.interceptor;
 
 import javax.annotation.Resource;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,15 +16,20 @@ public class CheckLoginInterceptor implements HandlerInterceptor{
 	@Lazy
 	private UserInfoBean loginUserBean;
 	
+//	public CheckLoginInterceptor(UserInfoBean loginUserBean) {
+//		// TODO Auto-generated constructor stub
+//		this.loginUserBean = loginUserBean;
+//	}
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		// TODO Auto-generated method stub
-		if(loginUserBean.isUserLogin() == false) {
-			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/user/not_login");
-			return false;
-		}
+//		if(loginUserBean.isUserLogin() == false) {
+//			String contextPath = request.getContextPath();
+//			response.sendRedirect(contextPath + "/user/not_login");
+//			return false;
+//		}
 		return true;
 	}
 }

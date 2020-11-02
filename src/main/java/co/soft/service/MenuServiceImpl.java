@@ -19,9 +19,9 @@ public class MenuServiceImpl implements MenuService {
 		return (List<MenuInfoBean>) menuRepo.findAll();
 	}
 
-	@Override
-	public MenuInfoBean getMenu(MenuInfoBean menuinfo) {	// No
-		return menuRepo.findById(menuinfo.getMenu_info_idx()).get();
-	}
+//	@Override
+//	public MenuInfoBean getMenu(MenuInfoBean menuinfo) {	// No
+//		return menuRepo.findById(menuinfo.getMenu_info_idx()).get();
+//	}
 
 }

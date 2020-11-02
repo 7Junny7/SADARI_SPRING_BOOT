@@ -1,6 +1,8 @@
 package co.soft.interceptor;
 
 import javax.annotation.Resource;
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +20,14 @@ public class CheckWriterInterceptor implements HandlerInterceptor{
 	@Resource(name = "loginUserBean")
 	@Lazy
 	private UserInfoBean loginUserBean;
-	
 	@Autowired
 	private MenuService menuService;
+	
+//	public CheckWriterInterceptor(UserInfoBean loginUserBean, MenuService menuService) {
+//		// TODO Auto-generated constructor stub
+//		this.loginUserBean = loginUserBean;
+//		this.menuService = menuService;
+//	}
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

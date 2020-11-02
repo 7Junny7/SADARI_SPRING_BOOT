@@ -25,11 +25,11 @@ public class MenuController {
 		model.addAttribute("menuList", menuList);
 		return "menu";
 	}
-	@GetMapping("/getMenu") // Error
-	public String getMenu(Model model, MenuInfoBean menuinfo) {
-		model.addAttribute("menu",menuService.getMenu(menuinfo));
-		return "menu";
-	}
+//	@GetMapping("/getMenu") // Error
+//	public String getMenu(Model model, MenuInfoBean menuinfo) {
+//		model.addAttribute("menu",menuService.getMenu(menuinfo));
+//		return "menu";
+//	}
 	
 	
 }
