@@ -64,13 +64,26 @@ public class UserInfoBean {
 
 	@Size(min = 11,max = 11)
 	private String userPhone; // 전화번호
+	
+	public UserInfoBean() {
+		this.userIdExist = false;
+		this.userLogin = false;
+	}
 
 	public boolean isUserIdExist() {
 		return userIdExist;
 	}
 
+	public void setUserIdExist(boolean userIdExist) {
+		this.userIdExist = userIdExist;
+	}
+
 	public boolean isUserLogin() {
 		return userLogin;
+	}
+
+	public void setUserLogin(boolean userLogin) {
+		this.userLogin = userLogin;
 	}
 
 }
