@@ -64,10 +64,12 @@ public class LocationController {
 	}
 	
 	@GetMapping("/updateLocation")
-	public String updateLocationView(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
+	public String updateLocationView(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc, Model model) {
 //		if (user.getUserId() == null) {
 //			return "redirect:login";
 //		}
+		model.addAttribute("location", locationService.getLocation(loc));
+		
 		return "/location/LocationList_Modify";
 	}
 	
