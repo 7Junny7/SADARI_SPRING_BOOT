@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.soft.domain.LocationInfoBean;
+import co.soft.domain.MapInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.LocationService;
 
@@ -33,16 +34,17 @@ public class LocationController {
 	}
 
 	@GetMapping("/insertLocation")
-	public String insertLocationView(@ModelAttribute("user") UserInfoBean user) {
+	public String insertLocationView(@ModelAttribute("user") UserInfoBean user, @ModelAttribute("map") MapInfoBean map, Model model) {
 //		if (user.getUserId() == null) {
 //			return "redirect:login";
 //		}
-
+		model.addAttribute(map);
+		model.addAttribute(user);
 		return "/location/Location_Write";
 	}
 
 	@PostMapping("/insertLocation")
-	public String insertLocation(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
+	public String insertLocation(@ModelAttribute("user") UserInfoBean user, @ModelAttribute("map") MapInfoBean map, LocationInfoBean loc) {
 //		if (user.getUserId() == null) {
 //			return "redirect:login";
 //		}
@@ -58,7 +60,7 @@ public class LocationController {
 		}
 
 		model.addAttribute("location", locationService.getLocation(loc));
-		return "getLocation";
+		return "/location/Location"; //파일 있음?
 	}
 
 	@PostMapping("/updateLocation")
@@ -78,6 +80,6 @@ public class LocationController {
 		}
 
 		locationService.deleteLocation(loc);
-		return "forward:getLocationList";
+		return "forward:locationList";
 	}
 }
