@@ -151,12 +151,20 @@
 			<div id="pagination"></div>
 			<div id="clickLatlng"></div>
 		</div>
+	</div >
+	<div th:if="${loginUserBean.userLogin == false }">
+	<form action="/insertMap" method="post">
+		음식점 :<input type="text" name="restaurant"><br>
+		위치 :   <p id="latlngX" name="latlngX"></p>
+			     <p id="latlngY" name="latlngX"></p>
+	   지역:    <p name="location" id="location"></p>
+	   <input type="submit" value="보내기">
+	</form>
 	</div>
 </body>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d8f60004496cc3864b4652c1723cc364&libraries=services"></script>
 <script type="text/javascript">
-
-	//마커를 담을 배열입니다
+		
 	var markers = [];
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -380,17 +388,13 @@
 	
  // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
     kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+    	
         searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 var detailAddr = result[0].address.address_name;
                 
                 var latlng = mouseEvent.latLng;//클릭한 위치 좌표
-                
-                var latlngX = latlng.getLat();
-                var latlngY = latlng.getLng();
-                
-                var content = "<a href='insertMap?latlngX='+latlngX>글쓰기</a>";
-               	
+
                 var add = detailAddr.split(" ");
                 // 마커를 클릭한 위치에 표시합니다 
                 marker.setPosition(mouseEvent.latLng);
@@ -398,8 +402,16 @@
 				
                 
                 // 인포윈도우에 클릭한 위치에 대한 상세 주소정보를 표시합니다
-                infowindow.setContent(content);
+                infowindow.setContent(detailAddr);
                 infowindow.open(map, marker);
+                var latlngX = latlng.getLat();
+                var latlngY = latlng.getLng();
+                var x = document.getElementById("latlngX");
+                var y = document.getElementById("latlngY");
+                var location = document.getElementById("location");
+               	x.innerHTML=latlngX;
+               	y.innerHTML=latlngY;
+               	location.innerHTML=add[1];
             }   
         });
     });

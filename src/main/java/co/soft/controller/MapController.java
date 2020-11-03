@@ -37,9 +37,9 @@ public class MapController {
 	
 	@PostMapping("/insertMap")
 	public String insertMap(@ModelAttribute("user") UserInfoBean user, MapInfoBean map) {
-		if (user.getUserId() == null) { //로그인 안하면 작성 못함
-			return "redirect:login";
-		}
+//		if (user.getUserId() == null) { //로그인 안하면 작성 못함
+//			return "redirect:login";
+//		}
 		mapService.insertMap(map);
 		return "redirect:insertLocation";
 	}

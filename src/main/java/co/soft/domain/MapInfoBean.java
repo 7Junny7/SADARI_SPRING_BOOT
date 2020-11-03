@@ -18,7 +18,6 @@ public class MapInfoBean {
 
 	// 맵정보
 	// 음식점 정보
-
 	@Id
 	@Column(updatable = false)
 	private String restaurant; // 음식점 명, 업데이트 불가
