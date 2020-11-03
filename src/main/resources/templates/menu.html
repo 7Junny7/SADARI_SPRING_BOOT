@@ -150,9 +150,6 @@
 			<ul id="placesList"></ul>
 			<div id="pagination"></div>
 			<div id="clickLatlng"></div>
-			    <div class="hAddr">
-        <span id="centerAddr"></span>
-    </div>
 		</div>
 	</div>
 </body>
@@ -386,13 +383,22 @@
         searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 var detailAddr = result[0].address.address_name;
+                
+                var latlng = mouseEvent.latLng;//클릭한 위치 좌표
+                
+                var latlngX = latlng.getLat();
+                var latlngY = latlng.getLng();
+                
+                var content = "<a href='insertMap?latlngX='+latlngX>글쓰기</a>";
+               	
                 var add = detailAddr.split(" ");
                 // 마커를 클릭한 위치에 표시합니다 
                 marker.setPosition(mouseEvent.latLng);
                 marker.setMap(map);
 				
+                
                 // 인포윈도우에 클릭한 위치에 대한 상세 주소정보를 표시합니다
-                infowindow.setContent(add[1]);
+                infowindow.setContent(content);
                 infowindow.open(map, marker);
             }   
         });

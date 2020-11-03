@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	${param.latlngY}
+	${param.latlngX}
+	${requestScope.latlngX}
+	${latlngX}
+	
+	<form th:action="@{/insertMap}" method="post">
+		음식점 : <input type="text" id="restaurant">
+		위치 : <input type="text" id="r_location_x">
+			   <input type="text" id="r_location_y">
+	   지역: <input type="text" id="location">
+	   <input type="submit" value="보내기">
+	</form>
+</body>
+</html>
