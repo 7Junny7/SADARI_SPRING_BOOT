@@ -2,6 +2,7 @@ package co.soft.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +23,8 @@ public class LocationController {
 	
 	@RequestMapping("/locationList")
 	public String getLocationList(@ModelAttribute("user") UserInfoBean user, Model model, LocationInfoBean loc) {
-//		if (user.getId() == null) {
-//			return "redirect:login";
+//		if (user.getUserId() == null) {
+//			return "redirect:/user/login";
 //		}
 
 		List<LocationInfoBean> locationList = locationService.getLocationList(loc);
@@ -33,28 +34,28 @@ public class LocationController {
 
 	@GetMapping("/insertLocation")
 	public String insertLocationView(@ModelAttribute("user") UserInfoBean user) {
-//		if (user.getId() == null) {
-//			return "redirect:login";
-//		}
+		if (user.getUserId() == null) {
+			return "redirect:/user/login";
+		}
 
-		return "/location/Location_write";
+		return "/location/Location_Write";
 	}
 
 	@PostMapping("/insertLocation")
 	public String insertLocation(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
-//		if (user.getId() == null) {
-//			return "redirect:login";
-//		}
+		if (user.getUserId() == null) {
+			return "redirect:/user/login";
+		}
 
-//		LocationService.insertLocation(loc);
+		locationService.insertLocation(loc);
 		return "redirect:getLocationList";
 	}
 
 	@GetMapping("/getLocation")
 	public String getLocation(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc, Model model) {
-//		if (user.getId() == null) {
-//			return "redirect:login";
-//		}
+		if (user.getUserId() == null) {
+			return "redirect:/user/login";
+		}
 
 //		model.addAttribute("location", LocationService.getLocation(loc));
 		return "getLocation";
@@ -62,9 +63,9 @@ public class LocationController {
 
 	@PostMapping("/updateLocation")
 	public String updateBoard(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
-//		if (user.getId() == null) {
-//			return "redirect:login";
-//		}
+		if (user.getUserId() == null) {
+			return "redirect:/user/login";
+		}
 
 //		LocationService.updateLocation(loc);
 		return "/location/Location_Modify";
@@ -72,9 +73,9 @@ public class LocationController {
 
 	@GetMapping("/deleteLocation")
 	public String deleteLocation(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
-//		if (user.getId() == null) {
-//			return "redirect:login";
-//		}
+		if (user.getUserId() == null) {
+			return "redirect:/user/login";
+		}
 
 //		LocationService.deleteLocation(loc);
 		return "forward:getLocationList";
