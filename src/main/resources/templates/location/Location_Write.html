@@ -9,7 +9,9 @@
 	제목: <input type="text" name="subject" id="subject"><br>
 	
 	글 암호 : <input type="password" name="password" id="password"><br>
-	작성자 : <span th:text="${nickName}"></span>
+	작성자 : <span th:text="${nickName}"></span><br>
+	지역 : <span th:text="${location}"></span><br> 
+	<!-- 
 	지역: <select name="location" id="location">
 	<option>강남구</option>
 	<option>강동구</option>
@@ -37,7 +39,8 @@
 	<option>중구</option>
 	<option>중랑구</option>
 	</select><br>
-	장소: <input type="text" name="restaurant" id="restaurant"><br>
+	 -->
+	장소: <span th:text="${restaurant}"></span><br>
 	메뉴: <select name="foodType" id="foodType" style="width: 100px">
 	<optgroup label="한식">
 	<option value="면류">면류</option>

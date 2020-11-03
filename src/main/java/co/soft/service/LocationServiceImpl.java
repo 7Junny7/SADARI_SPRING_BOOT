@@ -38,11 +38,11 @@ public class LocationServiceImpl implements LocationService {
 				locRepo.save(locBoard);		
 	}
 	
-	public void updateLocationLike(LocationInfoBean locinfo) { // 미사용
-//		LocationInfoBean locBoard = locRepo.findById(locinfo.getBoardidx()).get();
-//		
-//		locBoard.setFoodLikeScore(locinfo.getFoodLikeScore()); //좋아요 점수 수정
-//		locBoard.setFoodLikePerson(locinfo.getFoodLikePerson()); //투표 인원수 수정
+	public void updateLocationLike(LocationInfoBean locinfo) { // 좋아요 수정
+		LocationInfoBean locBoard = locRepo.findById(locinfo.getBoardidx()).get();
+		
+		locBoard.setFoodLikeScore(locinfo.getFoodLikeScore()); //좋아요 점수 수정
+		locBoard.setFoodLikePerson(locinfo.getFoodLikePerson()); //투표 인원수 수정
 //		locRepo.save(locBoard);		
 	}
 

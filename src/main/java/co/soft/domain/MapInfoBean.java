@@ -32,15 +32,4 @@ public class MapInfoBean {
 	@Column(updatable = false)
 	private String location; // 지역, 업데이트 불가
 
-	@Column(updatable = false)
-	private String foodType; // 음식종류, 업데이트 불가
-
-	private int foodLikeScore; // 좋아요 점수 히든
-
-	private int foodLikePerson; // 투표 인원수 -> 두개 조합으로 좋아요 rate(별점) 계산 히든
-	
-//	@Column(nullable = true)  // 에러남 확인 요
-//	private MultipartFile foodPicture; //음식사진, 업로드
-	
-
 }

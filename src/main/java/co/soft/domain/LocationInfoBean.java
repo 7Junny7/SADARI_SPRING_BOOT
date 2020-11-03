@@ -52,11 +52,22 @@ public class LocationInfoBean {
 //	@Column(updatable = false)
 //	private Date writingTime; //글 작성 시간
 	
+	@Column(updatable = false)
+	private String foodType; // 음식종류, 업데이트 불가
+	
 	@Column(nullable = true)
 	private String wantWho; //같이 먹고 싶은 사람, 빈칸 가능
 	
 	@Column(nullable = true)
 	private String foodComment; //글 내용, 빈칸 가능
+	
+	private int foodLikeScore; // 좋아요 점수 히든
+
+	private int foodLikePerson; // 투표 인원수 -> 두개 조합으로 좋아요 rate(별점) 계산 히든
+	
+//	@Column(nullable = true)  // 에러남 확인 요
+//	private MultipartFile foodPicture; //음식사진, 업로드
+	
 
 
 	

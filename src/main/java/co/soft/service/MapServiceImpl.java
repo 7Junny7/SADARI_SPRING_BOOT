@@ -34,12 +34,12 @@ public class MapServiceImpl implements MapService{
 	}
 
 	@Override
-	public void updateMapLike(MapInfoBean mapinfo) { //좋아요 수정
-		MapInfoBean mapBoard=mapRepo.findById(mapinfo.getRestaurant()).get();
-		
-		mapBoard.setFoodLikeScore(mapinfo.getFoodLikeScore()); //좋아요 점수 수정
-		mapBoard.setFoodLikePerson(mapinfo.getFoodLikePerson()); //투표 인원수 수정
-		mapRepo.save(mapBoard);
+	public void updateMapLike(MapInfoBean mapinfo) { //미사용
+//		MapInfoBean mapBoard=mapRepo.findById(mapinfo.getRestaurant()).get();
+//		
+//		mapBoard.setFoodLikeScore(mapinfo.getFoodLikeScore()); //좋아요 점수 수정
+//		mapBoard.setFoodLikePerson(mapinfo.getFoodLikePerson()); //투표 인원수 수정
+//		mapRepo.save(mapBoard);
 		
 	}
 
