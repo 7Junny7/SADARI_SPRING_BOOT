@@ -20,7 +20,7 @@ public class LocationController {
 	@Autowired
 	private LocationService locationService;
 	
-	@RequestMapping("/LocationList")
+	@RequestMapping("/locationList")
 	public String getLocationList(@ModelAttribute("user") UserInfoBean user, Model model, LocationInfoBean loc) {
 //		if (user.getId() == null) {
 //			return "redirect:login";
@@ -67,7 +67,7 @@ public class LocationController {
 //		}
 
 //		LocationService.updateLocation(loc);
-		return "forward:getLocationdList";
+		return "/location/Location_Modify";
 	}
 
 	@GetMapping("/deleteLocation")
