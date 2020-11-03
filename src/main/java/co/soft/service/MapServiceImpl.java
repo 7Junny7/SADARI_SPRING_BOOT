@@ -3,26 +3,25 @@ package co.soft.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.soft.domain.MapInfoBean;
 import co.soft.persistence.MapRepository;
 
+@Service
 public class MapServiceImpl implements MapService{
 	
 	@Autowired
 	private MapRepository mapRepo;
 
-	@Override
 	public List<MapInfoBean> getMapList(MapInfoBean mapinfo) {
 		return (List<MapInfoBean>) mapRepo.findAll();
 	}
 
-	@Override
 	public void insertMap(MapInfoBean mapinfo) {
 		mapRepo.save(mapinfo);
 	}
 
-	@Override
 	public MapInfoBean getMap(MapInfoBean mapinfo) {
 		return mapRepo.findById(mapinfo.getRestaurant()).get();
 	}
@@ -33,7 +32,6 @@ public class MapServiceImpl implements MapService{
 		
 	}
 
-	@Override
 	public void updateMapLike(MapInfoBean mapinfo) { //미사용
 //		MapInfoBean mapBoard=mapRepo.findById(mapinfo.getRestaurant()).get();
 //		
@@ -43,7 +41,6 @@ public class MapServiceImpl implements MapService{
 		
 	}
 
-	@Override
 	public void deleteMap(MapInfoBean mapinfo) {
 		mapRepo.deleteById(mapinfo.getRestaurant());
 	}
