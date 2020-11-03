@@ -3,44 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	function sub(){
+		var pw=document.getElementById("password").value;
+		var pw2=document.getElementById("password2").value;
+		if(pw != pw2){
+			alert("비밀번호가 일치하지 않습니다.")
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 <body>
 	<h2>게시글 수정</h2>
-	<form action="updateLocation" method="post">
+	<form action="updateLocation" th:onsubmit="return sub()" method="post">
 		<table th:each="loca, i: ${locationList}">
 			<tr>
 				<td>글 제목</td>
-				<td th:readonly="${loca.subject}"></td><!-- 제목, 수정 불가 -->
-				<td th:hidden="${loca.boardidx}"><!-- 글번호 히든 -->
+				<td th:readonly="${loca.subject}" name="subject" id="susbject" value="${loca.subject}"></td><!-- 제목, 수정 불가 -->
+				<td th:hidden="${loca.boardidx}" name="boardidx" id="boardidx" ><!-- 글번호 히든 -->
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" value="${loca.password}"></td>
+				<td><input type="password" name="password" id="password"></td>
+				<td th:hidden="${loca.password}" name="password2" id="password2"></td> <!-- 기존 비밀번호 -->
 			</tr>
 			<tr>
-				<td><input type="date" value="${loca.date}"></td>
-				<td><input type="time" value="${loca.time"></td>
+				<td><input type="date" name="date" id="date" value="${loca.date}"></td>
+				<td><input type="time" name="time" id="time" value="${loca.time"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td th:readonly="${loca.writer}"></td><!-- 작성자, 수정불가 -->
+				<td th:readonly="${loca.writer}" name="writer" id="writer" value="${writer}"></td><!-- 작성자, 수정불가 -->
 			</tr>
 			<tr>
 				<td>음식종류</td>
-				<td th:readonly="${loca.foodType}"></td><!-- 음식종류, 수정불가 -->
+				<td th:readonly="${loca.foodType}" name="foodType" id="foodType" value="${loca.foodType}"></td><!-- 음식종류, 수정불가 -->
 			</tr>
 			<tr>
 				<td>같이 먹고 싶은 사람</td>
-				<td th:text="${loca.wantWho}"></td>
+				<td th:text="${loca.wantWho}" name="wantWho" id="wantWho" value="${loca.wantWho}"></td>
 			</tr>
 			<tr>
 				<td>글 내용</td>
-				<td th:text="${loca.foodComment}"></td>
-				<td th:hidden="${loca.foodLikeScore}"></td>
-				<td th:hidden="${loca.foodLikePerson}"></td>
+				<td th:text="${loca.foodComment}" name="foodComment" id="foodComment"></td>
+				<td th:hidden="${loca.foodLikeScore}" name="foodLikeScore" id="foodLikeScore"></td>
+				<td th:hidden="${loca.foodLikePerson}" name="foodLikePerson" id="foodLikePerson"></td>
 			</tr>
 			<tr>
-				<td rospan="2">
+				<td rowspan="2">
 					<input type="submit" value="수정">
 					<input type="reset" value="취소">
 				</td>
