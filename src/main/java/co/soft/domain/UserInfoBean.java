@@ -23,9 +23,11 @@ import lombok.ToString;
 @Entity
 @Table(name = "USER_INFO_TABLE")
 public class UserInfoBean {
+	
 	@Id
 	@GeneratedValue
 	private Long useridx;
+	
 	@Transient	
 	private boolean userIdExist;
 	@Transient

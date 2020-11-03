@@ -44,7 +44,7 @@ public class UserController {
 	}
 		
 	userService.insertUser(joinUserBean);
-	return "redirct:/user/join_success";
+	return "/user/join_success";
 	}
 	
 	@RequestMapping("/getUserInfoList")
