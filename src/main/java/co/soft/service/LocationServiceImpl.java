@@ -15,18 +15,19 @@ public class LocationServiceImpl implements LocationService {
 	@Autowired
 	private LocationRepository locRepo;
 
+	//리스트 불러오기
 	public List<LocationInfoBean> getLocationList(LocationInfoBean locinfo) {
 		return (List<LocationInfoBean>) locRepo.findAll();
 	}
-
+	//글에대한정보 입력
 	public void insertLocation(LocationInfoBean locinfo) {
 		locRepo.save(locinfo);
 	}
-
+	//게시물한개 불러오기
 	public LocationInfoBean getLocation(LocationInfoBean locinfo) {
 		return locRepo.findById(locinfo.getBoardidx()).get();
 	}
-
+	//게시물 수정
 	public void updateLocation(LocationInfoBean locinfo) { //글내용 수정
 		LocationInfoBean locBoard = locRepo.findById(locinfo.getBoardidx()).get();
 		
@@ -37,7 +38,7 @@ public class LocationServiceImpl implements LocationService {
 //				locBoard.setFoodPicture(locinfo.getFoodPicture()); //음식 사진 수정
 				locRepo.save(locBoard);		
 	}
-	
+	//게시물 좋아요/투표인원수 수정
 	public void updateLocationLike(LocationInfoBean locinfo) { // 좋아요 수정
 		LocationInfoBean locBoard = locRepo.findById(locinfo.getBoardidx()).get();
 		
@@ -45,10 +46,9 @@ public class LocationServiceImpl implements LocationService {
 		locBoard.setFoodLikePerson(locinfo.getFoodLikePerson()); //투표 인원수 수정
 //		locRepo.save(locBoard);		
 	}
-
+	//게시물 삭제
 	public void deleteLocation(LocationInfoBean locinfo) {
 		locRepo.deleteById(locinfo.getBoardidx());
-		
 	}
 
 }
