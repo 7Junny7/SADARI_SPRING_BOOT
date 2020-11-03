@@ -2,6 +2,8 @@ package co.soft.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import co.soft.domain.MapInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.MapService;
-import co.soft.domain.MapInfoBean;
 
 @Controller
 public class MapController {
@@ -21,10 +23,14 @@ public class MapController {
 	private MapService mapService;
 	
 	@GetMapping("/insertMap")
-	public String insertMapView(@ModelAttribute("user") UserInfoBean user) {
-		if (user.getUserId() == null) { //로그인 안하면 작성 못함
-			return "redirect:login";
-		}
+	public String insertMapView(@ModelAttribute("user") UserInfoBean user,HttpServletRequest request,Model model) {
+		model.addAttribute("latlngX",request.getParameter("latlngX"));
+		model.addAttribute("latlngY",request.getParameter("latlngY"));
+		System.out.println(request.getParameter("latlngY"));
+		System.out.println(request.getParameter("latlngX"));
+//		if (user.getUserId() == null) { //로그인 안하면 작성 못함
+//			return "redirect:login";
+//		}
 		return "/map/Map"; //맵 작성 페이지 지정할 것
 	}
 	
