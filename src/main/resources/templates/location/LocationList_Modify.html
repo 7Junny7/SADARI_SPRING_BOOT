@@ -18,7 +18,8 @@
 <body>
 	<h2>게시글 수정</h2>
 	<form action="updateLocation" th:onsubmit="return sub()" method="post">
-		<table th:each="loca, i: ${location}">
+	<input th:value="${location}" type="text" id="loca" hidden="true"/>
+		<table>
 			<tr>
 				<td>글 제목</td>
 				<td th:readonly="${loca.subject}" name="subject" id="susbject" value="${loca.subject}"></td><!-- 제목, 수정 불가 -->

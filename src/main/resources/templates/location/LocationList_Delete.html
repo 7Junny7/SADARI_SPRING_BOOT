@@ -3,8 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	function sub() {
+		var pw = getElementById("password").value;
+		var pw2 = getElementById("password2").value;
+
+		if (pw != pw2) {
+			alert("암호가 일치하지 않습니다.");
+			return false;
+		}
+		return true;
+	}
+	function cancel() {
+		self.close();
+	}
+</script>
 </head>
 <body>
-
+	<form action="deleteLocation" th:onsubmit="return sub()" method="post">
+		<input th:value="${location}" type="text" id="loca" hidden="true" />
+		<table>
+			<tr>
+				<td>암호를 입력해 주세요</td>
+				<td><input type="password" name="password" id="password"></td>
+				<td th:hidden="${loca.password}" name="password2" id="password2"></td><!-- 기존 비밀번호 -->
+			</tr>
+			<tr>
+				<td>글을 삭제 하시겠습니까?</td>
+				<td><input type="submit" value="예"><input type="button"
+					value="아니오" onclick="cancel()"></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
