@@ -22,6 +22,7 @@ public class MapController {
 	@Autowired
 	private MapService mapService;
 	
+	
 	@GetMapping("/insertMap")
 	public String insertMapView(@ModelAttribute("user") UserInfoBean user,HttpServletRequest request,Model model) {
 		model.addAttribute("latlngX",request.getParameter("latlngX"));
