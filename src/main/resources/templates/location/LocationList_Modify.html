@@ -5,15 +5,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>게시글 수정</h2>
-<form action="location_pro" method="post">
-
-
-
-
-
-</form>
-
-
+	<h2>게시글 수정</h2>
+	<form action="updateLocation" method="post">
+		<table th:each="loca, i: ${locationList}">
+			<tr>
+				<td>글 제목</td>
+				<td th:readonly="${loca.subject}"></td><!-- 제목, 수정 불가 -->
+				<td th:hidden="${loca.boardidx}"><!-- 글번호 히든 -->
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" value="${loca.password}"></td>
+			</tr>
+			<tr>
+				<td><input type="date" value="${loca.date}"></td>
+				<td><input type="time" value="${loca.time"></td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td th:readonly="${loca.writer}"></td><!-- 작성자, 수정불가 -->
+			</tr>
+			<tr>
+				<td>음식종류</td>
+				<td th:readonly="${loca.foodType}"></td><!-- 음식종류, 수정불가 -->
+			</tr>
+			<tr>
+				<td>같이 먹고 싶은 사람</td>
+				<td th:text="${loca.wantWho}"></td>
+			</tr>
+			<tr>
+				<td>글 내용</td>
+				<td th:text="${loca.foodComment}"></td>
+				<td th:hidden="${loca.foodLikeScore}"></td>
+				<td th:hidden="${loca.foodLikePerson}"></td>
+			</tr>
+			<tr>
+				<td rospan="2">
+					<input type="submit" value="수정">
+					<input type="reset" value="취소">
+				</td>
+			</tr>
+		</table>
+	</form>
+<a th:href="@{/locationList}">글목록</a>
 </body>
 </html>

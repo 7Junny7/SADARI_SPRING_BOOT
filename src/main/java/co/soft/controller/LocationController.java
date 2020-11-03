@@ -62,15 +62,23 @@ public class LocationController {
 		model.addAttribute("location", locationService.getLocation(loc));
 		return "/location/Location"; //파일 있음?
 	}
-
+	
+	@GetMapping("/updateLocation")
+	public String updateLocationView(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
+//		if (user.getUserId() == null) {
+//			return "redirect:login";
+//		}
+		return "/location/LocationList_Modify";
+	}
+	
 	@PostMapping("/updateLocation")
-	public String updateBoard(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
+	public String updateLocation(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc) {
 		if (user.getUserId() == null) {
 			return "redirect:login";
 		}
 
 		locationService.updateLocation(loc);
-		return "/location/Location_Modify";
+		return "/location/LocationList_Modify_Success";
 	}
 
 	@GetMapping("/deleteLocation")
