@@ -2,65 +2,140 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
 <title>Insert title here</title>
+
+<style type="text/css">
+tr{
+height: 50px;
+}
+td{
+vertical-align:top;
+
+}
+
+</style>
 </head>
-<body>
-<div class="container">
-<div class="row">
-<form action="insertLocation" method="post">
-	제목: <input type="text" name="subject" id="subject"><br>
-	글 암호 : <input type="password" name="password" id="password"><br>
-	작성자 : <input type="text" name="writer" value="${user.nickName}"> <br>
-	지역 : <span th:text="${map.location}"></span><br><span th:text="${location}"></span><br>  
-	장소: <span th:text="${map.restaurant}"></span><input type="hidden" th:value="${map.restaurant}" name="restaurant"><br><!-- 음식정명 -->
-	메뉴: <select name="foodType" id="foodType" style="width: 100px">
-	<optgroup label="한식">
-	<option value="면류">면류</option>
-	<option value="육류">육류</option>
-	<option value="탕/국/찌개/전골">탕/국/찌개/전골</option>
-	<option value="일반한식">일반한식</option>
-	</optgroup>
+<body th:align="center" style="background-color: #f5f6f7">
+	<div class="container" th:align="center">
 	
-	<optgroup label="중식">
-	<option value="일반중식">일반중식</option>
-	<option value="마라">마라</option>
-	<option value="양꼬치">양꼬치</option>
-	</optgroup>
-	
-	<optgroup label="일식">
-	<option value="회/초밥">회/초밥</option>
-	<option value="면류">면류</option>
-	<option value="일본가정식">일본가정식</option>
-	<option value="튀김">튀김</option>
-	<option value="꼬치">꼬치</option>
-	</optgroup>
-	<optgroup label="분식">
-	<option value="분식">분식</option>
-	</optgroup>
-		<optgroup label="양식">
-	<option value="양식">양식</option>
-	</optgroup>
-	<optgroup label="패스트푸드">
-	<option value="피자">피자</option>
-	<option value="치킨">치킨</option>
-	<option value="햄버거">햄버거</option>
-	</optgroup>
-	</select>
-	<!-- <input type="text" name="l_menu2" id="l_menu2" placeholder="상세메뉴(안적어도 괜찮아요)"> -->
-	<br>
-	시간: <input type="date" name="date" id="date"> <input type="time" name="time" id="time"><br>
-	같이 먹고 싶은 사람: <input type="text" name="wantWho" id="wantWho"><br>
-	내용<br>
-	<textarea rows="10" cols="50" name="foodComment" id="foodComment"></textarea><br>
-	<input type="submit" value="작성">
-	<input type="reset" value="취소">
-</form>
-<a th:href="@{/locationList}">글목록</a>
-</div>
-</div>
+		<div class="row" th:align="center">
+		<fieldset style="margin-left: 30%;">
+			<h3 th:text="글쓰기" style="display: inline;"></h3>
+		<a th:href="@{/locationList}" th:text="글목록"></a>
+		<br>
+		<br>
+			<form action="insertLocation" method="post">
+				<table th:align="center" border="0" th:cellpadding="0"
+					th:cellspacing="0" style="width: 400px;">
+
+					<tr>
+						<td th:text="제목"></td>
+						<td class="text-right"><input type="text" name="subject" id="subject" class="form-control"><br></td>
+					</tr>
+					<tr>
+						<td th:text="글암호"></td>
+						<td class="text-right"><input type="password" name="password" id="password" class="form-control"><br></td>
+					</tr>
+					<tr>
+						<td th:text="작성자"></td>
+						<td class="text-right"><input type="text" name="writer"  class="form-control" value="${user.nickName}">
+							<br></td>
+					</tr>
+					<tr>
+						<td th:text="지역"></td>
+						<td class="text-right"><span th:text="${map.location}"></span><br>
+						<span th:text="${location}"></span><br></td>
+					</tr>
+					<tr>
+						<td th:text="장소"></td>
+						<td class="text-right"><span th:text="${map.restaurant}"></span><br>
+						<!-- 음식정명 --></td>
+					</tr>
+					<tr>
+						<td th:text="메뉴"></td>
+						<td class="text-right">
+						<select name="foodType" id="foodType"  class="form-control">
+								<optgroup label="한식">
+									<option value="면류" th:text="면류"></option>
+									<option value="육류" th:text="육류"></option>
+									<option value="탕/국/찌개/전골" th:text="국물류"></option>
+									<option value="일반한식" th:text="일반한식"></option>
+								</optgroup>
+
+								<optgroup label="중식">
+									<option value="일반중식" th:text="일반중식"></option>
+									<option value="마라" th:text="마라"></option>
+									<option value="양꼬치" th:text="양꼬치"></option>
+								</optgroup>
+
+								<optgroup label="일식">
+									<option value="회/초밥" th:text="사시미"></option>
+									<option value="면류" th:text="면류"></option>
+									<option value="일본가정식" th:text="일본가정식"></option>
+									<option value="튀김"  th:text="튀김"></option>
+									<option value="꼬치" th:text="꼬치"></option>
+								</optgroup>
+								<optgroup label="분식">
+									<option value="분식" th:text="분식"></option>
+								</optgroup>
+								<optgroup label="양식">
+									<option value="양식" th:text="양식"></option>
+								</optgroup>
+								<optgroup label="패스트푸드">
+									<option value="피자" th:text="피자"></option>
+									<option value="치킨" th:text="치킨"></option>
+									<option value="햄버거" th:text="햄버거"></option>
+								</optgroup>
+						</select> <!-- <input type="text" name="l_menu2" id="l_menu2" placeholder="상세메뉴(안적어도 괜찮아요)"> -->
+							<br></td>
+					</tr>
+					<tr>
+						<td th:text="시간"></td>
+						<td class="text-right"><input type="date" name="date" id="date" class="form-control"> <input
+							type="time" name="time" id="time" class="form-control"><br></td>
+					</tr>
+					<tr>
+						<td th:text="참가인원"></td>
+						<td class="text-right">
+						<select name="peoples" id="peoples" class="form-control">
+						<option value="2" th:text="2"></option>
+						<option value="3" th:text="3"></option>
+						<option value="4" th:text="4"></option>
+						<option value="5" th:text="5"></option>
+						<option value="6" th:text="6"></option>
+						</select>
+						<br></td>
+					</tr>
+					<tr>
+						<td colspan="2" th:text="내용"><br></td></tr>
+						<tr>
+						<td colspan="2"><textarea rows="10" cols="50" name="foodComment"
+								id="foodComment"  class="form-control"></textarea><br></td>
+					</tr>
+					<tr>
+						<td><input type="submit" class="btn btn-danger" style="background-color: #f97d66; width: 190px; border: 0;" value="작성"></td>
+						<td class="text-right"><input type="reset" class="btn btn-danger" style="background-color: #f97d66; width: 190px; border: 0;" value="취소"></td>
+					</tr>
+				</table>
+			</form>
+			</fieldset>
+			
+		</div>
+	</div>
 </body>
 </html>
