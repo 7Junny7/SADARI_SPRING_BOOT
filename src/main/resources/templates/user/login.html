@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<style type="text/css">
+h1{
+text-align: center;
+margin : 5%;
+}
+
+</style>
 <title>회원 로그인</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-<body th:align="center">
-	<h1>로그인</h1>
+<body th:align="center" style="background-color: #f5f6f7">
+	<h1 th:text="로그인"></h1>
 	<form th:action="login_pro" method="post">
-		<table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+		<div class="table-responsive">
+		<table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px; height: 200px">
+		
 			<tr>
-				<td bgcolor="orange" th:text="아이디"></td>
-				<td><input name="userId" id="userId" type="text" size="10"></td>
+				<td><input name="userId" id="userId" type="text" class="form-control" size="48px" placeholder="아이디"></td>
+			</tr>
+
+				<tr>
+				<td><input name="userPassword" id="userPassword" type="password" class="form-control" size="48px" placeholder="비밀번호"></td>
 			</tr>
 			<tr>
-				<td bgcolor="orange" th:text="비밀번호"></td>
-				<td><input name="userPassword" id="userPassword" type="password" size="10"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="로그인">
+				<td colspan="2" align="center"><input type="submit" class="btn btn-danger" value="로그인" style="width: 400px;">
 				</td>
 			</tr>
 		</table>
+		</div>
 	</form>
 </body>
 </html>
