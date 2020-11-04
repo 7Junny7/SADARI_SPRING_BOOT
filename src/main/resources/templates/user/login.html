@@ -22,7 +22,6 @@ h1 {
 	margin: 5%;
 }
 </style>
-<<<<<<< HEAD
 <script>
    function log() {
       
@@ -31,15 +30,13 @@ h1 {
       
       if (id != null && pw !=null && id.equals(getUserId()) && pw.equals(getUserPassword())) {
          return "redirect:home";
-   		}else{
+      } else {
          return "redirect:login";
       }
       
    function cancel() {
    }
 </script>
-=======
->>>>>>> branch 'main' of https://github.com/7Junny7/SADARI_SPRING_BOOT.git
 <title>회원 로그인</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
@@ -54,7 +51,6 @@ h1 {
 				th:cellspacing="0" style="width: 400px; height: 200px">
 
 				<tr>
-<<<<<<< HEAD
 					<td><input name="userId" id="userId" type="text"
 						class="form-control" size="48px" placeholder="아이디"></td>
 				</tr>
@@ -71,17 +67,10 @@ h1 {
 				</tr>
 				<tr>
 					<td align="center"><input type="button" class="btn btn-danger"
-						value="회원가입" onclick="location.href='/join'"
+						value="회원가입"
 						style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
 				</tr>
 			</table>
-				<td><input name="userPassword" id="userPassword" type="password" class="form-control" size="48px" placeholder="비밀번호"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" class="btn btn-danger" value="로그인" style="background-color: #f97d66; width: 400px; border: 0;">
-				</td>
-			</tr>
-		</table>
 		</div>
 	</form>
 </body>

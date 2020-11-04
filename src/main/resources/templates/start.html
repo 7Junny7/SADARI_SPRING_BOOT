@@ -12,17 +12,12 @@ h2 {
 	text-align: center;
 	margin: 3%;
 }
-input{margin-left:35%; text-align: center;}
+input{margin-left:40%; text-align: center;}
 </style>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
 		<div th:align="center" style="margin:8%"><img src="./img/logo.png" alt="로고" ></div>
 		<input type="button" onclick="location.href='/login'" class="btn btn-danger" style="background-color: #f97d66; width: 400px; height:70px; border: 0; box-shadow: 4px 4px 4px 4px gray; font-size:30px; font-weight:bold;" value="같이먹을래!"><br><br>
 		<input type="button" onclick="location.href='/join'" class="btn btn-danger" style="background-color: #f97d66; width: 400px; height:50px; border: 0; box-shadow: 4px 4px 4px 4px gray;" value="회원가입">
-	<form th:action="@{/home}" method="post">
-		<h2 th:text="로고위치"></h2>
-		<img src="//img/logo.png" class="img-responsive" style="width: 100%"><br>
-		<input	type="submit" class="btn btn-danger" style="background-color: #f97d66; width: 300px; border: 0;" value="같이먹을래!">
-	</form>
 </body>
 </html>
