@@ -15,18 +15,18 @@ import co.soft.service.MenuService;
 
 @Controller
 @SessionAttributes("UserInfoBean")
-public class MenuController {
+public class MainController {
 
 	@Autowired
 	@Lazy
 	private MenuService menuService;
 
-	@GetMapping("/getMenuList") // OK
+	@GetMapping("/home") // OK
 	public String getMenuList(Model model, MenuInfoBean menuinfo, UserInfoBean userinfo) {
-		List<MenuInfoBean> menuList = menuService.getMenuList(menuinfo);
-		model.addAttribute("menuList", menuList);
+//		List<MenuInfoBean> menuList = menuService.getMenuList(menuinfo);
+//		model.addAttribute("menuList", menuList);
 		model.addAttribute("loginUserBean", userinfo);
-		return "menu";
+		return "home";
 	}
 
 }
