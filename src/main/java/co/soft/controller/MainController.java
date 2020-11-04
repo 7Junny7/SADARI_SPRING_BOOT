@@ -25,8 +25,6 @@ public class MainController {
 
 	@GetMapping("/start") // OK
 	public String start(Model model, MenuInfoBean menuinfo, UserInfoBean userinfo) {
-//		List<MenuInfoBean> menuList = menuService.getMenuList(menuinfo);
-//		model.addAttribute("menuList", menuList);
 		model.addAttribute("loginUserBean", userinfo);
 		return "start";
 	}
