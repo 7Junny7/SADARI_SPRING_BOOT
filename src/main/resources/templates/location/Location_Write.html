@@ -16,7 +16,7 @@
 	글 암호 : <input type="password" name="password" id="password"><br>
 	작성자 : <input type="text" name="writer" value="${user.nickName}"> <br>
 	지역 : <span th:text="${map.location}"></span><br><span th:text="${location}"></span><br>  
-	장소: <span th:text="${map.restaurant}"></span><br><!-- 음식정명 -->
+	장소: <span th:text="${map.restaurant}"></span><input type="hidden" th:value="${map.restaurant}" name="restaurant"><br><!-- 음식정명 -->
 	메뉴: <select name="foodType" id="foodType" style="width: 100px">
 	<optgroup label="한식">
 	<option value="면류">면류</option>

@@ -27,6 +27,9 @@ public class LocationInfoBean {
 	private Long boardidx; //글번호 히든
 	
 	@Column(updatable = false)
+	private String restaurant; // 음식점 명, 업데이트 불가
+	
+	@Column(updatable = false)
 	private String subject; //제목, 업데이트 불가
 	
 	@Size(min = 4, max = 20)

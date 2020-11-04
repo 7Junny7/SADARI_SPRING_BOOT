@@ -2,6 +2,7 @@ package co.soft.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,6 +20,9 @@ public class MapInfoBean {
 	// 맵정보
 	// 음식점 정보
 	@Id
+	@GeneratedValue
+	private Long boardidx; //글번호 히든
+	
 	@Column(updatable = false)
 	private String restaurant; // 음식점 명, 업데이트 불가
 

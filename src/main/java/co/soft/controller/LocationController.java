@@ -50,7 +50,7 @@ public class LocationController {
 //      }
 
       locationService.insertLocation(loc);
-      return "redirect:getLocationList";
+      return "redirect:home";
    }
 
    @GetMapping("/getLocation")
