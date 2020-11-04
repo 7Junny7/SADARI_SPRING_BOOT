@@ -22,6 +22,14 @@ public class MainController {
 	@Autowired
 	private MapService mapService;
 
+	@GetMapping("/") // OK
+	public String start(Model model, MenuInfoBean menuinfo, UserInfoBean userinfo) {
+//		List<MenuInfoBean> menuList = menuService.getMenuList(menuinfo);
+//		model.addAttribute("menuList", menuList);
+		model.addAttribute("loginUserBean", userinfo);
+		return "start";
+	}
+	
 	@GetMapping("/home") // OK
 	public String getMenuList(Model model, MapInfoBean mapinfo, UserInfoBean userinfo) {
 		List<MapInfoBean> mapList = mapService.getMapList(mapinfo);
