@@ -155,8 +155,8 @@
 	<div th:if="${loginUserBean.userLogin == false }">
 	<form action="/insertMap" method="post">
 		음식점 :<input type="text" name="restaurant"><br>
-		위치 :   <p id="latlngX" name="latlngX"></p>
-			     <p id="latlngY" name="latlngX"></p>
+		위치 :   <p id="latlngX" name="r_location_x"></p>
+			     <p id="latlngY" name="r_location_y"></p>
 	   지역:    <p name="location" id="location"></p>
 	   <input type="submit" value="보내기">
 	</form>

@@ -63,16 +63,16 @@ public class UserController {
 
 		if (findUser != null && findUser.getUserPassword().equals(user.getUserPassword())) {
 			model.addAttribute("member", findUser);
-			return "forward:getBoardList";
+			return "redirect:getMenuList";
 		} else {
-			return "redirect:/login";
+			return "redirect:getMenuList";
 		}
 	}
 	
 	@GetMapping("/logout")
 	public String logout(SessionStatus status) {
 		status.setComplete();
-		return "redirect:/join";		
+		return "redirect:getMenuList";		
 	}
 	
 }

@@ -24,9 +24,9 @@ import lombok.ToString;
 @Table(name = "USER_INFO_TABLE")
 public class UserInfoBean {
 	
-	@Id
-	@GeneratedValue
-	private Long useridx;
+	
+//	@GeneratedValue
+//	private Long useridx;
 	
 	@Transient	
 	private boolean userIdExist;
@@ -44,6 +44,7 @@ public class UserInfoBean {
 	@Column(length = 6)
 	private String userBirth; // 생년월일
 
+	@Id
 	@Size(min = 4, max = 20)
 	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String userId; // 아이디

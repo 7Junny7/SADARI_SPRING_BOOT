@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	// 아이디 중복확인
 	@Override
 	public boolean selectUserOne(UserInfoBean userinfo) {
-		UserInfoBean idx = userRepo.findById(userinfo.getUseridx()).get();
+		UserInfoBean idx = userRepo.findById(userinfo.getUserId()).get();
 
 		if (idx.getUserId().equals(userinfo.getUserId())) {
 			return false;
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 	// 회원정보삭제
 	@Override
 	public void deleteUser(UserInfoBean userinfo) {
-		userRepo.findById(userinfo.getUseridx()).get();
+//		userRepo.findById(userinfo.getUseridx()).get();
 	}
 
 	// 모든 회원정보 불러오기
@@ -47,13 +47,13 @@ public class UserServiceImpl implements UserService {
 	// 회원정보수정
 	@Override
 	public void updateUser(UserInfoBean userinfo) {
-		UserInfoBean userIdx = userRepo.findById(userinfo.getUseridx()).get();
+		UserInfoBean userIdx = userRepo.findById(userinfo.getUserId()).get();
 	}
 
 	// 1인 회원정보 불러오기
 	@Override
 	public UserInfoBean getUserInfo(UserInfoBean userinfo) {
-		Optional<UserInfoBean> findUser=Optional.of(userRepo.findById(userinfo.getUseridx()).get());
+		Optional<UserInfoBean> findUser=Optional.of(userRepo.findById(userinfo.getUserId()).get());
 		if(findUser.isPresent()) {
 			return findUser.get();
 		}else {
