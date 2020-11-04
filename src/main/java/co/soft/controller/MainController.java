@@ -22,7 +22,7 @@ public class MainController {
 	@Autowired
 	private MapService mapService;
 
-	@GetMapping("/") // OK
+	@GetMapping("/start") // OK
 	public String start(Model model, MenuInfoBean menuinfo, UserInfoBean userinfo) {
 //		List<MenuInfoBean> menuList = menuService.getMenuList(menuinfo);
 //		model.addAttribute("menuList", menuList);
