@@ -1,18 +1,12 @@
 package co.soft.domain;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -39,11 +33,11 @@ public class LocationInfoBean {
 	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String password; // 비밀번호
 	
-	@Temporal(TemporalType.DATE)
-	private Date date; //원하는 날짜 설정  수정
+//	@Temporal(TemporalType.DATE)
+	private String date; //원하는 날짜 설정  수정
 	
-	@Temporal(TemporalType.TIME)
-	private Date time; //원하는 시간 설정 수정
+//	@Temporal(TemporalType.TIME)
+	private String time; //원하는 시간 설정 수정
 	
 	@Column(updatable = false)
 	private String writer; //작성자, 업데이트 불가

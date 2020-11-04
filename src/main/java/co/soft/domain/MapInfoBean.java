@@ -30,5 +30,4 @@ public class MapInfoBean {
 
 	@Column(updatable = false)
 	private String location; // 지역, 업데이트 불가
-
 }

@@ -67,8 +67,9 @@ function subj(){
 </script>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-<a th:href="@{/getMenuList}"><img src="@{/static/img/logo.png}"></a>
-			<h2 th:text="회원가입"></h2>
+<a th:href="@{/getMenuList}"><img src="//img/logo.png" class="img-responsive" style="width: 100%"></a>
+			<h2 th:text="회원
+			가입"></h2>
 
 	
 	<form th:action="@{/join_pro}" method="post" onsubmit="return subj();" >

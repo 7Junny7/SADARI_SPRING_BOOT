@@ -155,9 +155,9 @@
 	<div th:if="${loginUserBean.userLogin == false }">
 	<form action="/insertMap" method="post">
 		음식점 :<input type="text" name="restaurant"><br>
-		위치 :   <p id="latlngX" name="r_location_x"></p>
-			     <p id="latlngY" name="r_location_y"></p>
-	   지역:    <p name="location" id="location"></p>
+		위치 :  <input type="text" id="latlngX" name="r_location_x" value="">
+			     <input type="text" id="latlngY" name="r_location_y" value="">
+	   지역:    <input name="location" id="location" value="">
 	   <input type="submit" value="보내기">
 	</form>
 	</div>
@@ -406,11 +406,9 @@
                 infowindow.open(map, marker);
                 var latlngX = latlng.getLat();
                 var latlngY = latlng.getLng();
-                var x = document.getElementById("latlngX");
-                var y = document.getElementById("latlngY");
-                var location = document.getElementById("location");
-               	x.innerHTML=latlngX;
-               	y.innerHTML=latlngY;
+                document.getElementById("latlngX").value=latlngX;
+                document.getElementById("latlngY").value=latlngY;
+                document.getElementById("location").value=add[1];
                	location.innerHTML=add[1];
             }   
         });

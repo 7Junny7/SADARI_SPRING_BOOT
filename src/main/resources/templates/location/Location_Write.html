@@ -13,40 +13,10 @@
 <div class="row">
 <form action="insertLocation" method="post">
 	제목: <input type="text" name="subject" id="subject"><br>
-	
 	글 암호 : <input type="password" name="password" id="password"><br>
-	작성자 : <span th:text="${user.nickName}"></span><br>
-	지역 : <span th:text="${map.location}"></span><br> 
-	<!-- 
-	지역: <select name="location" id="location">
-	<option>강남구</option>2
-	<option>강동구</option>
-	<option>강북구</option>
-	<option>강서구</option>
-	<option>관악구</option>
-	<option>광진구</option>
-	<option>금천구</option>
-	<option>구로구</option>
-	<option>노원구</option>
-	<option>도봉구</option>
-	<option>동대문구</option>
-	<option>동작구</option>
-	<option>마포구</option>
-	<option>서대문구</option>
-	<option>서초구</option>
-	<option>성동구</option>
-	<option>성북구</option>
-	<option>송파구</option>
-	<option>양천구</option>
-	<option>영등포구</option>
-	<option>용산구</option>
-	<option>은평구</option>
-	<option>종로구</option>
-	<option>중구</option>
-	<option>중랑구</option>
-	</select><br>
-	 -->
-	장소: <span th:text="${map.restaurant}"></span><br>
+	작성자 : <input type="text" name="writer" value="${user.nickName}"> <br>
+	지역 : <span th:text="${map.location}"></span><br><span th:text="${location}"></span><br>  
+	장소: <span th:text="${map.restaurant}"></span><br><!-- 음식정명 -->
 	메뉴: <select name="foodType" id="foodType" style="width: 100px">
 	<optgroup label="한식">
 	<option value="면류">면류</option>
