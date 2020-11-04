@@ -61,11 +61,11 @@ public class UserController {
 	public String login(@ModelAttribute("loginUserBean") UserInfoBean user, Model model) {
 		UserInfoBean findUser = userService.getUserInfo(user);
 
-		if (findUser != null && findUser.getUserId().equals(user.getUserId()) && findUser.getUserPassword().equals(user.getUserPassword())) {
+		if (findUser != null && findUser.getUserPassword().equals(user.getUserPassword())) {
 			model.addAttribute("member", findUser);
-			return "redirect:home";
+			return "redirect:getMenuList";
 		} else {
-			return "redirect:login";
+			return "redirect:getMenuList";
 		}
 	}
 	

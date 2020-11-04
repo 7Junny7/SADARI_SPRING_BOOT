@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import co.soft.domain.LocationInfoBean;
 import co.soft.domain.MapInfoBean;
@@ -56,25 +55,12 @@ public class LocationController {
 
    @GetMapping("/getLocation")
    public String getLocation(@ModelAttribute("user") UserInfoBean user, LocationInfoBean loc, Model model) {
-//      if (user.getUserId() == null) {
-//         return "redirect:login";
-//      }
+      if (user.getUserId() == null) {
+         return "redirect:login";
+      }
 
       model.addAttribute("location", locationService.getLocation(loc));
       return "/location/Location"; //파일 있음?
-   }
-   
-   @RequestMapping(method = RequestMethod.GET, path = "/bbom")
-   public String bbomView(LocationInfoBean loc, Model model) {
-	   int price=loc.getPrice();
-	   int person=loc.getPricePerson();
-	   model.addAttribute("bbom",10000);
-	   return "Pay";
-   }
-   
-   @RequestMapping(path = "/bbom", method = RequestMethod.POST)
-   public String bbom() {
-	   return "";
    }
    
    @GetMapping("/updateLocation")

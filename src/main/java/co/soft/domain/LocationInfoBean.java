@@ -62,12 +62,6 @@ public class LocationInfoBean {
 
 	private int foodLikePerson; // 투표 인원수 -> 두개 조합으로 좋아요 rate(별점) 계산 히든
 	
-	@Column(nullable = true)
-	private int price; // 총 예산 (더치페이 계산용)
-	
-	@Column(nullable = true)
-	private int pricePerson; // 참가인원 수 (더치페이 계산용)
-	
 //	@Column(nullable = true)  // 에러남 확인 요
 //	private MultipartFile foodPicture; //음식사진, 업로드
 	
