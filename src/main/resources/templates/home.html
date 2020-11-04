@@ -152,19 +152,28 @@
 			<div id="clickLatlng"></div>
 		</div>
 	</div >
+	<div th:each="mapinfo, i: ${mapList}">
+      <input name="res" th:hidden="${mapinfo.restaurant}" th:value="${mapinfo.restaurant}" id="res"/>
+      <input name="x" th:hidden="${mapinfo.r_location_x}" th:value="${mapinfo.r_location_x}" id="x"/>
+      <input name="y" th:hidden="${mapinfo.r_location_y}" th:value="${mapinfo.r_location_y}" id="y"/>
+      <input name="loc" th:hidden="${mapinfo.location}"  th:value="${mapinfo.location}" id="loc"/>
+   	</div>
 	<div th:if="${loginUserBean.userLogin == false }">
 	<form action="/insertMap" method="post">
 		음식점 :<input type="text" name="restaurant"><br>
 		위치 :  <input type="text" id="latlngX" name="r_location_x" value="">
 			     <input type="text" id="latlngY" name="r_location_y" value="">
-	   지역:    <input name="location" id="location" value="">
+	    지역 :   <input name="location" id="location" value="">
 	   <input type="submit" value="보내기">
 	</form>
 	</div>
 </body>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d8f60004496cc3864b4652c1723cc364&libraries=services"></script>
 <script type="text/javascript">
-		
+	var x = document.getElementsByName("x");
+	var y = document.getElementsByName("y");
+	var res = document.getElementsByName("res");
+	var loc = document.getElementsByName("loc");
 	var markers = [];
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -239,10 +248,10 @@
 		// 지도에 표시되고 있는 마커를 제거합니다
 		removeMarker();
 
-		for (var i = 0; i < places.length; i++) {
+		for (var i = 0; i < x.length; i++) {
 
 			// 마커를 생성하고 지도에 표시합니다
-			var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x), marker = addMarker(
+			var placePosition = new kakao.maps.LatLng(x[i].value, y[i].value), marker = addMarker(
 					placePosition, i), itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
 
 			// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
@@ -253,8 +262,9 @@
 			// 해당 장소에 인포윈도우에 장소명을 표시합니다
 			// mouseout 했을 때는 인포윈도우를 닫습니다
 			(function(marker, title) {
+					var rest = res[i].value;
 				kakao.maps.event.addListener(marker, 'mouseover', function() {
-					displayInfowindow(marker, title);
+					displayInfowindow(marker, rest);
 				});
 
 				kakao.maps.event.addListener(marker, 'mouseout', function() {
@@ -262,7 +272,7 @@
 				});
 
 				itemEl.onmouseover = function() {
-					displayInfowindow(marker, title);
+					displayInfowindow(marker, rest);
 				};
 
 				itemEl.onmouseout = function() {
@@ -289,17 +299,15 @@
 				+ '"></span>'
 				+ '<div class="info">'
 				+ '   <h5>'
-				+ places.place_name + '</h5>';
+				+ res[index].value + '</h5>';
 
 		if (places.road_address_name) {
-			itemStr += '    <span>' + places.road_address_name + '</span>'
-					+ '   <span class="jibun gray">' + places.address_name
-					+ '</span>';
+			itemStr += '    <span>' + loc[index].value + '</span>';
 		} else {
-			itemStr += '    <span>' + places.address_name + '</span>';
+			itemStr += '    <span>' + loc[index].value + '</span>';
 		}
 
-		itemStr += '  <span class="tel">' + places.phone + '</span>' + '</div>';
+		//itemStr += '  <span class="tel">' + places.phone + '</span>' + '</div>';
 
 		el.innerHTML = itemStr;
 		el.className = 'item';
