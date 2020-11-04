@@ -12,6 +12,23 @@ margin : 5%;
 }
 
 </style>
+<script>
+	function log() {
+		
+		var id = getElementById("id").value;
+		var pw = getElementById("password").value;
+		
+		if (id != null && pw !=null && id.equals(getUserId()) && pw.equals(getUserPassword())) {
+
+		}
+			return "redirect:home";
+		} else {
+			return "redirect:login";
+		}
+		
+	function cancel() {
+	}
+</script>
 <title>회원 로그인</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
@@ -31,7 +48,7 @@ margin : 5%;
 				<td><input name="userPassword" id="userPassword" type="password" class="form-control" size="48px" placeholder="비밀번호"></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" class="btn btn-danger" value="로그인" style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
+				<td colspan="2" align="center"><input type="submit" onclick="log()" class="btn btn-danger" value="로그인" style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
 				</tr>
 				<tr>
 				<td><td colspan="2" align="center"><input type="button" class="btn btn-danger" value="회원가입" style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
