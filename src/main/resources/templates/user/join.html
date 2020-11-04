@@ -3,10 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
 <style type="text/css">
 /* input[type=text], input[type=password]{
 border-top: 0;
@@ -17,171 +28,187 @@ border-bottom: 0.5px solid grey;
 td{
 padding:5px;
 } */
-
-h2{
-text-align: center;
-margin : 3%;
+h2 {
+	text-align: center;
+	margin: 3%;
 }
-
 </style>
 <script>
 function subj(){
-	var userId = $("#userId").val();
-	var userPassword = $("#userPasword").val();
-	var userPassword2 = $("#userPassword2").val();
-	var userNickName = $("#userNickName").val();
-	var userBirth = $("userBirth").val();
-	var userPhone =$("userPhone").val();
-	alert(userId+":"+userPassword+":"+userPassword2+":"+userNickName+":"+userBirth+":"+userPhone);
-	
-	//아이디 빈칸 확인
-	if(userId.length == 0){
-		alert("아이디를 입력해 주세요!");
-		return false;
-	}
-	//암호 빈칸 확인 & 암호 일치 확인
-	if(userPassword.length == 0 || userPassword2.length == 0){
-		alert("비밀번호를 입력해 주세요!");
-		return false;
-	}else if(userPassword != userPassword2){
-		alert("비밀번호가 일치하지 않습니다.");
-		return false;
-	}
-	//닉네임 빈칸 확인
-	if(userNickName.length == 0){
-		alert("닉네임을 입력해 주세요!");
-		return false;
-	}
-	//생년월일 확인
-	if(userBirth.length == 0){
-		alert("생년월일을 입력해 주세요!");
-		return false;
-	}
-	//폰번호 확인
-	if(userPhone.length == 0){
-		alert("핸드폰 번호를 입력해 주세요!");
-		return false;
-	}
-	return false;
+   var userId = $("#userId").val();
+   var userPassword = $("#userPasword").val();
+   var userPassword2 = $("#userPassword2").val();
+   var userNickName = $("#userNickName").val();
+   var userBirth = $("userBirth").val();
+   var userPhone =$("userPhone").val();
+   alert(userId+":"+userPassword+":"+userPassword2+":"+userNickName+":"+userBirth+":"+userPhone);
+   
+   //아이디 빈칸 확인
+   if(userId.length == 0){
+      alert("아이디를 입력해 주세요!");
+      return false;
+   }
+   //암호 빈칸 확인 & 암호 일치 확인
+   if(userPassword.length == 0 || userPassword2.length == 0){
+      alert("비밀번호를 입력해 주세요!");
+      return false;
+   }else if(userPassword != userPassword2){
+      alert("비밀번호가 일치하지 않습니다.");
+      return false;
+   }
+   //닉네임 빈칸 확인
+   if(userNickName.length == 0){
+      alert("닉네임을 입력해 주세요!");
+      return false;
+   }
+   //생년월일 확인
+   if(userBirth.length == 0){
+      alert("생년월일을 입력해 주세요!");
+      return false;
+   }
+   //폰번호 확인
+   if(userPhone.length == 0){
+      alert("핸드폰 번호를 입력해 주세요!");
+      return false;
+   }
+   return false;
 }
 </script>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-<a th:href="@{/getMenuList}"><img src="//img/logo.png" class="img-responsive" style="width: 100%"></a>
-			<h2 th:text="회원
-			가입"></h2>
+	<a th:href="@{/getMenuList}"><img src="@{/img/logo.png}"></a>
+	<h2 th:text="회원가입"></h2>
 
-	
-	<form th:action="@{/join_pro}" method="post" onsubmit="return subj();" >
-	<input type="hidden" id="userIdExist"> 
-	<table th:align="center" th:cellpadding="0" th:cellspacing="0" style="border: 0; border-radius: 10px; width: 400px;">
-		<tr>
-			<td th:text="아이디"></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="userId" id="userId" class="form-control" onkeypress="resetUserIdExist()" placeholder="아이디를 입력하세요" style="display: inline; width: 300px">
-				<button id="temp" class="btn btn-danger"  style="display: inline; width: 90px; background-color: #f97d66; border: 0;" onclick="checkUserIdExist()" th:text="중복확인"></button>
-				<div class="text-center small mt-2" id="checkMsg" style="color: red"></div></td>
-		</tr>
-		<tr>
-			<td th:text="비밀번호"></td>
-			</tr>
-			<tr>
-			<td><input type="password" name="userPassword" id="userPassword" class="form-control" placeholder="4~20자 (알파벳/숫자)"><br></td>
-		</tr>
-		<tr>
-			<td th:text="비밀번호확인"></td>
-			</tr>
-			<tr>
-			<td><input type="password" name="userPassword2" id="userPassword2" class="form-control" placeholder="비밀번호 확인"><br></td>
-		</tr>
-		<!-- 이름 : <input type="text" name="userName" id="userName"><br> -->
-		<tr>
-			<td th:text="별명"></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="userNickName" id="userNickName" class="form-control" placeholder="별명"><br></td>
-		</tr>
-		<tr>
-			<td th:text="생년월일"></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="userBirth" id="userBirth" class="form-control" placeholder="YYMMDD"><br></td>
-		</tr>
-		<tr>
-		<td th:text="성별"></td>
-		</tr>
-		<tr>
-			<td><span th:text="남"></span><input type="radio" name="userGender" id="userGender" value="M" checked> 
-				<span th:text="여"></span> <input type="radio" name="userGender" id="userGender" value="F"><br><br></td>
-		</tr>
-		<!-- 이메일 : <input type="text" name="userEmail" id="userEmail"><br> -->
-		<tr>
-			<td th:text="전화번호"></td>
-			</tr>
-			<tr>
-			<td><input type="text" name="userPhone" id="userPhone" class="form-control" placeholder="-없이 숫자만 입력"><br></td>
-		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" class="btn btn-danger" style="background-color: #f97d66; width: 400px; border: 0;" value="가입하기"></td>
-		</tr>
-		</table>
+
+	<form th:action="@{/join_pro}" method="post" onsubmit="return subj();">
+		<input type="hidden" id="userIdExist">
+		<div class="table-responsive">
+			<table th:align="center" th:cellpadding="0" th:cellspacing="0"
+				style="border: 0; border-radius: 10px; width: 400px;">
+				<tr>
+					<td th:text="아이디"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="userId" id="userId"
+						class="form-control" onkeypress="resetUserIdExist()"
+						placeholder="아이디를 입력하세요" style="display: inline; width: 300px">
+						<button id="temp" class="btn btn-danger"
+							style="display: inline; width: 90px; background-color: #f97d66; border: 0;"
+							onclick="checkUserIdExist()" th:text="중복확인"></button>
+						<div class="text-center small mt-2" id="checkMsg"
+							style="color: red"></div></td>
+				</tr>
+				<tr>
+					<td th:text="비밀번호"></td>
+				</tr>
+				<tr>
+					<td><input type="password" name="userPassword"
+						id="userPassword" class="form-control"
+						placeholder="4~20자 (알파벳/숫자)"><br></td>
+				</tr>
+				<tr>
+					<td th:text="비밀번호확인"></td>
+				</tr>
+				<tr>
+					<td><input type="password" name="userPassword2"
+						id="userPassword2" class="form-control" placeholder="비밀번호 확인"><br></td>
+				</tr>
+				<!-- 이름 : <input type="text" name="userName" id="userName"><br> -->
+				<tr>
+					<td th:text="별명"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="userNickName" id="userNickName"
+						class="form-control" placeholder="별명"><br></td>
+				</tr>
+				<tr>
+					<td th:text="생년월일"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="userBirth" id="userBirth"
+						class="form-control" placeholder="YYMMDD"><br></td>
+				</tr>
+				<tr>
+					<td th:text="성별"></td>
+				</tr>
+				<tr>
+					<td><span th:text="남"></span><input type="radio"
+						name="userGender" id="userGender" value="M" checked> <span
+						th:text="여"></span> <input type="radio" name="userGender"
+						id="userGender" value="F"><br>
+					<br></td>
+				</tr>
+				<!-- 이메일 : <input type="text" name="userEmail" id="userEmail"><br> -->
+				<tr>
+					<td th:text="전화번호"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="userPhone" id="userPhone"
+						class="form-control" placeholder="-없이 숫자만 입력"><br></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" class="btn btn-danger"
+						style="background-color: #f97d66; width: 400px; border: 0;"
+						value="가입하기"></td>
+				</tr>
+			</table>
+		</div>
 	</form>
-	
+
 
 	<script type="text/javascript">
-	/*
-	$('.idCheck').click(function(){
-		$.ajax({
-			type:"get",
-			url:"join",
-			data:{
-				"id":$('#userId').val()
-			},
-			success: function(data){
-				if($.trim(data)=="yes"){
-					if($('#userId').val()!=''){
-						$('#checkMsg').html('<p sytle="color:blue">사용 가능한 ID 입니다.</p>');
-					}
-				}else{
-					if($('#userId').val()!=''){
-						$('#checkMsg').html('<p style="color:red">이미 사용중인 ID 입니다.</p>');
-						$('#userId').val('');
-						$('#userId').focus();
-					}
-				}
-			}
-		})
-	});
-	*/
+   /*
+   $('.idCheck').click(function(){
+      $.ajax({
+         type:"get",
+         url:"join",
+         data:{
+            "id":$('#userId').val()
+         },
+         success: function(data){
+            if($.trim(data)=="yes"){
+               if($('#userId').val()!=''){
+                  $('#checkMsg').html('<p sytle="color:blue">사용 가능한 ID 입니다.</p>');
+               }
+            }else{
+               if($('#userId').val()!=''){
+                  $('#checkMsg').html('<p style="color:red">이미 사용중인 ID 입니다.</p>');
+                  $('#userId').val('');
+                  $('#userId').focus();
+               }
+            }
+         }
+      })
+   });
+   */
 
-	
+   
 function checkUserIdExist(){
-	alert("ac8");
-	var user_id = $("#userId").val()
-	if(user_id.length == 0){
-		alert('아이디를 입력해주세요')
-		return false;
-	}
-	$.ajax({
-		url : '${root}user/checkUserIdExist/' + user_id,
-		type : 'get',
-		dataType : 'text',
-		success : function(result){
-			if(result.trim() == 'true'){
-				alert('사용할 수 있는 아이디입니다')
-				$("#userIdExist").val('true')
-			} else {
-				alert('사용할 수 없는 아이디 입니다')
-				$("#userIdExist").val('false')
-			}
-		}
-	})
-	return false;
+   alert("ac8");
+   var user_id = $("#userId").val()
+   if(user_id.length == 0){
+      alert('아이디를 입력해주세요')
+      return false;
+   }
+   $.ajax({
+      url : '${root}user/checkUserIdExist/' + user_id,
+      type : 'get',
+      dataType : 'text',
+      success : function(result){
+         if(result.trim() == 'true'){
+            alert('사용할 수 있는 아이디입니다')
+            $("#userIdExist").val('true')
+         } else {
+            alert('사용할 수 없는 아이디 입니다')
+            $("#userIdExist").val('false')
+         }
+      }
+   })
+   return false;
 }
 
 function resetUserIdExist(){
-	$("#userIdExist").val('false')
+   $("#userIdExist").val('false')
 }
 </script>
 </body>

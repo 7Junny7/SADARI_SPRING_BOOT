@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import co.soft.domain.MapInfoBean;
@@ -23,7 +24,7 @@ public class MainController {
 	@Autowired
 	private MapService mapService;
 
-	@GetMapping("/start") // OK
+	@RequestMapping("/") // OK
 	public String start(Model model, MenuInfoBean menuinfo, UserInfoBean userinfo) {
 		model.addAttribute("loginUserBean", userinfo);
 		return "start";

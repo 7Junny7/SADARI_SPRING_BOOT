@@ -1,59 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
 <style type="text/css">
-h1{
-text-align: center;
-margin : 5%;
+h1 {
+	text-align: center;
+	margin: 5%;
 }
-
 </style>
 <script>
-	function log() {
-		
-		var id = getElementById("id").value;
-		var pw = getElementById("password").value;
-		
-		if (id != null && pw !=null && id.equals(getUserId()) && pw.equals(getUserPassword())) {
-
-		}
-			return "redirect:home";
-		} else {
-			return "redirect:login";
-		}
-		
-	function cancel() {
-	}
+   function log() {
+      
+      var id = getElementById("id").value;
+      var pw = getElementById("password").value;
+      
+      if (id != null && pw !=null && id.equals(getUserId()) && pw.equals(getUserPassword())) {
+         return "redirect:home";
+   		}else{
+         return "redirect:login";
+      }
+      
+   function cancel() {
+   }
 </script>
 <title>회원 로그인</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-<a th:href="@{/getMenuList}"><img src="@{/main/resources/static/img/logo.png}"></a>
+	<a th:href="@{/getMenuList}"><img
+		src="@{/main/resources/static/img/logo.png}"></a>
 
 	<h1 th:text="로그인"></h1>
 	<form th:action="login_pro" method="post">
 		<div class="table-responsive">
-		<table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px; height: 200px">
-		
-			<tr>
-				<td><input name="userId" id="userId" type="text" class="form-control" size="48px" placeholder="아이디"></td>
-			</tr>
+			<table th:align="center" border="0" th:cellpadding="0"
+				th:cellspacing="0" style="width: 400px; height: 200px">
 
 				<tr>
-				<td><input name="userPassword" id="userPassword" type="password" class="form-control" size="48px" placeholder="비밀번호"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" onclick="log()" class="btn btn-danger" value="로그인" style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
+					<td><input name="userId" id="userId" type="text"
+						class="form-control" size="48px" placeholder="아이디"></td>
+				</tr>
+
+				<tr>
+					<td><input name="userPassword" id="userPassword"
+						type="password" class="form-control" size="48px"
+						placeholder="비밀번호"></td>
 				</tr>
 				<tr>
-				<td><td colspan="2" align="center"><input type="button" class="btn btn-danger" value="회원가입" style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
-			</tr>
-		</table>
+					<td align="center"><input type="submit" onclick="log()"
+						class="btn btn-danger" value="로그인"
+						style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
+				</tr>
+				<tr>
+					<td align="center"><input type="button" class="btn btn-danger"
+						value="회원가입" onclick="location.href='/join'"
+						style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
+				</tr>
+			</table>
 		</div>
 	</form>
 </body>

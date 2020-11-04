@@ -31,7 +31,7 @@ public class UserController {
 //	@Lazy
 //	private UserInfoBean loginuserBean;
 	
-	@GetMapping("/join")
+	@RequestMapping("/join")
 	public String join(@ModelAttribute("joinUserBean") UserInfoBean joinUserBean) {
 		return "/user/join";
 	}
@@ -52,7 +52,7 @@ public class UserController {
 		return "userinfo";
 	}
 	
-	@GetMapping("/login")
+	@RequestMapping("/login")
 	public String loginView(@ModelAttribute("loginUserBean") UserInfoBean user) {
 		return "/user/login";
 	}
