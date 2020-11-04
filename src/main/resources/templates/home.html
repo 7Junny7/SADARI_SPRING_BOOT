@@ -116,7 +116,7 @@
 				<div>
 					<form onsubmit="searchPlaces(); return false;">
 								지역: <select id="keyword">
-										<option selected="selected">강남구</option>
+										<option>강남구</option>
 										<option>강동구</option>
 										<option>강북구</option>
 										<option>강서구</option>
@@ -161,10 +161,23 @@
 	   <input type="submit" value="보내기">
 	</form>
 	</div>
+	<input th:value="${mapList}" id="marker4">
+	<div th:each="mapinfo, i: ${mapList}">
+		<input th:text="${mapinfo.restaurant}" id="res">
+		<input th:text="${mapinfo.r_location_x}" id="x">
+		<input th:text="${mapinfo.r_location_y}" id="y">
+		<input th:text="${mapinfo.location}" id="loc">
+	</div>
+	
 </body>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d8f60004496cc3864b4652c1723cc364&libraries=services"></script>
 <script type="text/javascript">
-		
+	
+	var title=document.getElementById("res").value;
+	var x=document.getElementById("x").value;
+	var y=document.getElementById("y").value;
+	var loc=document.getElementById("loc").value;
+	alert(title+":"+x+":"+y+":"+loc);
 	var markers = [];
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -199,7 +212,7 @@
 		}
 
 		// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-		ps.keywordSearch(keyword, placesSearchCB);
+		// ps.keywordSearch(keyword, placesSearchCB);
 	}
 
 	//장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -229,9 +242,11 @@
 	//검색 결과 목록과 마커를 표출하는 함수입니다
 	function displayPlaces(places) {
 
-		var listEl = document.getElementById('placesList'), menuEl = document
-				.getElementById('menu_wrap'), fragment = document
-				.createDocumentFragment(), bounds = new kakao.maps.LatLngBounds(), listStr = '';
+		var listEl = document.getElementById('placesList'), 
+			menuEl = document.getElementById('menu_wrap'), 
+			fragment = document.createDocumentFragment(), 
+			bounds = new kakao.maps.LatLngBounds(), 
+			listStr = '';
 
 		// 검색 결과 목록에 추가된 항목들을 제거합니다
 		removeAllChildNods(listEl);
