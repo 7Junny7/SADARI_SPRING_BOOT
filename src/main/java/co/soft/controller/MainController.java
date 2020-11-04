@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import co.soft.domain.MapInfoBean;
@@ -30,7 +31,7 @@ public class MainController {
 		return "start";
 	}
 	
-	@GetMapping("/home") // OK
+	@PostMapping("/home") // OK
 	public String getMenuList(Model model, MapInfoBean mapinfo, UserInfoBean userinfo) {
 		List<MapInfoBean> mapList = mapService.getMapList(mapinfo);
 		model.addAttribute("mapList", mapList);
