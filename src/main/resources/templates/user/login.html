@@ -23,29 +23,34 @@ h1 {
 }
 </style>
 <script>
-   function log() {
-      
-      var id = getElementById("id").value;
-      var pw = getElementById("password").value;
-      
-      if (id != null && pw !=null && id.equals(getUserId()) && pw.equals(getUserPassword())) {
-         return "redirect:home";
-      } else {
-         return "redirect:login";
-      }
-   }
-   function cancel() {
-   }
+	function log() {
+
+		var id = document.getElementById("userId").value;
+		var pw = document.getElementById("userPassword").value;
+
+		//아이디 빈칸 확인
+		if (id.length == 0) {
+			alert("아이디를 입력하세요.");
+			return false;
+		}
+		//암호 빈칸 확인
+		if (pw.length == 0) {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+
+		return true;
+	}
 </script>
 <title>회원 로그인</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-	<a th:href="@{/getMenuList}"><img
+	<a th:href="@{/}"><img
 		src="@{/main/resources/static/img/logo.png}"></a>
 
 	<h1 th:text="로그인"></h1>
-	<form th:action="login_pro" method="post">
+	<form th:action="login" method="post" onsubmit="return log(this);">
 		<div class="table-responsive">
 			<table th:align="center" border="0" th:cellpadding="0"
 				th:cellspacing="0" style="width: 400px; height: 200px">
@@ -61,8 +66,8 @@ h1 {
 						placeholder="비밀번호"></td>
 				</tr>
 				<tr>
-					<td align="center"><input type="submit" onclick="log()"
-						class="btn btn-danger" value="로그인"
+					<td align="center"><input type="submit" class="btn btn-danger"
+						value="로그인"
 						style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
 				</tr>
 				<tr>

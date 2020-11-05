@@ -41,7 +41,6 @@ function subj(){
    var userNickName = $("#userNickName").val();
    var userBirth = $("userBirth").val();
    var userPhone =$("userPhone").val();
-   alert(userId+":"+userPassword+":"+userPassword2+":"+userNickName+":"+userBirth+":"+userPhone);
    
    //아이디 빈칸 확인
    if(userId.length == 0){
@@ -71,16 +70,16 @@ function subj(){
       alert("핸드폰 번호를 입력해 주세요!");
       return false;
    }
-   return false;
+   return true;
 }
 </script>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-	<a th:href="@{/getMenuList}"><img src="@{/img/logo.png}"></a>
+	<a th:href="@{/}"><img src="@{/img/logo.png}"></a>
 	<h2 th:text="회원가입"></h2>
 
 
-	<form th:action="@{/join_pro}" method="post" onsubmit="return subj();">
+	<form th:action="@{/join}" method="post" onsubmit="return subj(this);">
 		<input type="hidden" id="userIdExist">
 		<div class="table-responsive">
 			<table th:align="center" th:cellpadding="0" th:cellspacing="0"
