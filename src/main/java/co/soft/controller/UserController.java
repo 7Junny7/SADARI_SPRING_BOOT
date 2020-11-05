@@ -63,10 +63,15 @@ public class UserController {
 
 		if (findUser != null && findUser.getUserPassword().equals(user.getUserPassword())) {
 			model.addAttribute("member", findUser);
-			return "redirect:getMenuList";
+			return "redirect:home";
 		} else {
-			return "redirect:getMenuList";
+			return "redirect:loginFail";
 		}
+	}
+	
+	@RequestMapping("/loginFail")
+	public String loginFail() {
+		return "/user/loginFail";
 	}
 	
 	@GetMapping("/logout")

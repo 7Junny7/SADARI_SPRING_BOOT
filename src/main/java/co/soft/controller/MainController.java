@@ -30,7 +30,7 @@ public class MainController {
 		return "start";
 	}
 	
-	@PostMapping("/home") // OK
+	@RequestMapping("/home") // OK
 	public String getMenuList(Model model, MapInfoBean mapinfo, UserInfoBean userinfo) {
 		List<MapInfoBean> mapList = mapService.getMapList(mapinfo);
 		model.addAttribute("mapList", mapList);
