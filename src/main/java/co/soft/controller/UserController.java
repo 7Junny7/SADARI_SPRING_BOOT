@@ -47,7 +47,7 @@ public class UserController {
 	
 	@RequestMapping("/getUserInfoList")
 	public String getUserInfoList(Model model, UserInfoBean userinfo) {
-		return "userinfo";
+		return "userinfo/userinfo";
 	}
 	
 	@RequestMapping("/login")
