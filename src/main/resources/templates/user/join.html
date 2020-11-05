@@ -39,8 +39,8 @@ function subj(){
    var userPassword = $("#userPassword").val();
    var userPassword2 = $("#userPassword2").val();
    var userNickName = $("#userNickName").val();
-   var userBirth = $("userBirth").val();
-   var userPhone =$("userPhone").val();
+   var userBirth = $("#userBirth").val();
+   var userPhone =$("#userPhone").val();
    
    //아이디 빈칸 확인
    if(userId.length == 0){
@@ -52,12 +52,12 @@ function subj(){
       alert("비밀번호를 입력해 주세요!");
       return false;
    }else if(userPassword != userPassword2){
-      alert("비밀번호가 일치하지 않습니다.");
+      alert("입력하신 비밀번호가 일치하지 않습니다.");
       return false;
    }
    //닉네임 빈칸 확인
    if(userNickName.length == 0){
-      alert("닉네임을 입력해 주세요!");
+      alert("별명을 입력해 주세요!");
       return false;
    }
    //생년월일 확인
