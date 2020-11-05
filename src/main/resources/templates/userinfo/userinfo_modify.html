@@ -19,10 +19,10 @@
     <fieldset style="margin-left:40%; margin-top: 7%; border: 1px solid #f5f6f7; width: 410px;">
     <h1 style="color: #f97d66;">회원정보 수정</h1>
     <br>
-   <table th:align="center" th:cellpadding="0" th:cellspacing="0" style="border: 0; border-radius: 10px; width: 400px;" th:each="uinfo, i: ${getUserInfo}">
+   <table th:align="center" th:cellpadding="0" th:cellspacing="0" style="border: 0; border-radius: 10px; width: 400px;">
       <tr>
          <td th:text="닉네임" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">닉네임</td>
-         <td><input name="userNickName" id="userNickName" type="text" size="20"></td>
+         <td><input name="userNickName" id="userNickName" type="text" size="20" value="${user.userNickName}"></td>
       </tr>
       <tr>
          <td th:text="생년월일" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">생년월일</td>
@@ -49,10 +49,8 @@
             <td style="color: #f5f6f7;">.</td>
         </tr>
       <tr>
-         <td><a href="${root }main"
-               class="btn btn-danger"  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;">수정 완료</a></td>
-         <td><a href="${root }main"
-               class="btn btn-danger"  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;">수정 취소</a></td>
+         <td><a href="${root }main" class="btn btn-danger"  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;">수정 완료</a></td>
+         <td><a href="${root }main" class="btn btn-danger"  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;">수정 취소</a></td>
       </tr>
     </table>
 </fieldset>

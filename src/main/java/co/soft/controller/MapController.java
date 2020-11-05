@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import co.soft.domain.MapInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.MapService;
 
 @Controller
+@SessionAttributes("UserInfoBean")
 public class MapController {
    
    @Autowired

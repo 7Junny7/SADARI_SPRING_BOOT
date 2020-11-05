@@ -81,7 +81,8 @@ public class UserController {
 	}
 	
 	@RequestMapping("/userUpdate")
-	public String userUpdate() {
+	public String userUpdate(UserInfoBean user, Model model) {
+		model.addAttribute("user",user);
 		return "/userinfo/userinfo_modify";
 	}
 	
