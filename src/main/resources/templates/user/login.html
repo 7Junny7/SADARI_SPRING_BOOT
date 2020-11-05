@@ -17,10 +17,6 @@
 	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 	crossorigin="anonymous"></script>
 <style type="text/css">
-h1 {
-	text-align: center;
-	margin: 5%;
-}
 </style>
 <script>
 	function log() {
@@ -45,10 +41,7 @@ h1 {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-	<a th:href="@{/}"><img
-		src="@{/main/resources/static/img/logo.png}"></a>
-
-	<h1 th:text="로그인"></h1>
+	<div th:align="center" style="margin:8% 8% 5% 8%;"><img src="./img/logo.png" alt="로고"></div>
 	<form th:action="login" method="post" onsubmit="return log(this);">
 		<div class="table-responsive">
 			<table th:align="center" border="0" th:cellpadding="0"
