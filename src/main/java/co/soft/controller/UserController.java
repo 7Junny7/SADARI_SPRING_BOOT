@@ -24,11 +24,9 @@ import co.soft.service.UserService;
 public class UserController {
 
 	@Autowired
-	@Lazy
 	private UserService userService;
 
 //	@Resource(name = "loginUserBean")
-//	@Lazy
 //	private UserInfoBean loginuserBean;
 	
 	@RequestMapping("/join")
@@ -80,6 +78,11 @@ public class UserController {
 	public String logout(SessionStatus status) {
 		status.setComplete();
 		return "redirect:getMenuList";		
+	}
+	
+	@RequestMapping("/userUpdate")
+	public String userUpdate() {
+		return "/userinfo/userinfo_modify";
 	}
 	
 }
