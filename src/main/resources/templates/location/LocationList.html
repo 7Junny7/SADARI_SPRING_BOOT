@@ -8,7 +8,7 @@
 	<h2>location</h2>
 	<form th:action="@{updateLocation}" method="post">
 		<table th:each="loca, i: ${locationList}">
-			<tr>
+			<tr> 
 				<td>식당이름</td>
 				<td th:text="${loca.restaurant}"></td>
 			</tr>

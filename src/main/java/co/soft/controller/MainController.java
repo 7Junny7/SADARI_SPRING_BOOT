@@ -28,7 +28,7 @@ public class MainController {
 	public String start(Model model, MenuInfoBean menuinfo, UserInfoBean userinfo) {
 		model.addAttribute("loginUserBean", userinfo);
 		return "start";
-	}
+	} 
 	
 	@RequestMapping("/home") // OK
 	public String getMenuList(Model model, MapInfoBean mapinfo, UserInfoBean userinfo) {
