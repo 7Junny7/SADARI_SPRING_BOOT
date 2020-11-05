@@ -32,12 +32,12 @@ public class UserController {
 //	private UserInfoBean loginuserBean;
 	
 	@RequestMapping("/join")
-	public String join(@ModelAttribute("joinUserBean") UserInfoBean joinUserBean) {
+	public String joinView(@ModelAttribute("joinUserBean") UserInfoBean joinUserBean) {
 		return "/user/join";
 	}
 	
-	@PostMapping("/join_pro")
-	public String join_pro(@Valid @ModelAttribute("joinUSerBean") UserInfoBean joinUserBean,BindingResult result) {
+	@PostMapping("/join")
+	public String join(@Valid @ModelAttribute("joinUSerBean") UserInfoBean joinUserBean,BindingResult result) {
 	
 	if(result.hasErrors()) {
 		return "/user/false";
@@ -57,10 +57,12 @@ public class UserController {
 		return "/user/login";
 	}
 
-	@PostMapping("/login_pro")
-	public String login(@ModelAttribute("loginUserBean") UserInfoBean user, Model model) {
+	@PostMapping("/login")
+	public String login(@ModelAttribute("loginUserBean") UserInfoBean user, Model model,BindingResult result) {
+		if(result.hasErrors()) {
+			return "redirect:loginFail";
+		}
 		UserInfoBean findUser = userService.getUserInfo(user);
-
 		if (findUser != null && findUser.getUserPassword().equals(user.getUserPassword())) {
 			model.addAttribute("member", findUser);
 			return "redirect:home";
