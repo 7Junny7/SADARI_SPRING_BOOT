@@ -15,7 +15,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "MENU_INFO_TABLE")
 public class MenuInfoBean {
-
+ 
 	//좌상단 메뉴 인터셉터 용
 	//1.한식 - 11.면류, 12.육류, 13.탕/국/찌개/전골, 14.일반한식
 	//2.중식 - 21.일반중식, 22.마라, 23.양꼬치

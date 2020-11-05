@@ -11,7 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @ComponentScan("co.soft.*")
 public class SadariSpringBoot1Application {
-
+ 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SadariSpringBoot1Application.class, args);
 	}

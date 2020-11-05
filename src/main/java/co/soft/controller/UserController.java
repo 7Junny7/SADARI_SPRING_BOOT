@@ -64,7 +64,7 @@ public class UserController {
 			return "redirect:loginFail";
 		}
 	}
-	
+	 
 	@RequestMapping("/loginFail")
 	public String loginFail() {
 		return "/user/loginFail";

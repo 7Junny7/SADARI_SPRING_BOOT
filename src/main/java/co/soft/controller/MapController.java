@@ -22,7 +22,7 @@ public class MapController {
    
    @Autowired
    private MapService mapService;
-   
+    
    
    @GetMapping("/insertMap")
    public String insertMapView(UserInfoBean user,HttpServletRequest request,Model model) {

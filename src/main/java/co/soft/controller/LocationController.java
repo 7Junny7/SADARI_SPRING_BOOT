@@ -21,7 +21,7 @@ public class LocationController {
 
    @Autowired
    private LocationService locationService;
-   
+    
    @RequestMapping("/locationList")
    public String getLocationList(UserInfoBean user, Model model, LocationInfoBean loc) {
 //      if (user.getUserId() == null) { //목록만 보는거에는 로그인 필요 없을 듯?

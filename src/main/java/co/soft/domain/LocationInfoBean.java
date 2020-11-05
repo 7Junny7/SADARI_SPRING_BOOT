@@ -18,7 +18,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "LOCATION_INFO_TABLE")
 public class LocationInfoBean {
-	
+	 
 	
 	//글내용
 	

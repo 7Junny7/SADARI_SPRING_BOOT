@@ -14,7 +14,7 @@ import co.soft.persistence.UserRepository;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepo;
-
+ 
 	// 회원정보 입력
 	@Override
 	public void insertUser(UserInfoBean userinfo) {

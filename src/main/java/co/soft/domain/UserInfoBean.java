@@ -23,7 +23,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "USER_INFO_TABLE")
 public class UserInfoBean {
-	
+	 
 	
 //	@GeneratedValue
 //	private Long useridx;

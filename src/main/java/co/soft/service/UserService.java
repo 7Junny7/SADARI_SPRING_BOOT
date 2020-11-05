@@ -10,7 +10,7 @@ import co.soft.domain.UserInfoBean;
 public interface UserService {
 	//회원정보입력
 	void insertUser(UserInfoBean userinfo);
-	
+	 
 	//회원정보불러오기
 	List<UserInfoBean> selectUserAll(UserInfoBean userinfo);
 	

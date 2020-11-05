@@ -323,9 +323,8 @@ overflow-y:auto;
             지역 :
          <input name="location" id="location" value="" class="form-control"> 
          <br>
-         위치 : <input
-            type="hidden" id="latlngX" name="r_location_x" value="" class="form-control"> <input
-            type="hidden" id="latlngY" name="r_location_y" value="" class="form-control"> 
+     	<input type="hidden" id="latlngX" name="r_location_x" value="" class="form-control">
+        <input type="hidden" id="latlngY" name="r_location_y" value="" class="form-control"> 
          음식점 :<input type="text" name="restaurant" class="form-control"><br> 
          
          <input type="submit" value="글쓰기" class="btn btn-danger" style="background-color: #f97d66; width: 100%; border: 0;">
@@ -570,7 +569,6 @@ if(x.length != 0){
                 
                 var latlng = mouseEvent.latLng;//클릭한 위치 좌표
 
-                var add = detailAddr.split(" ");
                 // 마커를 클릭한 위치에 표시합니다 
                 marker.setPosition(mouseEvent.latLng);
                 marker.setMap(map);
@@ -583,7 +581,7 @@ if(x.length != 0){
                 var latlngY = latlng.getLng();
                 document.getElementById("latlngX").value=latlngX;
                 document.getElementById("latlngY").value=latlngY;
-                document.getElementById("location").value=add[1];
+                document.getElementById("location").value=detailAddr;
                   location.innerHTML=add[1];
             }   
         });

@@ -19,7 +19,7 @@ public class MainController {
 
 	@Autowired
 	private MapService mapService;
-
+ 
 	@RequestMapping("/") // OK
 	public String start() {
 		return "start";

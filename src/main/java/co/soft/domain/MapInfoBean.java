@@ -16,7 +16,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "MAP_INFO_TABLE")
 public class MapInfoBean {
-
+ 
 	// 맵정보
 	// 음식점 정보
 	@Id
