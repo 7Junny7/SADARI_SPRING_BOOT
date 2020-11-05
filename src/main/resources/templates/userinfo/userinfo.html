@@ -16,7 +16,10 @@
     </style>
 </head>
 <body  th:align="center" style="background-color: #f5f6f7">
-    <fieldset style="margin-left:40%; margin-top: 7%; border: 1px solid #f5f6f7; width: 410px;">
+    <div class="container" th:align="center">
+   
+      <div class="row" th:align="center">
+      <div class="table-responsive">
     <h1 style="color: #f97d66;">회원정보</h1>
     <br>
    <table th:align="center" th:cellpadding="0" th:cellspacing="0" style="border: 0; border-radius: 10px; width: 400px;" th:each="uinfo, i: ${getUserInfo}">
@@ -55,6 +58,8 @@
                class="btn btn-danger"  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;">정보수정</a></td>
       </tr>
     </table>
-</fieldset>
+    </div>
+    </div>
+    </div>
 </body>
 </html>
