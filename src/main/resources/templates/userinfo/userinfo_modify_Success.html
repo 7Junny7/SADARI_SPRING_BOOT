@@ -6,13 +6,10 @@
 </head>
 <body>
 	<script type="text/javascript">
-		if (window.name == "modify") {
-			window.opener.parent.location.href = ""; //
-		} else if (window.name == 'delete') {
-			alert('삭제되었습니다.');
-			window.opener.parent.location.href = ""; //
-		}
-		window.close();
+	window.onload=function(){
+		alert("수정 완료");
+		self.close();
+	}
 	</script>
 </body>
 </html>

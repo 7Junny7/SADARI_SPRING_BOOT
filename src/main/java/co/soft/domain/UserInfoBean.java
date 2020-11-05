@@ -27,11 +27,8 @@ public class UserInfoBean {
 	
 //	@GeneratedValue
 //	private Long useridx;
-	
-	@Transient	
-	private boolean userIdExist;
-	@Transient
-	private boolean userLogin;
+//	@Transient	
+//	private boolean userIdExist;
 	
 //	@Size(min = 4, max = 10)
 //	@Pattern(regexp = "[가-힣]*")
@@ -65,26 +62,5 @@ public class UserInfoBean {
 
 	@Size(min = 11,max = 11)
 	private String userPhone; // 전화번호
-	
-	public UserInfoBean() {
-		this.userIdExist = false;
-		this.userLogin = false;
-	}
-
-	public boolean isUserIdExist() {
-		return userIdExist;
-	}
-
-	public void setUserIdExist(boolean userIdExist) {
-		this.userIdExist = userIdExist;
-	}
-
-	public boolean isUserLogin() {
-		return userLogin;
-	}
-
-	public void setUserLogin(boolean userLogin) {
-		this.userLogin = userLogin;
-	}
 
 }

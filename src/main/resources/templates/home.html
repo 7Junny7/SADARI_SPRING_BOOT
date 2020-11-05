@@ -245,7 +245,7 @@
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/getUserInfoList" onclick="window.open(this.href,'_blank','width=600, height=800, toolbars=no, scrollbars=no'); return false;">마이페이지</a></li>
+					<li><a href="/getUserInfo" onclick="window.open(this.href,'_blank','width=600, height=800, toolbars=no, scrollbars=no'); return false;">마이페이지</a></li>
 					<li><a href="/login">로그아웃</a></li>
 				</ul>
 			</div>
@@ -316,7 +316,6 @@
 			th:hidden="${mapinfo.location}" th:value="${mapinfo.location}"
 			id="loc" />
 	</div>
-	<div th:if="${loginUserBean.userLogin == false }">
 		<form action="/insertMap" method="post">
 			음식점 :<input type="text" name="restaurant" class="form-control"><br> 위치 : <input
 				type="text" id="latlngX" name="r_location_x" value="" class="form-control"> <input
@@ -325,7 +324,6 @@
 			<br>
 			<input type="submit" value="보내기" class="btn btn-danger" style="background-color: #f97d66; width: 100%; border: 0;">
 		</form>
-	</div>
 		</div>
 			</div>
 			</div>

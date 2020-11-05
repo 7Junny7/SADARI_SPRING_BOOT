@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 	// 회원정보수정
 	@Override
 	public void updateUser(UserInfoBean userinfo) {
-		UserInfoBean userIdx = userRepo.findById(userinfo.getUserId()).get();
+		 userRepo.save(userinfo);
 	}
 
 	// 1인 회원정보 불러오기
@@ -59,11 +59,5 @@ public class UserServiceImpl implements UserService {
 		}else {
 			return null;
 		}
-//		return userRepo.findById(userinfo.getUseridx()).get();
 	}
-	
-	//@Override
-	//public List<UserInfoBean> getUserInfoList(UserInfoBean userinfo) {
-	//	return (List<UserInfoBean>) userRepo.findAll();
-	//}
 }

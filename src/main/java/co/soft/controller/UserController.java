@@ -1,11 +1,10 @@
 package co.soft.controller;
 
-import javax.annotation.Resource;
-
+import javax.persistence.metamodel.SetAttribute;
 import javax.validation.Valid;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,50 +18,50 @@ import org.springframework.web.bind.support.SessionStatus;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.UserService;
 
-@SessionAttributes("UserInfoBean")
+@SessionAttributes("user")
 @Controller
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 
-//	@Resource(name = "loginUserBean")
-//	private UserInfoBean loginuserBean;
 	
 	@RequestMapping("/join")
-	public String joinView(@ModelAttribute("joinUserBean") UserInfoBean joinUserBean) {
+	public String joinView(UserInfoBean user) {
 		return "/user/join";
 	}
 	
 	@PostMapping("/join")
-	public String join(@Valid @ModelAttribute("joinUSerBean") UserInfoBean joinUserBean,BindingResult result) {
+	public String join(@Valid UserInfoBean user,BindingResult result) {
 	
 	if(result.hasErrors()) {
 		return "/user/false";
 	}
 		
-	userService.insertUser(joinUserBean);
+	userService.insertUser(user	);
 	return "/user/join_success";
 	}
 	
-	@RequestMapping("/getUserInfoList")
-	public String getUserInfoList(Model model, UserInfoBean userinfo) {
+	@RequestMapping("/getUserInfo")	
+	public String getUserInfo(Model model,UserInfoBean user) {
+		model.getAttribute("user");
 		return "userinfo/userinfo";
 	}
 	
 	@RequestMapping("/login")
-	public String loginView(@ModelAttribute("loginUserBean") UserInfoBean user) {
+	public String loginView(UserInfoBean user) {
+		
 		return "/user/login";
 	}
 
 	@PostMapping("/login")
-	public String login(@ModelAttribute("loginUserBean") UserInfoBean user, Model model,BindingResult result) {
+	public String login(UserInfoBean user, Model model,BindingResult result) {
 		if(result.hasErrors()) {
 			return "redirect:loginFail";
 		}
 		UserInfoBean findUser = userService.getUserInfo(user);
 		if (findUser != null && findUser.getUserPassword().equals(user.getUserPassword())) {
-			model.addAttribute("member", findUser);
+			model.addAttribute("user", findUser);
 			return "redirect:home";
 		} else {
 			return "redirect:loginFail";
@@ -81,8 +80,15 @@ public class UserController {
 	}
 	
 	@RequestMapping("/userUpdate")
-	public String userUpdate() {
+	public String userUpdateView(Model model) {
+		model.getAttribute("user");
 		return "/userinfo/userinfo_modify";
+	}
+	@PostMapping("/userUpdate")
+	public String userUpdate(Model model,UserInfoBean user) {
+		userService.updateUser(user);
+		model.addAttribute("user",user);
+		return "/userinfo/userinfo_modify_Success";
 	}
 	
 }

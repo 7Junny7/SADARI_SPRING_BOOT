@@ -52,13 +52,11 @@ vertical-align:top;
                </tr>
                <tr>
                   <td th:text="작성자"></td>
-                  <td class="text-right"><input type="text" name="writer"  class="form-control" value="${user.nickName}">
-                     <br></td>
+                  <td class="text-right"><span th:text="${session['user'].userNickName}"></span><br>
                </tr>
                <tr>
                   <td th:text="지역"></td>
                   <td class="text-right"><span th:text="${map.location}"></span><br>
-                  <span th:text="${location}"></span><br></td>
                </tr>
                <tr>
                   <td th:text="장소"></td>
