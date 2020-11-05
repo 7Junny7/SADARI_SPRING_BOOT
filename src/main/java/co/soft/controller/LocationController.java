@@ -101,4 +101,10 @@ public class LocationController {
       locationService.deleteLocation(loc);
       return "forward:locationList";
    }
+   
+   @RequestMapping("/bbom")
+   public String bbom(Model model) {
+	   model.addAttribute("bbom",10000);
+	   return "/pay/Pay";
+   }
 }
