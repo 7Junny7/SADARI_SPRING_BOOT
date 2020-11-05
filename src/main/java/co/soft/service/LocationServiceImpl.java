@@ -19,11 +19,12 @@ public class LocationServiceImpl implements LocationService {
 	public List<LocationInfoBean> getLocationList(LocationInfoBean locinfo) {
 		return (List<LocationInfoBean>) locRepo.findAll();
 	}
+	
 	//글에대한정보 입력
 	public void insertLocation(LocationInfoBean locinfo) {
 		locRepo.save(locinfo);
 	}
-	//게시물한개 불러오기
+	//게시물 한개 불러오기
 	public LocationInfoBean getLocation(LocationInfoBean locinfo) {
 		return locRepo.findById(locinfo.getBoardidx()).get();
 	}
@@ -49,6 +50,11 @@ public class LocationServiceImpl implements LocationService {
 	//게시물 삭제
 	public void deleteLocation(LocationInfoBean locinfo) {
 		locRepo.deleteById(locinfo.getBoardidx());
+	}
+
+	//게시물 리스트 불러오기 by 메뉴 
+	public List<LocationInfoBean> getLocationListByFoodtype(String foodtype) {
+		return (List<LocationInfoBean>) locRepo.findAllByFoodType(foodtype);
 	}
 
 }

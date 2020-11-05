@@ -45,4 +45,9 @@ public class MapServiceImpl implements MapService{
 		mapRepo.deleteById(mapinfo.getRestaurant());
 	}
 
+	//게시물 리스트 불러오기 by 메뉴 
+	public List<MapInfoBean> getMapListByLocation(String location) {
+		return (List<MapInfoBean>) mapRepo.findAllByLocation(location);
+	}
+
 }

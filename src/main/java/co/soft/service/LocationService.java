@@ -6,8 +6,10 @@ import co.soft.domain.LocationInfoBean;
 
 public interface LocationService {
 
-	//리스트불러오기
+	//리스트불러오기 for location
 	List<LocationInfoBean> getLocationList(LocationInfoBean locinfo);
+	//게시물 리스트 불러오기 by 메뉴 
+	List<LocationInfoBean> getLocationListByFoodtype(String foodtype);
 	//글에대한정보입력
 	void insertLocation(LocationInfoBean locinfo);
 	//게시물 한개 불러오기
