@@ -1,15 +1,12 @@
 package co.soft.controller;
 
-import javax.persistence.metamodel.SetAttribute;
 import javax.validation.Valid;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -84,6 +81,7 @@ public class UserController {
 		model.getAttribute("user");
 		return "/userinfo/userinfo_modify";
 	}
+	
 	@PostMapping("/userUpdate")
 	public String userUpdate(Model model,UserInfoBean user) {
 		userService.updateUser(user);
