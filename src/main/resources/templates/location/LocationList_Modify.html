@@ -1,65 +1,139 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<style type="text/css">
+    tr{
+    height: 50px;
+    }
+    td{
+    vertical-align:top;
+    
+    }
+    
+    </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	function sub(){
-		var pw=document.getElementById("password").value;
-		var pw2=document.getElementById("password2").value;
-		if(pw != pw2){
-			alert("비밀번호가 일치하지 않습니다.")
-			return false;
-		}
-		return true;
-	}
+   function sub(){
+      var pw=document.getElementById("password").value;
+      var pw2=document.getElementById("password2").value;
+      if(pw != pw2){
+         alert("비밀번호가 일치하지 않습니다.")
+         return false;
+      }
+      return true;
+   }
 </script>
 </head>
-<body>
-	<h2>게시글 수정</h2>
-	<form action="updateLocation" th:onsubmit="return sub()" method="post">
-	<input th:value="${location}" type="text" id="loca" hidden="true"/>
-		<table>
-			<tr>
-				<td>글 제목</td>
-				<td th:readonly="${loca.subject}" name="subject" id="susbject" value="${loca.subject}"></td><!-- 제목, 수정 불가 -->
-				<td th:hidden="${loca.boardidx}" name="boardidx" id="boardidx" ><!-- 글번호 히든 -->
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="password" id="password"></td>
-				<td th:hidden="${loca.password}" name="password2" id="password2"></td> <!-- 기존 비밀번호 -->
-			</tr>
-			<tr>
-				<td><input type="date" name="date" id="date" value="${loca.date}"></td>
-				<td><input type="time" name="time" id="time" value="${loca.time"></td>
-			</tr>
-			<tr>
-				<td>작성자</td>
-				<td th:readonly="${loca.writer}" name="writer" id="writer" value="${writer}"></td><!-- 작성자, 수정불가 -->
-			</tr>
-			<tr>
-				<td>음식종류</td>
-				<td th:readonly="${loca.foodType}" name="foodType" id="foodType" value="${loca.foodType}"></td><!-- 음식종류, 수정불가 -->
-			</tr>
-			<tr>
-				<td>같이 먹고 싶은 사람</td>
-				<td th:text="${loca.wantWho}" name="wantWho" id="wantWho" value="${loca.wantWho}"></td>
-			</tr>
-			<tr>
-				<td>글 내용</td>
-				<td th:text="${loca.foodComment}" name="foodComment" id="foodComment"></td>
-				<td th:hidden="${loca.foodLikeScore}" name="foodLikeScore" id="foodLikeScore"></td>
-				<td th:hidden="${loca.foodLikePerson}" name="foodLikePerson" id="foodLikePerson"></td>
-			</tr>
-			<tr>
-				<td rowspan="2">
-					<input type="submit" value="수정">
-					<input type="reset" value="취소">
-				</td>
-			</tr>
-		</table>
-	</form>
-<a th:href="@{/locationList}">글목록</a>
+<body th:align="center" style="background-color: #f5f6f7">
+   <h2 style="display: inline;">게시글 수정</h2>
+    <a th:href="@{/locationList}">글목록</a>
+    <br>
+    <br>
+   <form action="updateLocation" th:onsubmit="return sub()" method="post">
+   <input th:value="${location}" type="text" id="loca" hidden="true"/>
+      <table th:align="center">
+         <tr>
+            <td>글 제목</td>
+            <td th:readonly="${loca.subject}" name="subject" id="susbject" value="${loca.subject}"></td><!-- 제목, 수정 불가 -->
+            <td th:hidden="${loca.boardidx}" name="boardidx" id="boardidx" ><!-- 글번호 히든 -->
+         </tr>
+            <tr>
+                <td>작성자</td>
+                <td th:readonly="${loca.writer}" name="writer" id="writer" value="${writer}"></td><!-- 작성자, 수정불가 -->
+            </tr>
+         <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="password" id="password" class="form-control"></td>
+            <td th:hidden="${loca.password}" name="password2" id="password2"></td> <!-- 기존 비밀번호 -->
+            </tr>
+            <tr>
+                <td th:text="장소"></td>
+                <td class="text-right"><span th:text="${map.restaurant}"></span><br>
+                <!-- 음식정명 --></td>
+            </tr>
+         <tr>
+                <td>음식종류</td>
+                <!-- <td th:readonly="${loca.foodType}" name="foodType" id="foodType" value="${loca.foodType}"></td>음식종류, 수정불가 -->
+                <td class="text-right">
+                    <select name="foodType" id="foodType"  class="form-control">
+                            <optgroup label="한식">
+                                <option value="면류" th:text="면류"></option>
+                                <option value="육류" th:text="육류"></option>
+                                <option value="탕/국/찌개/전골" th:text="국물류"></option>
+                                <option value="일반한식" th:text="일반한식"></option>
+                            </optgroup>
+
+                            <optgroup label="중식">
+                                <option value="일반중식" th:text="일반중식"></option>
+                                <option value="마라" th:text="마라"></option>
+                                <option value="양꼬치" th:text="양꼬치"></option>
+                            </optgroup>
+
+                            <optgroup label="일식">
+                                <option value="회/초밥" th:text="사시미"></option>
+                                <option value="면류" th:text="면류"></option>
+                                <option value="일본가정식" th:text="일본가정식"></option>
+                                <option value="튀김"  th:text="튀김"></option>
+                                <option value="꼬치" th:text="꼬치"></option>
+                            </optgroup>
+                            <optgroup label="분식">
+                                <option value="분식" th:text="분식"></option>
+                            </optgroup>
+                            <optgroup label="양식">
+                                <option value="양식" th:text="양식"></option>
+                            </optgroup>
+                            <optgroup label="패스트푸드">
+                                <option value="피자" th:text="피자"></option>
+                                <option value="치킨" th:text="치킨"></option>
+                                <option value="햄버거" th:text="햄버거"></option>
+                            </optgroup>
+                    </select> <!-- <input type="text" name="l_menu2" id="l_menu2" placeholder="상세메뉴(안적어도 괜찮아요)"> -->
+                        <br></td>
+         </tr>
+            <tr>
+              <td>시간</td>
+              <td><input type="date" name="date" id="date" value="${loca.date}" class="form-control">
+                     <input type="time" name="time" id="time" value="${loca.time}" class="form-control"></td>
+              </tr>
+         <tr>
+            <td>참가인원</td>
+                <!-- <td th:text="${loca.wantWho}" name="wantWho" id="wantWho" value="${loca.wantWho}"></td> -->
+                <td class="text-right">
+                    <select name="peoples" id="peoples" class="form-control">
+                    <option value="2" th:text="2"></option>
+                    <option value="3" th:text="3"></option>
+                    <option value="4" th:text="4"></option>
+                    <option value="5" th:text="5"></option>
+                    <option value="6" th:text="6"></option>
+                    </select>
+                    <br></td>
+         </tr>
+         <tr>
+            <td>글 내용</td>
+            <!-- <td th:text="${loca.foodComment}" name="foodComment" id="foodComment"></td> -->
+            <td th:hidden="${loca.foodLikeScore}" name="foodLikeScore" id="foodLikeScore"></td>
+            <td th:hidden="${loca.foodLikePerson}" name="foodLikePerson" id="foodLikePerson"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea rows="10" cols="50" name="foodComment"
+                        id="foodComment"  class="form-control" th:text="${loca.foodComment}"></textarea><br>
+                </td>
+            </tr>
+         <tr>
+            <td>
+                    <input type="submit" value="수정" class="btn btn-danger" style="background-color: #f97d66; width: 190px; border: 0;">
+                </td>
+                <td>
+               <input type="reset" value="취소" class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0;">
+            </td>
+         </tr>
+      </table>
+   </form>
 </body>
 </html>
