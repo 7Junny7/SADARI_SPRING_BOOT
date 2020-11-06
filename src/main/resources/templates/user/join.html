@@ -143,7 +143,24 @@ function subj(){
 				</tr>
 				<tr>
 					<td><input type="text" name="userPhone" id="userPhone"
-						class="form-control" placeholder="-없이 숫자만 입력"><br></td>
+						class="form-control" placeholder="-없이 숫자만 입력" style="display: inline; width: 250px">
+						<button id="PhoneBtn" class="btn btn-danger"
+							style="display: inline; width: 140px; background-color: #f97d66; border: 0;"
+							onclick="checkUserIdExist()" th:text="인증번호전송"></button>
+						<br><br>
+						</td>
+				</tr>
+					<tr>
+					<td th:text="전화번호인증"></td>
+				</tr>
+						<tr>
+					<td><input type="text" name="certiNum" id="certiNum"
+						class="form-control" placeholder="숫자 4자리" style="display: inline; width: 250px">
+						<button id="certiBtn" class="btn btn-danger"
+							style="display: inline; width: 140px; background-color: #f97d66; border: 0;"
+							onclick="checkUserIdExist()" th:text="인증번호확인"></button>
+						<br><br>
+						</td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" class="btn btn-danger"
@@ -209,6 +226,49 @@ function checkUserIdExist(){
 function resetUserIdExist(){
    $("#userIdExist").val('false')
 }
+
+$('#PhoneBtn').click(function(){
+    let phoneNumber = $('#inputPhoneNumber').val();
+    Swal.fire('인증번호 발송 완료!')
+
+
+    $.ajax({
+        type: "GET",
+        url: "/check/sendSMS",
+        data: {
+            "phoneNumber" : phoneNumber
+        },
+        success: function(res){
+            $('#checkBtn').click(function(){
+                if($.trim(res) ==$('#inputCertifiedNumber').val()){
+                    Swal.fire(
+                        '인증성공!',
+                        '휴대폰 인증이 정상적으로 완료되었습니다.',
+                        'success'
+                    )
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/update/phone",
+                        data: {
+                            "phoneNumber" : $('#inputPhoneNumber').val()
+                        }
+                    })
+                    document.location.href="/home";
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: '인증오류',
+                        text: '인증번호가 올바르지 않습니다!',
+                        footer: '<a href="/home">다음에 인증하기</a>'
+                    })
+                }
+            })
+
+
+        }
+    })
+});
 </script>
 </body>
 </html>
