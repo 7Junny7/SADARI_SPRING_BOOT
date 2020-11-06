@@ -227,7 +227,7 @@ function resetUserIdExist(){
    $("#userIdExist").val('false')
 }
 
-$('#sendPhoneNumber').click(function(){
+$('#PhoneBtn').click(function(){
     let phoneNumber = $('#inputPhoneNumber').val();
     Swal.fire('인증번호 발송 완료!')
 
@@ -248,7 +248,7 @@ $('#sendPhoneNumber').click(function(){
                     )
 
                     $.ajax({
-                        type: "GET",
+                        type: "POST",
                         url: "/update/phone",
                         data: {
                             "phoneNumber" : $('#inputPhoneNumber').val()
