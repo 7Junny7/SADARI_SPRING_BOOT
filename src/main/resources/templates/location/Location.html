@@ -11,73 +11,73 @@
 </head>
 <body>
 	<h2>location</h2>
-	<form th:action="@{updateLocation}" method="post">
+	<!-- <form th:action="@{updateLocation}" method="post">
 		<table border="1">
 			<tr> 
 				<td>식당이름</td>
-				<td th:text="${session[loca].restaurant}"></td>
+				<td th:text="${session['loca'].restaurant}"></td>
 			</tr>
 			<tr>
 				<td>위치</td>
-				<td th:text="${session[loca].location}"></td>
+				<td th:text="${session['loca'].location}"></td>
 			</tr>
 			<tr>
-				<td th:hidden="${session[loca].r_location_x}"></td>
+				<td th:hidden="${session['loca'].r_location_x}"></td>
 			</tr>
 			<tr>
-				<td th:hidden="${session[loca].r_location_y}"></td>
+				<td th:hidden="${session['loca'].r_location_y}"></td>
 			</tr>
 			<tr>
 				<td>음식종류</td>
-				<td th:text="${session[loca].foodType}"></td>
+				<td th:text="${session['loca'].foodType}"></td>
 			</tr>
 			<tr>
-				<td th:hidden="${session[loca].foodLikeScore}"></td>
+				<td th:hidden="${session['loca'].foodLikeScore}"></td>
 			</tr>
 			<tr>
-				<td th:hidden="${session[loca].foodLikePerson}"></td>
+				<td th:hidden="${session['loca'].foodLikePerson}"></td>
 			</tr>
 			<tr>
-				<td th:hidden="${session[loca].boardidx}"></td>
+				<td th:hidden="${session['loca'].boardidx}"></td>
 			</tr>
 			<tr>
 				<td>글 제목</td>
-				<td th:text="${session[loca].subject}"></td>
+				<td th:text="${session['loca'].subject}"></td>
 			</tr>
 			<tr>
 				<td>날짜</td>
-				<td th:text="${session[loca].date}"></td>
+				<td th:text="${session['loca'].date}"></td>
 			</tr>
 			<tr>
 				<td>시간</td>
-				<td th:text="${session[loca].hour}"></td>
+				<td th:text="${session['loca'].hour}"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td th:text="${session[loca].writer}"></td>
+				<td th:text="${session['loca'].writer}"></td>
 			</tr>
 			<tr>
 				<td>작성시간</td>
-				<td th:text="${session[loca].writingTime}"></td>
+				<td th:text="${session['loca'].writingTime}"></td>
 			</tr>
 			<tr>
 				<td>함께 식사하고 싶은 사람</td>
-				<td th:text="${session[loca].wantWho}"></td>
+				<td th:text="${session['loca'].wantWho}"></td>
 			</tr>
 			<tr>
 				<td>작성내용</td>
-				<td th:text="${session[loca].foodComment}"></td>
+				<td th:text="${session['loca'].foodComment}"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 				<input type="submit" value="글 수정"></td>
 			</tr>
 		</table>
-	</form>
-	<!-- <a th:href="@{/insertLocation}">글 등록</a>&nbsp;&nbsp;&nbsp; -->
+	</form> -->
+	<!-- <a th:href="@{/insertLocation}">글 등록</a>&nbsp;&nbsp;&nbsp; 
 	<a th:if="${session['member'].role == 'ROLE_ADMIN'}"
 		th:href="@{/deleteLocation(seq=${board.seq})}">글 삭제</a>&nbsp;&nbsp;&nbsp;
-	<a th:href="@{/locationList}">글 목록</a>
+	<a th:href="@{/locationList}">글 목록</a>-->
 
 </body>
 </html>

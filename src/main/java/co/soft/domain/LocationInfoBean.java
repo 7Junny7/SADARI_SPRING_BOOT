@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -18,12 +20,8 @@ import lombok.ToString;
 @Entity
 @Table(name = "LOCATION_INFO_TABLE")
 public class LocationInfoBean {
-	 
-	
 	//글내용
-	
 	@Id
-	@GeneratedValue
 	private Long boardidx; //글번호 히든
 	
 	@Column(updatable = false)

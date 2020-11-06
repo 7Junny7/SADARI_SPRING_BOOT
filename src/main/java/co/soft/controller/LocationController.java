@@ -15,12 +15,17 @@ import co.soft.domain.LocationInfoBean;
 import co.soft.domain.MapInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.LocationService;
+import co.soft.service.MapService;
+import co.soft.service.UserService;
 @SessionAttributes("user")
 @Controller
 public class LocationController {
 
    @Autowired
    private LocationService locationService;
+   
+   @Autowired 
+   private MapService mapService;
     
    @RequestMapping("/locationList")
    public String getLocationList(UserInfoBean user, Model model, LocationInfoBean loc) {
@@ -106,5 +111,14 @@ public class LocationController {
    public String bbom(Model model) {
 	   model.addAttribute("bbom",10000);
 	   return "/pay/Pay";
+   }
+   
+   @RequestMapping("/location")
+   public String location(Model model, MapInfoBean map,LocationInfoBean loc) {
+	   System.out.println(locationService.getLocationListByFoodtype(loc.getFoodType()));
+	   System.out.println(mapService.getMapListByLocation(map.getLocation()));
+	   model.addAttribute(loc);
+	   model.addAttribute(map);
+	   return "/location/Location";
    }
 }

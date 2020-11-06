@@ -230,52 +230,51 @@ body {
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> 한식 </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">면류</a> <a
-							class="dropdown-item" href="#">육류</a>
-						<a class="dropdown-item" href="#">탕/국/찌개</a>
-							<a class="dropdown-item" href="#">일반한식</a>
-					</div></li>
-			<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> 중식 </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">일반중식</a> <a
-							class="dropdown-item" href="#">마라</a>
-						<a class="dropdown-item" href="#">양꼬치</a>
-					</div></li>
-					<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> 일식 </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">사시미</a> 
-						<a class="dropdown-item" href="#">면류</a>
-						<a class="dropdown-item" href="#">일본가정식</a>
-							<a class="dropdown-item" href="#">튀김</a>
-						<a class="dropdown-item" href="#">꼬치</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link" href="#">분식</a></li>
-				
-				<li class="nav-item"><a class="nav-link" href="#">양식</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> 패스트푸드 </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">피자</a> <a
-							class="dropdown-item" href="#">치킨</a>
-						<a class="dropdown-item" href="#">햄버거</a>
-					</div></li>
-			
-			</ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> 한식 </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/topmenu?menu=면류">면류</a> 
+                  <a class="dropdown-item" href="/topmenu?menu=육류">육류</a>
+                  <a class="dropdown-item" href="/topmenu?menu=탕/국/찌개">탕/국/찌개</a>
+                  <a class="dropdown-item" href="/topmenu?menu=일반한식">일반한식</a>
+               </div></li>
+         <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> 중식 </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/topmenu?menu=일반중식">일반중식</a> 
+                  <a class="dropdown-item" href="/topmenu?menu=마라">마라</a>
+                  <a class="dropdown-item" href="/topmenu?menu=양꼬치">양꼬치</a>
+               </div></li>
+               <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> 일식 </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/topmenu?menu=사시미">사시미</a> 
+                  <a class="dropdown-item" href="/topmenu?menu=면류">면류</a>
+                  <a class="dropdown-item" href="/topmenu?menu=일본가정식">일본가정식</a>
+                  <a class="dropdown-item" href="/topmenu?menu=튀김">튀김</a>
+                  <a class="dropdown-item" href="/topmenu?menu=꼬치">꼬치</a>
+               </div></li>
+            <li class="nav-item"><a class="nav-link" href="/topmenu?menu=분식">분식</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="/topmenu?menu=양식">양식</a></li>
+            <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> 패스트푸드 </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/topmenu?menu=피자">피자</a> <a
+                     class="dropdown-item" href="/topmenu?menu=치킨">치킨</a>
+                  <a class="dropdown-item" href="/topmenu?menu=햄버거">햄버거</a>
+               </div></li>
+         </ul>
 			
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/getUserInfo"
@@ -349,6 +348,7 @@ body {
 						th:value="${mapinfo.r_location_y}" id="y" /> <input name="loc"
 						th:hidden="${mapinfo.location}" th:value="${mapinfo.location}"
 						id="loc" />
+						<input th:hidden="${mapinfo.boardidx}" th:value="${mapinfo.boardidx}" name="boardidx">
 				</div>
 				<form action="/insertMap" method="post">
 					지역 : <input name="location" id="location" value=""
@@ -359,10 +359,10 @@ body {
 						name="restaurant" class="form-control"><br> <input
 						type="submit" value="글쓰기" class="btn btn-danger"
 						style="background-color: #f97d66; width: 100%; border: 0;">
+						<input th:hidden="${userinfo.userNickName}" th:value="${userinfo.userNickName}">
 				</form>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 <script type="text/javascript"
@@ -372,6 +372,7 @@ body {
    var y = document.getElementsByName("y");
    var res = document.getElementsByName("res");
    var loc = document.getElementsByName("loc");
+   var idx = document.getElementsByName("boardidx");
    var markers = [];
 
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -490,11 +491,10 @@ if(x.length != 0){
 
    //검색결과 항목을 Element로 반환하는 함수입니다
    function getListItem(index, places) {
-
       var el = document.createElement('li'), itemStr = '<span class="markerbg marker_'
             + (index + 1)
             + '"></span>'
-            + '<div class="info">'
+            + '<a href="/location?boardidx="+idx[index].value><div class="info">'
             + '   <h5>'
             + res[index].value + '</h5>';
 
@@ -504,8 +504,8 @@ if(x.length != 0){
          itemStr += '    <span>' + loc[index].value + '</span>';
       }
 
-      //itemStr += '  <span class="tel">' + places.phone + '</span>' + '</div>';
-
+      itemStr +='</div></a>';
+//<span class="tel">' + places.phone + '</span>' 
       el.innerHTML = itemStr;
       el.className = 'item';
 

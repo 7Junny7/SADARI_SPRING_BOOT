@@ -31,17 +31,18 @@ public class MapController {
 //	  }
       model.addAttribute("latlngX",request.getParameter("latlngX"));
       model.addAttribute("latlngY",request.getParameter("latlngY"));
-   
+      model.addAttribute("boardidx",request.getParameter("boardidx"));
       return "/map/Map"; //맵 작성 페이지 지정할 것
    }
    
    @PostMapping("/insertMap")
-   public String insertMap(UserInfoBean user, MapInfoBean map,Model model) {
+   public String insertMap(UserInfoBean user, MapInfoBean map,Model model, HttpServletRequest request) {
 //      if (user.getUserId() == null) { //로그인 안하면 작성 못함
 //         return "redirect:login";
 //      }
-	  model.addAttribute("map",map);
       mapService.insertMap(map);
+      System.out.println(map);
+      model.addAttribute("map",map);
       return "/location/Location_Write";
    }
    

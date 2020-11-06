@@ -31,20 +31,20 @@ vertical-align:top;
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
    <div class="container" th:align="center">
-   
       <div class="row" th:align="center">
       <div class="table-responsive">
          <h3 th:text="글쓰기" style="display: inline;"></h3>
       <a th:href="@{/locationList}" th:text="글목록"></a>
       <br>
       <br>
-         <form action="insertLocation" method="post">
+       <form action="insertLocation" method="post">
             <table th:align="center" border="0" th:cellpadding="0"
                th:cellspacing="0" style="width: 400px;">
 
                <tr>
                   <td th:text="제목"></td>
                   <td class="text-right"><input type="text" name="subject" id="subject" class="form-control"><br></td>
+                     <input type="hidden" th:value="${map.boardidx}" name="boardidx">
                </tr>
                <tr>
                   <td th:text="글암호"></td>
@@ -52,7 +52,7 @@ vertical-align:top;
                </tr>
                <tr>
                   <td th:text="작성자"></td>
-                  <td class="text-right"><span th:text="${session['user'].userNickName}"></span><br>
+                  <td class="text-right"><input th:value="${session['user'].userNickName}" name="writer" readonly="readonly" class="form-control"><br>
                </tr>
                <tr>
                   <td th:text="지역"></td>
@@ -60,7 +60,7 @@ vertical-align:top;
                </tr>
                <tr>
                   <td th:text="장소"></td>
-                  <td class="text-right"><span th:text="${map.restaurant}"></span><br>
+                  <td class="text-right"><input th:value="${map.restaurant}" name="restaurant" readonly="readonly" class="form-control"></span><br>
                   <!-- 음식정명 --></td>
                </tr>
                <tr>
@@ -109,7 +109,7 @@ vertical-align:top;
                <tr>
                   <td th:text="참가인원"></td>
                   <td class="text-right">
-                  <select name="peoples" id="peoples" class="form-control">
+                  <select name="wantWho" id="wantWho" class="form-control">
                   <option value="2" th:text="2"></option>
                   <option value="3" th:text="3"></option>
                   <option value="4" th:text="4"></option>
