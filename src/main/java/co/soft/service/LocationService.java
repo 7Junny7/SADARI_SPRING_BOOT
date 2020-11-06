@@ -5,7 +5,7 @@ import java.util.List;
 import co.soft.domain.LocationInfoBean;
 
 public interface LocationService {
- 
+  
 	//리스트불러오기 for location
 	List<LocationInfoBean> getLocationList(LocationInfoBean locinfo);
 	//게시물 리스트 불러오기 by 메뉴 

@@ -122,7 +122,7 @@ public class LocationController {
 	   model.addAttribute("loc",idx);
 	   return "/location/Location";
    }
-   
+    
    @RequestMapping("/topmenu")
    public String topMenu(HttpServletRequest request) {
 	   String menu1=request.getParameter("menu"); //OK

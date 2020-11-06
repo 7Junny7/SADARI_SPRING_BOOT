@@ -14,7 +14,7 @@ public class LocationServiceImpl implements LocationService {
  
 	@Autowired
 	private LocationRepository locRepo;
-
+ 
 	//리스트 불러오기
 	public List<LocationInfoBean> getLocationList(LocationInfoBean locinfo) {
 		return (List<LocationInfoBean>) locRepo.findAll();
