@@ -22,7 +22,7 @@ import co.soft.service.UserService;
 @SessionAttributes("user")
 @Controller
 public class LocationController {
-
+ 
    @Autowired
    private LocationService locationService;
    

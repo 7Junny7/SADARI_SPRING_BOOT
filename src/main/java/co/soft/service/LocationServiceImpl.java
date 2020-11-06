@@ -11,7 +11,7 @@ import co.soft.persistence.LocationRepository;
 
 @Service
 public class LocationServiceImpl implements LocationService {
-
+ 
 	@Autowired
 	private LocationRepository locRepo;
 
