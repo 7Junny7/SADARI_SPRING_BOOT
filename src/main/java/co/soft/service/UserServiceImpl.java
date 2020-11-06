@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.soft.domain.MenuInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.persistence.UserRepository;
 
@@ -60,4 +59,16 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 	}
+	
+	public String idCheck(String userId) {
+        System.out.println(userRepo.findById(userId));
+
+        if (userRepo.findById(userId) == null) {
+            return "YES";
+        } else {
+            return "NO";
+        }
+
+    }
+	
 }
