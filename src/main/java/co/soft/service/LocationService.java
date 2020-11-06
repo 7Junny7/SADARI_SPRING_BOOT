@@ -20,5 +20,6 @@ public interface LocationService {
 	void updateLocationLike(LocationInfoBean locinfo);
 	//게시물 삭제
 	void deleteLocation(LocationInfoBean locinfo);
-
+	//boardidx값으로 리스트불러오기
+	LocationInfoBean getLocation(Long idx);
 }

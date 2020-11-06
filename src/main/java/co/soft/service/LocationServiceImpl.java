@@ -56,5 +56,9 @@ public class LocationServiceImpl implements LocationService {
 	public List<LocationInfoBean> getLocationListByFoodtype(String foodtype) {
 		return (List<LocationInfoBean>) locRepo.findAllByFoodType(foodtype);
 	}
+	//게시물 리스트 boardidx로 불러오기
+	public LocationInfoBean getLocation(Long idx) {
+		return (LocationInfoBean)locRepo.findByBoardidx(idx);
+	}
 
 }

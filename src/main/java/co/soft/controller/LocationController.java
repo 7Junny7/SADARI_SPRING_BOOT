@@ -116,11 +116,10 @@ public class LocationController {
    }
    
    @RequestMapping("/location")
-   public String location(Model model, MapInfoBean map,LocationInfoBean loc) {
-	   System.out.println(locationService.getLocationListByFoodtype(loc.getFoodType()));
-	   System.out.println(mapService.getMapListByLocation(map.getLocation()));
-	   model.addAttribute(loc);
-	   model.addAttribute(map);
+   public String location(Model model, MapInfoBean map,LocationInfoBean loc,HttpServletRequest request) {
+	   Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+	   LocationInfoBean idx = locationService.getLocation(boardidx);
+	   model.addAttribute("loc",idx);
 	   return "/location/Location";
    }
    
