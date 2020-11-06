@@ -2,6 +2,8 @@ package co.soft.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -120,5 +122,14 @@ public class LocationController {
 	   model.addAttribute(loc);
 	   model.addAttribute(map);
 	   return "/location/Location";
+   }
+   
+   @RequestMapping("/topmenu")
+   public String topMenu(HttpServletRequest request) {
+	   String menu1=request.getParameter("menu"); //OK
+	   String menu=(String)request.getAttribute("menu"); //NO
+	   System.out.println(menu+"ac8"+menu1);
+	   
+	   return "forward:home";
    }
 }
