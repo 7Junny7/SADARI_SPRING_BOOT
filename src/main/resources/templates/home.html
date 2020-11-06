@@ -369,10 +369,10 @@ body {
 	//글쓰기용
 	
 	function goSubmit(){
-		   var gsWin = window.open('about:blank','같이 먹을려?!','width=430,height=500,location=no,status=no,scrollbars=yes');
+		   var gsWin = window.open('/insertMap','about:blank','width=430,height=800,location=no,status=no,scrollbars=yes');
 		   var frm = document.form;
 		   frm.action = '/insertMap';
-		   frm.target = '같이 먹을려!?';
+		   frm.target = 'about:blank';
 		   frm.method = "post";
 		   frm.submit();
 		   //window.open('/insertMap,'_blank','width=430,height=500,location=no,status=no,scrollbars=yes'); 
