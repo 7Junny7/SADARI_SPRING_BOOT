@@ -73,7 +73,7 @@ public class UserController {
 	@GetMapping("/logout")
 	public String logout(SessionStatus status) {
 		status.setComplete();
-		return "redirect:getMenuList";		
+		return "redirect:login";		
 	}
 	
 	@RequestMapping("/userUpdate")

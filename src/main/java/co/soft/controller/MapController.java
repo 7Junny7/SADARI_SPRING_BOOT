@@ -29,10 +29,19 @@ public class MapController {
 //	  if (user.getUserId() == null) { //로그인 안하면 작성 못함
 //		   return "redirect:login";
 //	  }
-      model.addAttribute("latlngX",request.getParameter("latlngX"));
-      model.addAttribute("latlngY",request.getParameter("latlngY"));
-      model.addAttribute("boardidx",request.getParameter("boardidx"));
-      return "/map/Map"; //맵 작성 페이지 지정할 것
+	  String res=request.getParameter("w_res");
+	  String x=request.getParameter("w_x");
+	  String y=request.getParameter("w_y");
+	  String loc=request.getParameter("w_loc");
+	  MapInfoBean map=new MapInfoBean();
+	  map.setRestaurant(res);
+	  map.setR_location_x(x);
+	  map.setR_location_y(y);
+	  map.setLocation(loc);
+	  
+      mapService.insertMap(map);
+      model.addAttribute("map",map);
+      return "/location/Location_Write"; //맵 작성 페이지 지정할 것
    }
    
    @PostMapping("/insertMap")
@@ -41,7 +50,6 @@ public class MapController {
 //         return "redirect:login";
 //      }
       mapService.insertMap(map);
-      System.out.println(map);
       model.addAttribute("map",map);
       return "/location/Location_Write";
    }
