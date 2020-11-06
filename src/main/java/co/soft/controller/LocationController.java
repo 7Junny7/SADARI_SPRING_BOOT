@@ -124,10 +124,12 @@ public class LocationController {
    }
     
    @RequestMapping("/topmenu")
-   public String topMenu(HttpServletRequest request) {
-	   String menu1=request.getParameter("menu"); //OK
-	   String menu=(String)request.getAttribute("menu"); //NO
-	   System.out.println(menu+"ac8"+menu1);
+   public String topMenu(HttpServletRequest request, Model model) {
+	   String menu=request.getParameter("menu"); //OK
+	   System.out.println(menu);
+	   List<LocationInfoBean> locationList = locationService.getLocationListByFoodtype(menu);
+	   System.out.println(locationList);
+	   model.addAttribute("menu",menu);
 	   
 	   return "forward:home";
    }
