@@ -205,7 +205,7 @@ function checkUserIdExist(){
       alert('아이디를 입력해주세요')
       return false;
    }
-    
+   
    $.ajax({
       url : '${root}user/checkUserIdExist/' + user_id,
       type : 'get',

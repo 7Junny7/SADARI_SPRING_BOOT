@@ -16,7 +16,7 @@ public class PhoneController {
 	@GetMapping("/check/sendSMS")
     public @ResponseBody
     String sendSMS(String phoneNumber) {
- 
+
         Random rand  = new Random();
         String numStr = "";
         for(int i=0; i<4; i++) {
