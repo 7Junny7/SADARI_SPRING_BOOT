@@ -25,6 +25,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <style type="text/css">
+
+
 .map_wrap, .map_wrap * {
 	margin: 0;
 	padding: 0;
@@ -357,6 +359,7 @@ body {
 						 <span th:hidden="${userinfo.userNickName}" th:value="${userinfo.userNickName}"></span>
 					음식점 :<input type="text" id="restaurant" name="restaurant" class="form-control"><br>
 						 <input type="button" class="btn btn-danger" style="background-color: #f97d66; width: 100%; border: 0;" onclick="goSubmit()" value="글쓰기">
+						 
 				</form>
 			</div>
 		</div>
@@ -366,12 +369,13 @@ body {
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d8f60004496cc3864b4652c1723cc364&libraries=services"></script>
 <script type="text/javascript">
 
-	//글쓰기용
-	
+
+
+	//새창띄우기
 	function goSubmit(){
-		   var gsWin = window.open('/insertMap','about:blank','width=430,height=800,location=no,status=no,scrollbars=yes');
+		   var gsWin = window.open('/insertMap', 'about:blank', 'status=no, height=700, width=430,scrollbars=yes, left='+ 700 + ', top='+ 150 + ', screenX='+ 700 + ', screenY= '+ 150);
 		   var frm = document.form;
-		   frm.action = '/insertMap';
+		   frm.action = '/insertMap'; 
 		   frm.target = 'about:blank';
 		   frm.method = "post";
 		   frm.submit();
