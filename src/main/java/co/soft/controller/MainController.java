@@ -25,6 +25,7 @@ public class MainController {
 		return "start";
 	} 
 	
+	
 	@RequestMapping("/home") // OK
 	public String getMenuList(Model model, MapInfoBean mapinfo, UserInfoBean user) {
 //	   if (user.getUserId() == null) { //로그인 안하면 작성 못함

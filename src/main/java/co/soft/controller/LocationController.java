@@ -151,6 +151,7 @@ public class LocationController {
 			  System.out.println("조건문 통과");
 		  }
 	   }
+	   
 	   if(menu == "" || menu.equals("") || menu == null) {
 		   List<MapInfoBean> mapList = mapService.getMapList(mapinfo);
 		   for(int i=0; i<mapList.size(); i++) {

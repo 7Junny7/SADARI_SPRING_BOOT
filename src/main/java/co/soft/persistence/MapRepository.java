@@ -12,5 +12,4 @@ public interface MapRepository extends JpaRepository<MapInfoBean, String>{
 	List<MapInfoBean> findAllByLocation(String location);
 	
 	List<MapInfoBean> findByBoardidx(Long idx);
-	
 }

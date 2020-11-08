@@ -25,5 +25,4 @@ public interface MapService {
 	
 	List<MapInfoBean> locList(Long idx);
 	
-
 }

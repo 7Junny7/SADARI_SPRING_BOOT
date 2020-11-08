@@ -41,6 +41,7 @@ public class MapServiceImpl implements MapService{
 		
 	}
 
+	
 	public void deleteMap(MapInfoBean mapinfo) {
 		mapRepo.deleteById(mapinfo.getRestaurant());
 	}
