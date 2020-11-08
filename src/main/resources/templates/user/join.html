@@ -32,6 +32,7 @@ h2 {
 	text-align: center;
 	margin: 3%;
 } 
+
 </style>
 <script>
 function subj(){
@@ -50,6 +51,7 @@ function subj(){
    //암호 빈칸 확인 & 암호 일치 확인
    if(userPassword.length == 0 || userPassword2.length == 0){
       alert("비밀번호를 입력해 주세요!");
+     // Swal.fire('비번!');
       return false;
    }else if(userPassword != userPassword2){
       alert("입력하신 비밀번호가 일치하지 않습니다.");
@@ -79,7 +81,7 @@ function subj(){
 	
 
 
-	<form th:action="@{/join}" method="post" onsubmit="return subj(this);">
+	<form th:action="@{/join}" method="post">
 		<input type="hidden" id="userIdExist">
 		<div class="table-responsive">
 			<table th:align="center" th:cellpadding="0" th:cellspacing="0"
@@ -91,11 +93,8 @@ function subj(){
 					<td><input type="text" name="userId" id="userId"
 						class="form-control" onkeypress="resetUserIdExist()"
 						placeholder="아이디를 입력하세요" style="display: inline; width: 300px">
-						<button id="temp" class="btn btn-danger"
-							style="display: inline; width: 90px; background-color: #f97d66; border: 0;"
-							onclick="checkUserIdExist()" th:text="중복확인"></button>
-						<div class="text-center small mt-2" id="checkMsg"
-							style="color: red"></div></td>
+						<input type="button" id="temp" name="temp" class="btn btn-danger" style="display: inline; width: 90px; background-color: #f97d66; border: 0;" th:value="중복확인">
+						<div class="text-center small mt-2" id="checkMsg">　</div></td>
 				</tr>
 				<tr>
 					<td th:text="비밀번호"></td>
@@ -144,9 +143,9 @@ function subj(){
 				<tr>
 					<td><input type="text" name="userPhone" id="userPhone"
 						class="form-control" placeholder="-없이 숫자만 입력" style="display: inline; width: 250px">
-						<button id="PhoneBtn" class="btn btn-danger"
+						<input type="button" id="PhoneBtn" class="btn btn-danger"
 							style="display: inline; width: 140px; background-color: #f97d66; border: 0;"
-							onclick="checkUserIdExist()" th:text="인증번호전송"></button>
+							onclick="" th:value="인증번호전송"></button>
 						<br><br>
 						</td>
 				</tr>
@@ -156,16 +155,16 @@ function subj(){
 						<tr>
 					<td><input type="text" name="certiNum" id="certiNum"
 						class="form-control" placeholder="숫자 4자리" style="display: inline; width: 250px">
-						<button id="certiBtn" class="btn btn-danger"
+						<input type="button" id="certiBtn" class="btn btn-danger"
 							style="display: inline; width: 140px; background-color: #f97d66; border: 0;"
-							onclick="checkUserIdExist()" th:text="인증번호확인"></button>
+							onclick="" th:value="인증번호확인"></button>
 						<br><br>
 						</td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" class="btn btn-danger"
 						style="background-color: #f97d66; width: 400px; border: 0;"
-						value="가입하기"></td>
+						value="가입하기" onclick="return subj(this);"></td>
 				</tr>
 			</table>
 		</div>
@@ -173,6 +172,36 @@ function subj(){
 
 
 	<script type="text/javascript">
+	
+	  $('#temp').click(function () {
+		  if ($('#userId').val() == '') {
+              $('#checkMsg').html('<span style="color:red">아이디를 입력해주세요</span>');
+          }
+	        $.ajax({
+	            type: "GET",
+	            url: "/idCheck",
+	            dataType : "text",
+	            contentType : "text/plain; charset=utf-8;",
+	            data: {
+	                "id": $('#userId').val()
+	            },
+	            success: function (data) {	
+	                    if ($('#userId').val() != '') {
+	                		if ($.trim(data) == "YES") {
+	                        	$('#checkMsg').html('<span style="color:blue">사용가능한 ID 입니다!</span>');
+	                   			 } 
+	                		else {
+	                       		$('#checkMsg').html('<span style="color:red">이미 사용중인 ID 입니다. 다른 ID를 입력하세요.</span>');
+	                       	 	$('#userId').val('');
+	                        	$('#userId').focus();
+	                			}
+	            		 }
+	            		}
+	        })
+	    });
+	
+	
+	
    /*
    $('.idCheck').click(function(){
       $.ajax({
@@ -206,11 +235,23 @@ function checkUserIdExist(){
       alert('아이디를 입력해주세요')
       return false;
    }
+   
    $.ajax({
-      url : '${root}user/checkUserIdExist/' + user_id,
+      url : 'user/checkUserIdExist/' + user_id,
       type : 'get',
       dataType : 'text',
+      contentType : 'text/plain; charset=utf-8;',
+      data : user_id,
       success : function(result){
+          if(data == 0){
+        	  consol.log("아이디 없음");
+             alert('사용할 수 있는 아이디입니다');
+          } else {
+        	  consol.log("아이디 있음")
+             alert('사용할 수 없는 아이디 입니다');
+          }
+       }
+  /*     success : function(result){
          if(result.trim() == 'true'){
             alert('사용할 수 있는 아이디입니다')
             $("#userIdExist").val('true')
@@ -218,7 +259,7 @@ function checkUserIdExist(){
             alert('사용할 수 없는 아이디 입니다')
             $("#userIdExist").val('false')
          }
-      }
+      } */
    })
    return false;
 }

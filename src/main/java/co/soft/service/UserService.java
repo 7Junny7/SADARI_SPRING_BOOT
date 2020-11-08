@@ -26,5 +26,7 @@ public interface UserService {
 	UserInfoBean getUserInfo(UserInfoBean userinfo);
 
 	//List<UserInfoBean> getUserInfoList(UserInfoBean userinfo);
+	
+	String idCheck(String userId);
 
 }
