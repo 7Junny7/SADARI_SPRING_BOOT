@@ -12,6 +12,7 @@ public interface MapService {
 	//게시물 리스트 불러오기 by 메뉴 
 	List<MapInfoBean> getMapListByLocation(String location);
 
+
 	void insertMap(MapInfoBean mapinfo);
 
 	MapInfoBean getMap(MapInfoBean mapinfo);
@@ -21,4 +22,8 @@ public interface MapService {
 	void updateMapLike(MapInfoBean mapinfo);
 
 	void deleteMap(MapInfoBean mapinfo);
+	
+	List<MapInfoBean> locList(Long idx);
+	
+
 }

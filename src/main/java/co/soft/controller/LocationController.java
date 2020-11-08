@@ -1,6 +1,10 @@
 package co.soft.controller;
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,13 +16,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import co.soft.domain.LocationInfoBean;
 import co.soft.domain.MapInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.LocationService;
 import co.soft.service.MapService;
-import co.soft.service.UserService;
 @SessionAttributes("user")
 @Controller
 public class LocationController {
@@ -124,13 +128,46 @@ public class LocationController {
    }
     
    @RequestMapping("/topmenu")
-   public String topMenu(HttpServletRequest request, Model model) {
-	   String menu=request.getParameter("menu"); //OK
-	   System.out.println(menu);
-	   List<LocationInfoBean> locationList = locationService.getLocationListByFoodtype(menu);
-	   System.out.println(locationList);
-	   model.addAttribute("menu",menu);
+   public String topMenu(HttpServletRequest request, Model model,MapInfoBean mapinfo) {
+	   String menu=request.getParameter("menu");
+	   String keyword=request.getParameter("keyword");
 	   
+	   
+	   List<LocationInfoBean> locationList = locationService.getLocationListByFoodtype(menu);
+	   List<Long> idx= new ArrayList<Long>();
+	   Map<Integer,List<MapInfoBean>> idxList= new HashMap<Integer,List<MapInfoBean>>();
+	   String key [] = {"강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "금천구", "구로구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"};
+	   if(keyword == null) {
+		   keyword="종로구";
+	   }
+	   Integer tempIdx;
+	   for(int i =0; i<locationList.size(); i++) {
+		   tempIdx = i;
+		   idx.add(locationList.get(i).getBoardidx()); 
+		  
+		  idxList.put(tempIdx,(List<MapInfoBean>) mapService.locList(locationList.get(i).getBoardidx()));
+		  if(idxList.get(i).get(0).getLocation().indexOf(keyword) == -1) {
+			  idxList.remove(i);
+			  System.out.println("조건문 통과");
+		  }
+	   }
+	   if(menu == "" || menu.equals("") || menu == null) {
+		   List<MapInfoBean> mapList = mapService.getMapList(mapinfo);
+		   for(int i=0; i<mapList.size(); i++) {
+			   if(mapList.get(i).getLocation().indexOf(keyword) == -1) {
+				   mapList.remove(i);
+				   i--;
+			   }
+		   }		   
+		   model.addAttribute("mapListOther", mapList);
+	   } else {
+		   model.addAttribute("boardmenu", idxList);
+		   model.addAttribute("locationList",locationList);   
+	   }
+	   model.addAttribute("menu",menu);
+	   model.addAttribute("key",key);
+	   model.addAttribute("keyword",keyword);
 	   return "forward:home";
    }
+   
 }

@@ -49,5 +49,11 @@ public class MapServiceImpl implements MapService{
 	public List<MapInfoBean> getMapListByLocation(String location) {
 		return (List<MapInfoBean>) mapRepo.findAllByLocation(location);
 	}
+	
+	
+	public List<MapInfoBean> locList(Long idx) {
+		return (List<MapInfoBean>) mapRepo.findByBoardidx(idx);
+	}	
+	
 
 }
