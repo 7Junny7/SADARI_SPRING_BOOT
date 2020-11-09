@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import co.soft.domain.MapInfoBean;
 
-public interface MapRepository extends JpaRepository<MapInfoBean, String>{
+public interface MapRepository extends JpaRepository<MapInfoBean, Long>{
 
 	List<MapInfoBean> findAllByLocation(String location);
 	

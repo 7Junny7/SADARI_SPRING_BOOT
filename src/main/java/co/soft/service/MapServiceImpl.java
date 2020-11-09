@@ -43,7 +43,7 @@ public class MapServiceImpl implements MapService{
 
 	
 	public void deleteMap(MapInfoBean mapinfo) {
-		mapRepo.deleteById(mapinfo.getRestaurant());
+		mapRepo.deleteById(mapinfo.getBoardidx());
 	}
 
 	//게시물 리스트 불러오기 by 메뉴 
