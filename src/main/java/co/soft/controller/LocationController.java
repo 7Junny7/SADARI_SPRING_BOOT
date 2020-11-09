@@ -148,7 +148,6 @@ public class LocationController {
 		  idxList.put(tempIdx,(List<MapInfoBean>) mapService.locList(locationList.get(i).getBoardidx()));
 		  if(idxList.get(i).get(0).getLocation().indexOf(keyword) == -1) {
 			  idxList.remove(i);
-			  System.out.println("조건문 통과");
 		  }
 	   }
 	   
