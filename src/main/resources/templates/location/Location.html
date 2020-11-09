@@ -43,60 +43,62 @@ table {
             <tr>
                <td th:text="식당이름"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">식당이름</td>
-               <td th:text="${loc.restaurant}"></td>
+               <td th:text="${loc.restaurant}" colspan="2"></td>
             </tr>
             <tr>
                <td th:text="음식종류"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">음식종류</td>
-               <td th:text="${loc.foodType}"><span
+               <td th:text="${loc.foodType}" colspan="2"><span
                   th:hidden="${loc.foodLikeScore}"></span> <span
                   th:hidden="${loc.foodLikePerson}"></span></td>
             </tr>
             <tr>
-               <td th:hidden="${loc.boardidx}"></td>
+               <td th:hidden="${loc.boardidx}"  colspan="3"></td>
             </tr>
             <tr>
                <td th:text="글제목"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">글제목</td>
-               <td th:text="${loc.subject}"></td>
+               <td th:text="${loc.subject}" colspan="2"></td>
             </tr>
             <tr>
                <td th:text="날짜"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">날짜</td>
-               <td th:text="${loc.date}"></td>
+               <td th:text="${loc.date}" colspan="2"></td>
             </tr>
             <tr>
                <td th:text="시간"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">시간</td>
-               <td th:text="${loc.time}"></td>
+               <td th:text="${loc.time}" colspan="2"></td>
             </tr>
             <tr>
                <td th:text="시간"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">시간</td>
-               <td th:text="${loc.writer}"></td>
+               <td th:text="${loc.writer}" colspan="2"></td>
             </tr>
             <tr>
                <td th:text="인원수"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">인원수</td>
-               <td th:text="${loc.wantWho}"></td>
+               <td th:text="${loc.wantWho}" colspan="2"></td>
             </tr>
             <tr>
                <td th:text="작성내용"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">작성내용</td>
-               <td th:text="${loc.foodComment}"></td>
+               <td th:text="${loc.foodComment}" colspan="2"></td>
             </tr>
             <tr>
-               <td style="color: #f5f6f7;">.</td>
-               <td style="color: #f5f6f7;">.</td>
+               <td style="color: #f5f6f7;" colspan="3">.</td>
             </tr>
             <tr>
-               <td align="center"><input type="submit" class="btn btn-danger"
-                  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
-                  value="게시글 수정"></td>
                <td><input type="button" onclick="javascript:self.close();"
                   class="btn btn-danger"
                   style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
                   value="확인"></td>
+               <td align="center"><input type="submit" class="btn btn-danger"
+                  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
+                  value="게시글 수정"></td>
+               <td align="center"><input type="submit" class="btn btn-danger"
+                  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
+                  value="게시글 삭제"></td>
             </tr>
          </table>
       </form>
