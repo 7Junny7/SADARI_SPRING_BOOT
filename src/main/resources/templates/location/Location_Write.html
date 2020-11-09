@@ -2,21 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
 <meta charset="UTF-8">
-<link rel="stylesheet" 
-   href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-   crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-   integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-   crossorigin="anonymous"></script>
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
 <script
-   src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-   crossorigin="anonymous"></script>
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
 <script
-   src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-   integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-   crossorigin="anonymous"></script>
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
+
 <title>게시글 쓰기</title>
 
 <style type="text/css">
@@ -28,6 +29,17 @@ vertical-align:top;
 }
 
 </style>
+<script>
+function tempsb(){
+	   var Password = $("#password").val();
+	   //아이디 빈칸 확인
+	   		if (Password.length != 4) {
+		      alert("숫자 4자리로 입력해주세요.");
+			return false;
+		}
+	   return true;
+	   }
+</script>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
    <div class="container" th:align="center">
@@ -35,7 +47,7 @@ vertical-align:top;
       <div class="table-responsive">
        <h3 th:text="글쓰기" style="color: #f97d66; margin-top:7%;"></h3>
       <br>
-       <form action="insertLocation" method="post">
+       <form th:action="@{/insertLocation}" method="post" th:onsubmit="return tempsb(this)">
             <table th:align="center" border="0" th:cellpadding="0"
                th:cellspacing="0" style="width: 400px;">
                <tr>
@@ -45,7 +57,7 @@ vertical-align:top;
                </tr>
                <tr>
                   <td th:text="글암호"></td>
-                  <td class="text-right"><input type="password" name="password" id="password" class="form-control"><br></td>
+                  <td class="text-right"><input type="password" name="password" id="password" class="form-control" placeholder="숫자 4자로 입력해주세요."><br></td>
                </tr>
                <tr>
                   <td th:text="작성자"></td>
@@ -128,8 +140,7 @@ vertical-align:top;
             </table>
          </form>
          </div>
-         
       </div>
    </div>
-</body>
+ </body>
 </html>

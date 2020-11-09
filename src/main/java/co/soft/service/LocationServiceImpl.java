@@ -62,5 +62,4 @@ public class LocationServiceImpl implements LocationService {
 	public LocationInfoBean getLocation(Long idx) {
 		return (LocationInfoBean)locRepo.findByBoardidx(idx);
 	}
-
 }

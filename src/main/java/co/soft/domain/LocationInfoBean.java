@@ -30,8 +30,8 @@ public class LocationInfoBean {
 	@Column(updatable = false)
 	private String subject; //제목, 업데이트 불가
 	
-	@Size(min = 4, max = 20)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
+	@Size(min = 4, max = 4)
+	@Pattern(regexp = "[0-9]*")
 	private String password; // 비밀번호
 	
 //	@Temporal(TemporalType.DATE)
