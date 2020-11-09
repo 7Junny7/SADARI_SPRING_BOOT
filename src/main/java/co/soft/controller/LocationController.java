@@ -102,19 +102,20 @@ public class LocationController {
 //      }
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
 		LocationInfoBean idx = locationService.getLocation(boardidx);
-		System.out.println(idx);
 		model.addAttribute("loca", idx);
 
 		return "/location/LocationList_Delete";
 	}
 
 	@PostMapping("/deleteLocation")
-	public String deleteLocation(UserInfoBean user, LocationInfoBean loc) {
+	public String deleteLocation(UserInfoBean user, LocationInfoBean loc,HttpServletRequest request,Model model) {
 //      if (user.getUserId() == null) {
 //         return "redirect:login";
 //      }
-		locationService.deleteLocation(loc);
-		return "forward:locationList";
+		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+		LocationInfoBean locidx = locationService.getLocation(boardidx);
+		locationService.deleteLocation(locidx);
+		return "redirect:deleteMap?boardidx="+boardidx;
 	}
 
 	@RequestMapping("/location")

@@ -22,8 +22,8 @@ public class MapServiceImpl implements MapService{
 		mapRepo.save(mapinfo);
 	}
 
-	public MapInfoBean getMap(MapInfoBean mapinfo) {
-		return mapRepo.findById(mapinfo.getRestaurant()).get();
+	public MapInfoBean getMap(Long boardidx) {
+		return (MapInfoBean) mapRepo.findByBoardidx(boardidx);
 	}
 
 	@Override

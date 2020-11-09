@@ -15,7 +15,7 @@ public interface MapService {
 
 	void insertMap(MapInfoBean mapinfo);
 
-	MapInfoBean getMap(MapInfoBean mapinfo);
+	MapInfoBean getMap(Long boardidx);
 
 	void updateMap(MapInfoBean mapinfo);
 	

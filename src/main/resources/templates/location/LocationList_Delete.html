@@ -42,16 +42,16 @@
 					<table th:align="center" th:cellpadding="0" th:cellspacing="0"
 						style="border: 0; border-radius: 10px; width: 400px;">
 						<tr>
-							<td th:text="암호 확인." style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">암호 확인</td>
+							<td style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">암호 확인</td>
 							<td><input name="password" id="password" type="password" size="20" placeholder="암호를 입력해 주세요">
-								<input th:hidden="${loca.password}" name="password2" id="password2"></td>
+								<input th:hidden="${loca.password}" name="password2" id="password2" th:value="${loca.password}"></td>
 							<!-- 기존 비밀번호 -->
 						</tr>
 						<tr>
 						<td colspan="2" style="color:#f5f6f7; height:10px;">-</td>
 						</tr>
 						<tr>
-							<td th:text="글을 삭제 하시겠습니까?" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">글을 삭제 하시겠습니까?</td>
+							<td style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">글을 삭제 하시겠습니까?</td>
 								<td><input type="submit" class="btn btn-danger"  style="background-color: #f97d66; width: 90px; height: 50px; border: 0; color: white; text-align: center;" value="예"/>
 								<input type="button" value="아니오" class="btn btn-danger"  style="background-color: #f97d66; width: 90px; height: 50px; border: 0; color: white; text-align: center;" onclick="cancel()"></td>
 						</tr>
