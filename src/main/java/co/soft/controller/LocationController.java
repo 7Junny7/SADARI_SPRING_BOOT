@@ -61,7 +61,7 @@ public class LocationController {
 //      }
 
 		locationService.insertLocation(loc);
-		return "redirect:home";
+		return "location/Location_Write_Success";
 	}
 
 	@GetMapping("/getLocation")
@@ -96,11 +96,14 @@ public class LocationController {
 	}
 
 	@GetMapping("/deleteLocation")
-	public String deleteLocationView(UserInfoBean user, LocationInfoBean loc, Model model) {
+	public String deleteLocationView(UserInfoBean user, LocationInfoBean loc, Model model, HttpServletRequest request) {
 //      if (user.getUserId() == null) {
 //         return "redirect:login";
 //      }
-		model.addAttribute("location", locationService.getLocation(loc));
+		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+		LocationInfoBean idx = locationService.getLocation(boardidx);
+		System.out.println(idx);
+		model.addAttribute("loca", idx);
 
 		return "/location/LocationList_Delete";
 	}
