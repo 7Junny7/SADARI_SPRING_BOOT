@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -90,10 +92,15 @@ public class UserController {
 	}
 	
 	
-	 @PostMapping("/idCheck")
+	 //@PostMapping("/idCheck")
+	 
+	@ResponseBody
+	 @RequestMapping(value="/idCheck", method = RequestMethod.POST)
 	    public String id_check(String id) {
+		 System.out.println("1111");
 	        System.out.println(id);
-	        String str = userService.idCheck(id);
+	        String str = userService.idCheck(id); //NO
+	       System.out.println(str);
 	        return str;
 	    }
-}
+} 
