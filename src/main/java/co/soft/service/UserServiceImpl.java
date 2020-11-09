@@ -60,6 +60,7 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
+	@Override
 	public String idCheck(String userId) {
         System.out.println(userRepo.findById(userId));
 

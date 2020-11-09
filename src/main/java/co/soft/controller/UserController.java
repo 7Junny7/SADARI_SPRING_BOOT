@@ -89,7 +89,8 @@ public class UserController {
 		return "/userinfo/userinfo_modify_Success";
 	}
 	
-	 @GetMapping("/idCheck")
+	
+	 @PostMapping("/idCheck")
 	    public String id_check(String id) {
 	        System.out.println(id);
 	        String str = userService.idCheck(id);

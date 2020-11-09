@@ -178,7 +178,7 @@ function subj(){
               $('#checkMsg').html('<span style="color:red">아이디를 입력해주세요</span>');
           }
 	        $.ajax({
-	            type: "GET",
+	            type: "Post",
 	            url: "/idCheck",
 	            dataType : "text",
 	            contentType : "text/plain; charset=utf-8;",
