@@ -220,7 +220,7 @@ body {
 }
 </style>
 </head>
-<body style="width: 100%; background-color: #f5f6f7;">
+<body style="width: 100%; background-color: #f5f6f7;" onload="onl()">
 	<nav class="navbar navbar-expand-lg navbar-light"
 		style="background-color: pink">
 		<a class="navbar-brand" href="/home"><img src="./img/logo.png"
@@ -279,11 +279,11 @@ body {
          </ul>
 			
 			<ul class="nav navbar-nav navbar-right">
-				<li><button style="text-decoration: none; font-size:17px; color: white; border:0; background-color: #f97d66; border-radius: 5px;" onclick="gooSubmit()" value="마이페이지">마이페이지</button>
+				<li><button style="text-decoration: none; font-size:17px; color: black; border:0; background-color: #f97d66;" onclick="gooSubmit()" value="마이페이지">마이페이지</button>
 					</li>
 					
-				<li><a href="/logout" 
-					style="margin: 10px; padding:2px; text-decoration: none; font-size:17px; color: white; background-color: #f97d66; border-radius: 5px;">로그아웃</a></li>
+				<li><a href="/logout"
+					style="margin: 10px; padding:2px; text-decoration: none; font-size:17px; color: black; background-color: #f97d66;">로그아웃</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -369,20 +369,24 @@ body {
 	</div>
 		<div id="wrap-foot" class="footer">
     <div class="info-company">
-        <table style="font-size:12px;border:1px solid white; width:50%; margin-left:20%">
+        <table style="font-size:12px;border:1px solid white; width:30%; margin-left:30%">
         <tr>
-            <th colspan="4">Project by Team4 SaDaRi / Copy from Team4 SaDaRi</th>
-        </tr>
-        <tr style="text-align:center">
-        <th>팀</th><td style="text-align:left">Team4</td>
-        <th>주소</th><td style="text-align:left">서울시 종로구 종로12길 15 종로코아 5층 솔데스크 </td>
-        </tr>
-        <tr style="text-align:center">
-        <th>사업자등록번호</th><td style="text-align:left">224-4-224224</td>
-        <th>개인정보보호책임자</th><td style="text-align:left">Team4</td>
+            <th colspan="2">Project by Team4 SaDaRi / Copy from Team4 SaDaRi</th>
         </tr>
         <tr>
-        <th colspan="4">COPYRIGHT ⒸTeam4 CORP ALL RIGHTS RESERVED.</th>
+        <th>팀</th><td>Team4</td>
+        </tr>
+        <tr>
+        <th>주소</th><td>서울시 종로구 종로12길 15 종로코아 5층 솔데스크 </td>
+        </tr>
+        <tr>
+        <th>사업자등록번호</th><td>224-4-224224</td>
+        </tr>
+        <tr>
+        <th>개인정보보호책임자</th><td>Team4</td>
+        </tr>
+        <tr>
+        <th colspan="2">COPYRIGHT ⒸTeam4 CORP ALL RIGHTS RESERVED.</th>
         </tr>
         </table>
     </div><!-- inf-company -->
@@ -429,7 +433,7 @@ body {
    
    
 	   var markers = [];
-
+function onl(){
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
    mapOption = {
       center : new kakao.maps.LatLng(37.56931205456954, 126.98603181926016), // 지도의 중심좌표
@@ -439,7 +443,7 @@ body {
 
    //지도를 생성합니다    
    var map = new kakao.maps.Map(mapContainer, mapOption);
-
+}
    //장소 검색 객체를 생성합니다
    var ps = new kakao.maps.services.Places();
 
