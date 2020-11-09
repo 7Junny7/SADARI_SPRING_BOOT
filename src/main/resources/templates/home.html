@@ -397,15 +397,29 @@ body {
 <script type="text/javascript">
 	//새창띄우기
 	function goSubmit(){
+		   var Location = $("#location").val();
+		   var Restaurant = $("#restaurant").val();
+		   		if (Location == '') {
+	      		alert("지도에서 위치를 클릭해주세요.");
+	      		return false;
+			}
+	if (Restaurant == '') {
+	      alert("음식점 이름을 입력해주세요.");
+		return false;
+	}
 		   var gsWin = window.open('/insertMap', 'about:blank', 'status=no, height=1000, width=700,scrollbars=yes, left='+ 600 + ', top='+ 130 + ', screenX='+ 600 + ', screenY= '+ 130);
 		   var frm = document.form;
 		   frm.action = '/insertMap'; 
 		   frm.target = 'about:blank';
 		   frm.method = "post";
 		   frm.submit();
+		   
+			   
+		   }
+	
 		   //window.open('/insertMap,'_blank','width=430,height=500,location=no,status=no,scrollbars=yes'); 
 		   //return false;
-	}
+	
 	function gooSubmit(){
 		   var gsWin = window.open('/getUserInfo', 'about:blank', 'status=no, height=600, width=800,scrollbars=no, left='+ 600 + ', top='+ 150 + ', screenX='+ 600 + ', screenY= '+ 150);
 		   var frm = document.form;
