@@ -31,82 +31,86 @@ table {
 <title>작성글</title>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-   <fieldset
-      style="margin-left: 40%; margin-top: 7%; border: 1px solid #f5f6f7; width: 410px;">
-
+		<a class="navbar-brand" href="/home"><img src="./img/logo.png"
+			alt="로고" style="width: 200px;"></a>
+    <div class="container" th:align="center">
+      <div class="row" th:align="center">
+      <div class="table-responsive">
       <h1 style="color: #f97d66;">location</h1>
       <br>
 
       <form th:action="@{/updateLocation}" method="post">
          <table th:align="center" border="0" th:cellpadding="0"
-            th:cellspacing="0" style="width: 400px;">
+            th:cellspacing="0" style="width: 611px;">
             <tr>
                <td th:text="식당이름"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">식당이름</td>
-               <td th:text="${loc.restaurant}" colspan="2"></td>
+               <td th:text="${loc.restaurant}"></td>
             </tr>
             <tr>
                <td th:text="음식종류"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">음식종류</td>
-               <td th:text="${loc.foodType}" colspan="2"><span
+               <td th:text="${loc.foodType}"><span
                   th:hidden="${loc.foodLikeScore}"></span> <span
                   th:hidden="${loc.foodLikePerson}"></span></td>
             </tr>
             <tr>
-               <td th:hidden="${loc.boardidx}"  colspan="3"></td>
+               <td th:hidden="${loc.boardidx}"></td>
             </tr>
             <tr>
                <td th:text="글제목"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">글제목</td>
-               <td th:text="${loc.subject}" colspan="2"></td>
+               <td th:text="${loc.subject}"></td>
             </tr>
             <tr>
                <td th:text="날짜"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">날짜</td>
-               <td th:text="${loc.date}" colspan="2"></td>
+               <td th:text="${loc.date}"></td>
             </tr>
             <tr>
                <td th:text="시간"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">시간</td>
-               <td th:text="${loc.time}" colspan="2"></td>
+               <td th:text="${loc.time}"></td>
             </tr>
             <tr>
                <td th:text="시간"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">시간</td>
-               <td th:text="${loc.writer}" colspan="2"></td>
+               <td th:text="${loc.writer}"></td>
             </tr>
             <tr>
                <td th:text="인원수"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">인원수</td>
-               <td th:text="${loc.wantWho}" colspan="2"></td>
+               <td th:text="${loc.wantWho}"></td>
             </tr>
             <tr>
                <td th:text="작성내용"
                   style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">작성내용</td>
-               <td th:text="${loc.foodComment}" colspan="2"></td>
+               <td th:text="${loc.foodComment}"></td>
             </tr>
             <tr>
-               <td style="color: #f5f6f7;" colspan="3">.</td>
+               <td style="color: #f5f6f7;" colspan="2">.</td>
             </tr>
             <tr>
-               <td><input type="button" onclick="javascript:history.back();"
+               <td align="center" colspan="2">
+               <input type="button" onclick="javascript:history.back();"
                   class="btn btn-danger"
                   style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
-                  value="확인"></td>
-               <td align="center"><input type="submit" class="btn btn-danger"
+                  value="참여">
+               <input type="submit" class="btn btn-danger"
                   style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
-                  value="게시글 수정"></td>
-               <td align="center"><input type="submit" class="btn btn-danger"
+                  value="게시글 수정">
+               <input type="submit" class="btn btn-danger"
                   style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
                   value="게시글 삭제"></td>
             </tr>
          </table>
       </form>
-   </fieldset>
+   </div>
+   </div>
+   </div>
    <!-- <a th:href="@{/insertLocation}">글 등록</a>&nbsp;&nbsp;&nbsp; 
    <a th:if="${session['member'].role == 'ROLE_ADMIN'}"
       th:href="@{/deleteLocation(seq=${board.seq})}">글 삭제</a>&nbsp;&nbsp;&nbsp;
    <a th:href="@{/locationList}">글 목록</a>-->
-
 </body>
 </html>
