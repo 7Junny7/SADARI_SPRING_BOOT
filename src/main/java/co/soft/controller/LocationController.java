@@ -170,4 +170,16 @@ public class LocationController {
 	   return "forward:home";
    }
    
+   @PostMapping("/uploadPicture")
+   public @ResponseBody String uploadPicture(@RequestParam("pic") MultipartFile files) {
+	   try {
+		   String baseDir = FileSystemView.getFileSystemView().getHomeDirectory().toString();
+		   String filePath = baseDir + "/Eat_Together/" + files.getOriginalFilename();
+		   files.transferTo(new File(filePath));
+	   }catch(Exception e) {
+		   e.printStackTrace();
+	   }
+	   return "/user/join_success";
+   }
+   
 }

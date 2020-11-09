@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import co.soft.domain.MapInfoBean;
-import co.soft.domain.MenuInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.MapService;
 

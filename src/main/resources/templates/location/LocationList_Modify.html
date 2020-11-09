@@ -33,7 +33,7 @@
     <a th:href="@{/locationList}">글목록</a>
     <br>
     <br>
-   <form action="updateLocation" th:onsubmit="return sub()" method="post">
+   <form action="@{/updateLocation}" th:onsubmit="return sub()" method="post">
    <input th:value="${location}" type="text" id="loca" hidden="true"/>
       <table th:align="center">
          <tr>
