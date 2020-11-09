@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<style type="text/css">
+    h1{
+    text-align: center;
+    margin : 3%;
+    }
+    table{text-align: center;} 
+    </style> 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시글 삭제</title>
 <script>
 	function sub() {
 		var pw = getElementById("password").value;
@@ -19,21 +30,35 @@
 	}
 </script>
 </head>
-<body>
-	<form action="deleteLocation" th:onsubmit="return sub()" method="post">
-		<input th:value="${location}" type="text" id="loca" hidden="true" />
-		<table>
-			<tr>
-				<td>암호를 입력해 주세요</td>
-				<td><input type="password" name="password" id="password"></td>
-				<td th:hidden="${loca.password}" name="password2" id="password2"></td><!-- 기존 비밀번호 -->
-			</tr>
-			<tr>
-				<td>글을 삭제 하시겠습니까?</td>
-				<td><input type="submit" value="예"><input type="button"
-					value="아니오" onclick="cancel()"></td>
-			</tr>
-		</table>
-	</form>
+<body th:align="center" style="background-color: #f5f6f7">
+	<div class="container" th:align="center">
+		<div class="row" th:align="center">
+			<div class="table-responsive">
+				<h1 style="color: #f97d66;">게시글 삭제</h1>
+				<br>
+				<form action="deleteLocation" th:onsubmit="return sub()"
+					method="post">
+					<input th:value="${location}" type="text" id="loca" hidden="true" />
+					<table th:align="center" th:cellpadding="0" th:cellspacing="0"
+						style="border: 0; border-radius: 10px; width: 400px;">
+						<tr>
+							<td th:text="임호를 입력해 주세요."
+								style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">암호를
+								입력해 주세요.</td>
+							<td><input name="password" id="password" type="password"
+								size="20"></td>
+							<td th:hidden="${loca.password}" name="password2" id="password2"></td>
+							<!-- 기존 비밀번호 -->
+						</tr>
+						<tr>
+							<td th:text="글을 삭제 하시겠습니까?" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">글을 삭제 하시겠습니까?</td>
+								<td><input type="submit" class="btn btn-danger"  style="background-color: #f97d66; width: 90px; height: 50px; border: 0; color: white; text-align: center;" value="예"/>
+								<input type="button" value="아니오" class="btn btn-danger"  style="background-color: #f97d66; width: 90px; height: 50px; border: 0; color: white; text-align: center;" onclick="cancel()"></td>
+						</tr>
+					</table>
+				</form>
+				</div>
+				</div>
+				</div>
 </body>
 </html>
