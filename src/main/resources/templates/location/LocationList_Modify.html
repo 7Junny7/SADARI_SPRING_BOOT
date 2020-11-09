@@ -33,31 +33,39 @@
     <a th:href="@{/locationList}">글목록</a>
     <br>
     <br>
-   <form action="@{/updateLocation}" th:onsubmit="return sub()" method="post">
+   <form th:action="@{/updateLocation}" th:onsubmit="return sub()" method="post">
    <input th:value="${location}" type="text" id="loca" hidden="true"/>
+	<input th:hidden="${loca.boardidx}" name="boardidx" id="boardidx" th:value="${loca.boardidx}"><!-- 글번호 히든 -->
       <table th:align="center">
          <tr>
             <td>글 제목</td>
-            <td th:readonly="${loca.subject}" name="subject" id="susbject" value="${loca.subject}"></td><!-- 제목, 수정 불가 -->
-            <td th:hidden="${loca.boardidx}" name="boardidx" id="boardidx" ><!-- 글번호 히든 -->
+            <td th:text="${loca.subject}">
+            	<input name="subject" id="subject" th:value="${loca.subject}"><!-- 제목, 수정 불가 -->
+				   <input th:hidden="${loca.foodLikeScore}" name="foodLikeScore" id="foodLikeScore" th:value="${loca.foodLikeScore}">
+				   <input th:hidden="${loca.foodLikePerson}" name="foodLikePerson" id="foodLikePerson" th:value="${loca.foodLikePerson}">
+            </td>
          </tr>
             <tr>
                 <td>작성자</td>
-                <td th:readonly="${loca.writer}" name="writer" id="writer" value="${writer}"></td><!-- 작성자, 수정불가 -->
+                <td th:text="${loca.writer}">
+                	<input name="writer" id="writer" th:value="${loca.writer}"></td><!-- 작성자, 수정불가 -->
             </tr>
          <tr>
             <td>비밀번호</td>
-            <td><input type="password" name="password" id="password" class="form-control"></td>
-            <td th:hidden="${loca.password}" name="password2" id="password2"></td> <!-- 기존 비밀번호 -->
+            <td><input type="password" name="password" id="password" class="form-control">
+            	<input th:hidden="${loca.password}" name="password2" id="password2" th:value="${loca.password}"></td> <!-- 기존 비밀번호 -->
             </tr>
             <tr>
                 <td th:text="장소"></td>
-                <td class="text-right"><span th:text="${map.restaurant}"></span><br>
+                <td th:text="${loca.restaurant}">
+                	<input name="restaurant" id="restaurant" th:value="${loca.restaurant}"><br>
                 <!-- 음식정명 --></td>
             </tr>
          <tr>
                 <td>음식종류</td>
-                <!-- <td th:readonly="${loca.foodType}" name="foodType" id="foodType" value="${loca.foodType}"></td>음식종류, 수정불가 -->
+                <td th:text="${loca.foodType}">
+                	<input name="foodType" id="foodType" th:value="${loca.foodType}"></td>
+                <!--음식종류, 수정불가 
                 <td class="text-right">
                     <select name="foodType" id="foodType"  class="form-control">
                             <optgroup label="한식">
@@ -91,19 +99,20 @@
                                 <option value="치킨" th:text="치킨"></option>
                                 <option value="햄버거" th:text="햄버거"></option>
                             </optgroup>
-                    </select> <!-- <input type="text" name="l_menu2" id="l_menu2" placeholder="상세메뉴(안적어도 괜찮아요)"> -->
+                    </select> 
                         <br></td>
+                        -->
          </tr>
             <tr>
               <td>시간</td>
-              <td><input type="date" name="date" id="date" value="${loca.date}" class="form-control">
-                     <input type="time" name="time" id="time" value="${loca.time}" class="form-control"></td>
+              <td><input type="date" name="date" id="date" th:value="${loca.date}" class="form-control">
+                     <input type="time" name="time" id="time" th:value="${loca.time}" class="form-control"></td>
               </tr>
          <tr>
             <td>참가인원</td>
                 <!-- <td th:text="${loca.wantWho}" name="wantWho" id="wantWho" value="${loca.wantWho}"></td> -->
                 <td class="text-right">
-                    <select name="peoples" id="peoples" class="form-control">
+                    <select name="wantWho" id="wantWho" th:value="${loca.wantWho}" class="form-control">
                     <option value="2" th:text="2"></option>
                     <option value="3" th:text="3"></option>
                     <option value="4" th:text="4"></option>
@@ -115,8 +124,6 @@
          <tr>
             <td>글 내용</td>
             <!-- <td th:text="${loca.foodComment}" name="foodComment" id="foodComment"></td> -->
-            <td th:hidden="${loca.foodLikeScore}" name="foodLikeScore" id="foodLikeScore"></td>
-            <td th:hidden="${loca.foodLikePerson}" name="foodLikePerson" id="foodLikePerson"></td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -129,7 +136,7 @@
                     <input type="submit" value="수정" class="btn btn-danger" style="background-color: #f97d66; width: 190px; border: 0;">
                 </td>
                 <td>
-               <input type="reset" value="취소" class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0;">
+               <input type="button" onclick="javascript:history.back();" value="취소" class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0;">
             </td>
          </tr>
       </table>

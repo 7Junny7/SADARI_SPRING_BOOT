@@ -39,7 +39,8 @@ table {
       <h1 style="color: #f97d66;">location</h1>
       <br>
 
-      <form th:action="@{/updateLocation}" method="post">
+      <form th:action="@{/updateLocation}" method="get">
+         <input th:hidden="${loc.boardidx}" name="boardidx" id="boardidx" th:value="${loc.boardidx}">
          <table th:align="center" border="0" th:cellpadding="0"
             th:cellspacing="0" style="width: 611px;">
             <tr>
@@ -53,9 +54,6 @@ table {
                <td th:text="${loc.foodType}"><span
                   th:hidden="${loc.foodLikeScore}"></span> <span
                   th:hidden="${loc.foodLikePerson}"></span></td>
-            </tr>
-            <tr>
-               <td th:hidden="${loc.boardidx}"></td>
             </tr>
             <tr>
                <td th:text="글제목"
@@ -99,7 +97,7 @@ table {
                <input type="submit" class="btn btn-danger"
                   style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
                   value="게시글 수정">
-               <input type="submit" class="btn btn-danger"
+               <input type="button" onclick="" class="btn btn-danger"
                   style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;"
                   value="게시글 삭제"></td>
             </tr>
