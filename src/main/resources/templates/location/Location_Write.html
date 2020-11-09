@@ -17,7 +17,7 @@
    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
    crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>게시글 쓰기</title>
 
 <style type="text/css">
 tr{
@@ -33,13 +33,11 @@ vertical-align:top;
    <div class="container" th:align="center">
       <div class="row" th:align="center">
       <div class="table-responsive">
-       <h3 th:text="글쓰기" style="color: #f97d66; margin-top:2%;"></h3>
-      <br>
+       <h3 th:text="글쓰기" style="color: #f97d66; margin-top:7%;"></h3>
       <br>
        <form action="insertLocation" method="post">
             <table th:align="center" border="0" th:cellpadding="0"
                th:cellspacing="0" style="width: 400px;">
-
                <tr>
                   <td th:text="제목"></td>
                   <td class="text-right"><input type="text" name="subject" id="subject" class="form-control"><br></td>
@@ -120,7 +118,7 @@ vertical-align:top;
                <tr>
                   <td colspan="2" th:text="내용"><br></td></tr>
                   <tr>
-                  <td colspan="2"><textarea rows="10" cols="50" name="foodComment"
+                  <td colspan="2"><textarea rows="7" cols="50" name="foodComment"
                         id="foodComment"  class="form-control"></textarea><br></td>
                </tr>
                <tr>
