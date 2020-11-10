@@ -178,9 +178,17 @@ function subj(){
 	
 	  $('#temp').click(function () {
 		  var userId=$('#userId').val();
+
 		  if ($('#userId').val() == '') {
               $('#checkMsg').html('<span style="color:red">아이디를 입력해주세요</span>');
           }
+		  
+		  if($('#userId').val().length < 4 || $('#userId').val().length >20 ) {
+			  $('#checkMsg').html('<span style="color:red">아이디는 4~20자로 입력해주세요</span>');
+		  }
+		
+		  
+		  else{
 	        $.ajax({
 	            type: "post",
 	            url: "/idCheck",
@@ -200,6 +208,7 @@ function subj(){
 	            		 }
 	            		}
 	        })
+		  }
 	    });
 	
 	

@@ -22,17 +22,48 @@
 	function log() {
 		var id = document.getElementById("userId").value;
 		var pw = document.getElementById("userPassword").value;
+			  var rtn=true;
 		//아이디 빈칸 확인
 		if (id.length == 0) {
 			alert("아이디를 입력하세요.");
-			return false;
+			rtn= false;
 		}
+		else if(id.length < 4 || id.length >20 ) {
+			alert("아이디는 4~20자로 입력해주세요.");
+			rtn= false;
+		  }
+
+		  else  {
+		        $.ajax({
+		            type: "post",
+		            url: "/idCheck",
+		            data: {
+		                "id" : $('#userId').val()
+		            },
+		            async:false,
+		            success: function (data) {	
+		            	// if ($('#userId').val() != '') {
+		                		if ($.trim(data) != "NO") {
+		                			alert("아이디를 확인해주세요");
+		                       	 	$('#userId').val('');
+		                        	$('#userId').focus();
+		                        	rtn=false;
+		                   			 }
+		                		
+		            	// }
+		            	}
+		        })
+		 
+			  }
+	
+		
+		
 		//암호 빈칸 확인
 		if (pw.length == 0) {
 			alert("비밀번호를 입력하세요.");
-			return false;
+			rtn= false;
 		}
-		return true;
+		return rtn;
 	} 
 </script>
 <title>회원 로그인</title>
@@ -57,7 +88,7 @@
 				</tr>
 				<tr>
 					<td align="center"><input type="submit" class="btn btn-danger"
-						value="로그인"
+						value="로그인" onclick=""
 						style="background-color: #f97d66; width: 400px; border: 1px solid #f5f6f7;"></td>
 				</tr>
 				<tr>
@@ -68,5 +99,46 @@
 			</table>
 		</div>
 	</form>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+	
+	  $('#temp').click(function () {
+		  var userId=$('#userId').val();
+
+		  if ($('#userId').val() == '') {
+              $('#checkMsg').html('<span style="color:red">아이디를 입력해주세요</span>');
+              
+          }
+		  
+		  if($('#userId').val().length < 4 || $('#userId').val().length >20 ) {
+			  $('#checkMsg').html('<span style="color:red">아이디는 4~20자로 입력해주세요</span>');
+		  }
+		
+		  
+		  else{
+	        $.ajax({
+	            type: "post",
+	            url: "/idCheck",
+	            data: {
+	                "id" : $('#userId').val()
+	            },
+	            success: function (data) {	
+	                    if ($('#userId').val() != '') {
+	                		if ($.trim(data) == "NO") {
+	                       		$('#checkMsg').html('<span style="color:red">이미 사용중인 ID 입니다. 다른 ID를 입력하세요.</span>');
+	                       	 	$('#userId').val('');
+	                        	$('#userId').focus();
+	                   			 } 
+	                		else{
+	                        	$('#checkMsg').html('<span style="color:blue">ID를 확인해주세요.</span>');
+	                			}
+	            		 }
+	            		}
+	        })
+		  }
+	  });
+	  
+	  </script>
 </body>
 </html>
