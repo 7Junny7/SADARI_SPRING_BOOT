@@ -31,14 +31,14 @@ table {
 <title>작성글</title>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-   <a class="navbar-brand" href="/home"><img src="./img/logo.png"
-      alt="로고" style="width: 200px;"></a>
-   <div class="container" th:align="center">
-      <div class="row" th:align="center">
-         <div class="table-responsive">
-            <h1 style="color: #f97d66;">location</h1>
-            <br>
-				<form th:action="@{/updateLocation}" method="get">
+	<a class="navbar-brand" href="/home"><img src="./img/logo.png"
+		alt="로고" style="width: 200px;"></a>
+	<div class="container" th:align="center">
+		<div class="row" th:align="center">
+			<div class="table-responsive">
+				<h1 style="color: #f97d66;">작성글</h1>
+				<br>
+<form th:action="@{/updateLocation}" method="get">
 					<input th:hidden="${loc.boardidx}" name="boardidx" id="boardidx"
 						th:value="${loc.boardidx}">
 					<table th:align="center" border="0" th:cellpadding="0"
