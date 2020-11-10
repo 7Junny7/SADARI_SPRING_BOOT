@@ -151,7 +151,7 @@ function subj(){
 						</td>
 				</tr>
 					<tr>
-					<td th:text="전화번호인증"></td>
+					<td th:text="인증번호"></td>
 				</tr>
 						<tr>
 					<td><input type="text" name="certiNum" id="certiNum"
@@ -257,21 +257,11 @@ $('#PhoneBtn').click(function(){
                         '휴대폰 인증이 정상적으로 완료되었습니다.',
                         'success'
                     )
-
-                    $.ajax({
-                        type: "POST",
-                        url: "/update/phone",
-                        data: {
-                            "phoneNumber" : $('#userPhone').val()
-                        }
-                    })
-                    document.location.href="/home";
                 }else{
-                    Swal.fire({
+                   alert({
                         icon: 'error',
                         title: '인증오류',
                         text: '인증번호가 올바르지 않습니다!',
-                        footer: '<a href="/home">다음에 인증하기</a>'
                     })
                 }
             })

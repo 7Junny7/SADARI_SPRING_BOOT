@@ -26,4 +26,11 @@ public class PhoneController extends certificationService{
 	        certifiedPhoneNumber(phoneNumber, numStr);
 	        return numStr;
 	    }
+	@GetMapping("/sendSMS2")
+	 public @ResponseBody
+	    String sendSMS(String phoneNumber,String restaurant,String foodType,String date, String time,String location) {
+			String str=(date+" "+time);
+	        certifiedPhoneNumber2(phoneNumber, restaurant, foodType, str, location);
+	        return str;
+	    }
 }

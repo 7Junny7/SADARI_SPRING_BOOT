@@ -1,5 +1,6 @@
 package co.soft.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,19 +12,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import co.soft.domain.LocationInfoBean;
 import co.soft.domain.MapInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.service.LocationService;
-
+import co.soft.service.MapService;
+import co.soft.service.UserService;
 @SessionAttributes("user")
 @Controller
 public class LocationController {
 
 	@Autowired
 	private LocationService locationService;
+	
+	@Autowired
+	private MapService mapService;
+	
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping("/locationList")
 	public String getLocationList(UserInfoBean user, Model model, LocationInfoBean loc) {
@@ -82,7 +91,6 @@ public class LocationController {
 //      if (user.getUserId() == null) {
 //         return "redirect:login";
 //      }
-		System.out.println(loc);
 		locationService.updateLocation(loc);
 		return "/location/LocationList_Modify_Success";
 	}
@@ -111,9 +119,12 @@ public class LocationController {
 	}
 
 	@RequestMapping("/location")
-	public String location(Model model, MapInfoBean map, LocationInfoBean loc, HttpServletRequest request) {
+	public String location(Model model, LocationInfoBean loc, HttpServletRequest request,UserInfoBean user) {
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
 		LocationInfoBean idx = locationService.getLocation(boardidx);
+		List<MapInfoBean> mapinfo= mapService.locList(boardidx);
+		model.addAttribute("user");
+		model.addAttribute("mapinfo",mapinfo.get(0));
 		model.addAttribute("loc", idx);
 		return "/location/Location";
 	}
