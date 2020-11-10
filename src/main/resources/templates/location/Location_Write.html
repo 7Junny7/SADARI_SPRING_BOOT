@@ -31,10 +31,30 @@ vertical-align:top;
 </style>
 <script>
 function tempsb(){
+	   var Subject = $("#subject").val();
 	   var Password = $("#password").val();
+	   var Time = $("#time").val();
+	   var Date = $("#date").val();
+	   var foodcomment = $("#foodComment").val();
 	   //아이디 빈칸 확인
-	   		if (Password.length != 4) {
+	   		if (Subject == '') {
+		      alert("제목을 입력해주세요.");
+			return false;
+		}
+	   		if (Password.length != 4 || Password ==null) {
 		      alert("숫자 4자리로 입력해주세요.");
+			return false;
+		}
+	   		if (Date == '') {
+		      alert("날짜를 선택해주세요.");
+			return false;
+		}
+	   		if (Time == '') {
+		      alert("시간을 선택해주세요.");
+			return false;
+		}
+	   		if (foodcomment == '') {
+		      alert("간단히 소개해주세요.");
 			return false;
 		}
 	   return true;
@@ -77,10 +97,10 @@ function tempsb(){
                   <td class="text-right">
                   <select name="foodType" id="foodType"  class="form-control">
                         <optgroup label="한식">
+                           <option value="일반한식" th:text="일반한식"></option>
                            <option value="면류" th:text="면류"></option>
                            <option value="육류" th:text="육류"></option>
                            <option value="탕류" th:text="탕류"></option>
-                           <option value="일반한식" th:text="일반한식"></option>
                         </optgroup>
 
                         <optgroup label="중식">
@@ -135,7 +155,8 @@ function tempsb(){
                </tr>
                <tr>
                   <td><input type="submit" class="btn btn-danger" style="background-color: #f97d66; width: 190px; border: 0;" value="작성"></td>
-                  <td class="text-right"><input type="reset" class="btn btn-danger" style="background-color: #f97d66; width: 190px; border: 0;" value="취소"></td>
+                  <td class="text-right"><a onclick="javascript:self.close();"
+               class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">취소</a></td>
                </tr>
             </table>
          </form>
