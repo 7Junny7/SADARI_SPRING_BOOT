@@ -146,7 +146,7 @@ function subj(){
 						class="form-control" placeholder="-없이 숫자만 입력" style="display: inline; width: 250px">
 						<input type="button" id="PhoneBtn" class="btn btn-danger"
 							style="display: inline; width: 140px; background-color: #f97d66; border: 0;"
-							onclick="" th:value="인증번호전송"></button>
+							th:value="인증번호전송"></button>
 						<br><br>
 						</td>
 				</tr>
@@ -175,7 +175,6 @@ function subj(){
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
-	
 	  $('#temp').click(function () {
 		  var userId=$('#userId').val();
 
@@ -209,38 +208,8 @@ function subj(){
 	            		}
 	        })
 		  }
-	    });
-	
-	
-	
-   /*
-   $('.idCheck').click(function(){
-      $.ajax({
-         type:"get",
-         url:"join",
-         data:{
-            "id":$('#userId').val()
-         },
-         success: function(data){
-            if($.trim(data)=="yes"){
-               if($('#userId').val()!=''){
-                  $('#checkMsg').html('<p sytle="color:blue">사용 가능한 ID 입니다.</p>');
-               }
-            }else{
-               if($('#userId').val()!=''){
-                  $('#checkMsg').html('<p style="color:red">이미 사용중인 ID 입니다.</p>');
-                  $('#userId').val('');
-                  $('#userId').focus();
-               }
-            }
-         }
-      })
-   });
-   */
-
-   
+	    });  
 function checkUserIdExist(){
-   alert("ac8");
    var user_id = $("#userId").val()
    if(user_id.length == 0){
       alert('아이디를 입력해주세요')
@@ -262,15 +231,7 @@ function checkUserIdExist(){
              alert('사용할 수 없는 아이디 입니다');
           }
        }
-  /*     success : function(result){
-         if(result.trim() == 'true'){
-            alert('사용할 수 있는 아이디입니다')
-            $("#userIdExist").val('true')
-         } else {
-            alert('사용할 수 없는 아이디 입니다')
-            $("#userIdExist").val('false')
-         }
-      } */
+
    })
    return false;
 }
@@ -280,20 +241,18 @@ function resetUserIdExist(){
 }
 
 $('#PhoneBtn').click(function(){
-    let phoneNumber = $('#inputPhoneNumber').val();
-    Swal.fire('인증번호 발송 완료!')
-
-
+    let phoneNumber = $('#userPhone').val();
+    alert('인증번호 발송 완료!')
     $.ajax({
-        type: "GET",
-        url: "/check/sendSMS",
+        type: "get",
+        url: "/sendSMS",
         data: {
             "phoneNumber" : phoneNumber
         },
         success: function(res){
-            $('#checkBtn').click(function(){
-                if($.trim(res) ==$('#inputCertifiedNumber').val()){
-                    Swal.fire(
+            $('#certiBtn').click(function(){
+                if($.trim(res) ==$('#certiNum').val()){
+                    alert(
                         '인증성공!',
                         '휴대폰 인증이 정상적으로 완료되었습니다.',
                         'success'
@@ -303,7 +262,7 @@ $('#PhoneBtn').click(function(){
                         type: "POST",
                         url: "/update/phone",
                         data: {
-                            "phoneNumber" : $('#inputPhoneNumber').val()
+                            "phoneNumber" : $('#userPhone').val()
                         }
                     })
                     document.location.href="/home";
@@ -316,8 +275,6 @@ $('#PhoneBtn').click(function(){
                     })
                 }
             })
- 
-
         }
     })
 });
