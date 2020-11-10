@@ -62,14 +62,13 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public String idCheck(String userId) {
-        System.out.println(userRepo.findById(userId));
-
-        if (userRepo.findById(userId) == null) {
-            return "YES";
-        } else {
-            return "NO";
-        }
-
+        //System.out.println(userRepo.findById(userId));
+		/*
+		 * System.out.println(userRepo.findById(userId)); System.out.println(); if
+		 * (userRepo.findById(userId).get().getUserId() == null) { return "YES"; } else
+		 * { return "NO"; }
+		 */
+			return userRepo.findById(userId).get().getUserId();
     }
 	
 }

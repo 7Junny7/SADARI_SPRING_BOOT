@@ -1,5 +1,7 @@
 package co.soft.controller;
 
+import java.io.IOException;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+
 import co.soft.domain.UserInfoBean;
+import co.soft.persistence.UserRepository;
 import co.soft.service.UserService;
 
 @SessionAttributes("user")
@@ -92,15 +100,30 @@ public class UserController {
 	}
 	
 	
+	@Autowired
+	private UserRepository userRepo;
+	
+
+	
+	
 	 //@PostMapping("/idCheck")
 	 
 	@ResponseBody
 	 @RequestMapping(value="/idCheck", method = RequestMethod.POST)
-	    public String id_check(String id) {
-		 System.out.println("1111");
-	        System.out.println(id);
-	        String str = userService.idCheck(id); //NO
-	       System.out.println(str);
+	    public String id_check(String id, Model model) {
+	        System.out.println(id+"id");
+	        String str;
+	        System.out.println(userRepo.findById(id).isPresent());
+	        if (userRepo.findById(id).isPresent()==false) {
+	            str= "YES";
+	        } else {
+	            str= "NO";
+	        }
+	        
+	       // System.out.println(userRepo.findById(id).get());
+	        model.addAttribute("str", str);
+	      //  str = userService.idCheck(id); //NO
+	       System.out.println(str+"str");
 	        return str;
 	    }
 } 

@@ -188,15 +188,14 @@ function subj(){
 	                "id" : $('#userId').val()
 	            },
 	            success: function (data) {	
-	            	alert($.trim(data));
 	                    if ($('#userId').val() != '') {
-	                		if ($.trim(data) == "YES") {
-	                        	$('#checkMsg').html('<span style="color:blue">사용가능한 ID 입니다!</span>');
-	                   			 } 
-	                		else if ($.trim(data) == "NO") {
+	                		if ($.trim(data) == "NO") {
 	                       		$('#checkMsg').html('<span style="color:red">이미 사용중인 ID 입니다. 다른 ID를 입력하세요.</span>');
 	                       	 	$('#userId').val('');
 	                        	$('#userId').focus();
+	                   			 } 
+	                		else{
+	                        	$('#checkMsg').html('<span style="color:blue">사용가능한 ID 입니다!</span>');
 	                			}
 	            		 }
 	            		}
