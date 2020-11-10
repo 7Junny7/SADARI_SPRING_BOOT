@@ -29,12 +29,35 @@ td {
 <title>Insert title here</title>
 <script>
 	function sub() {
+		 var Subject = $("#subject").val();
+		   var Time = $("#time").val();
+		   var Date = $("#date").val();
+		   var foodcomment = $("#foodComment").val();
 		var pw = document.getElementById("password").value;
 		var pw2 = document.getElementById("password2").value;
 		if (pw != pw2) {
 			alert("비밀번호가 일치하지 않습니다.")
 			return false;
 		}
+		
+		if (Subject == '') {
+		      alert("제목을 입력해주세요.");
+			return false;
+		}
+	
+	   		if (Date == '') {
+		      alert("날짜를 선택해주세요.");
+			return false;
+		}
+	   		if (Time == '') {
+		      alert("시간을 선택해주세요.");
+			return false;
+		}
+	   		if (foodcomment == '') {
+		      alert("간단히 소개해주세요.");
+			return false;
+		}
+		
 		return true;
 	}
 </script>
