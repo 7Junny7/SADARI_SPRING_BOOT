@@ -54,12 +54,22 @@
       <tr>
          <td><a onclick="javascript:self.close();"
                class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">확인</a></td>
-         <td><a href="/userUpdate "
+         <td><a href="/userUpdate" onclick="pass();"
                class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">정보수정</a></td>
       </tr>
     </table>
     </div>
     </div>
     </div>
+        <script>
+    function pass(){
+    	var Password = $("#password").val();
+    	var password2 = prompt("비밀번호를 입력해주세요.");
+    	if(Password2 == ''){
+    		alert("비밀번호를 다시입력해주세요.")
+    		return false;
+    	}
+    }
+    </script>
 </body>
 </html>
