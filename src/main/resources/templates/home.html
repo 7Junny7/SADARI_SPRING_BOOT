@@ -299,13 +299,13 @@ body {
 					<div id="menu_wrap" class="bg_white">
 						<div class="option">
 							<div>
-								<form method="get" action="/topmenu">
+								<form method="get" action="/getMarker">
 									지역: <select id="keyword" name="keyword">
 										<option th:each="key,i: ${key}" th:text="${key}" th:selected="${key} == ${keyword}"></option>
 									</select>
 									<input type="hidden" th:value="${menu}" name="menu">
 									<button type="submit" class="btn btn-danger"
-										style="background-color: #f97d66; width: 30%; border: 0;" onclick="click()">검색하기</button>
+										style="background-color: #f97d66; width: 30%; border: 0;">검색하기</button>
 								</form>
 
 								<hr>
