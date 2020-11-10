@@ -63,9 +63,12 @@ td {
 </script>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-	<h2 style="display: inline;">게시글 수정</h2>
-	<a th:href="@{/locationList}">글목록</a>
-	<br>
+	<a class="navbar-brand" href="/home"><img src="./img/logo.png"
+		alt="로고" style="width: 200px;"></a>
+	<div class="container" th:align="center">
+		<div class="row" th:align="center">
+			<div class="table-responsive">
+				<h1 style="color: #f97d66;">게시글 수정</h1>
 	<br>
 	<form th:action="@{/updateLocation}" th:onsubmit="return sub()"
 		method="post">
@@ -189,5 +192,8 @@ td {
 			</tr>
 		</table>
 	</form>
+	</div>
+	</div>
+	</div>
 </body>
 </html>
