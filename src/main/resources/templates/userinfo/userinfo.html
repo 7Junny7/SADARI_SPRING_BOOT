@@ -14,10 +14,28 @@
     }
     table{text-align: center;}  
     </style>
+	<script>
+	$(function(){
+			var password1=$("#password1").val();
+		$("#pass").click(function(){
+			var password2= prompt("비밀번호를 입력해주세요.");
+			if(password2 == ""){
+				alert("입력값이 없습니다.");
+				return false;
+			}else if(password2==password1){
+				alert("비밀번호 일치!")
+				return true;
+				}else{
+					alert("비밀번호 불일치!")
+					return false;
+			}
+		});
+	});
+    </script>
 </head>
 <body  th:align="center" style="background-color: #f5f6f7">
+         <input	th:hidden="${session['user'].userPassword}" name="password1" id="password1"	th:value="${session['user'].userPassword}">
     <div class="container" th:align="center">
-   
       <div class="row" th:align="center">
       <div class="table-responsive">
     <h1 style="color: #f97d66;">회원정보</h1>
@@ -38,8 +56,7 @@
       <tr>
          <td th:text="비밀번호" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">비밀번호</td>
          <td th:text="${session['user'].userPassword}" id="password" name="password" style="background-color:#f5f6f7; width: 200px; height: 50px; border: 0; -webkit-text-security: disc;">
-         <input type="hidden" id="password2" name="password2">
-         </td>
+			</td>
       </tr>
       <tr>
          <td th:text="성별" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">성별</td>
@@ -56,22 +73,13 @@
       <tr>
          <td><a onclick="javascript:self.close();"
                class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">확인</a></td>
-         <td><a href="/userUpdate" onclick="pass();"
-               class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">정보수정</a></td>
+         <td><a href="/userUpdate" onclick="return pass(this);"
+               class="btn btn-danger" id="pass" style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">정보수정</a></td>
       </tr>
     </table>
     </div>
     </div>
     </div>
-        <script>
-    function pass(){
-    	var Password = $("#password").val();
-    	var password2 = prompt("비밀번호를 입력해주세요.");
-    	if(Password2 == ''){
-    		alert("비밀번호를 다시입력해주세요.")
-    		return false;
-    	}
-    }
-    </script>
+
 </body>
 </html>
