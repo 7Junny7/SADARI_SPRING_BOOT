@@ -37,7 +37,7 @@
       </tr>
       <tr>
          <td th:text="비밀번호" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">비밀번호</td>
-         <td><input name="userPassword" id="userPassword" type="password" size="20"th:value="${session['user'].userPassword}"></td>
+         <td><input name="userPassword" id="userPassword" type="text" size="20"th:value="${session['user'].userPassword}"></td>
       </tr>
       <tr>
          <td th:text="성별" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">성별</td>
@@ -52,9 +52,9 @@
         </tr>
       <tr>
          <td><input 
-               type="submit" class="btn btn-danger"  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;" value="수정완료" /></td>
+               type="submit" class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;" value="수정완료" /></td>
          <td><input 
-               type="reset" onclick="javascript:self.close();" class="btn btn-danger"  style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;" value="수정 취소"></td>
+               type="reset" onclick="javascript:self.close();" class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;" value="수정 취소"></td>
       </tr>
     </table>
     </form>

@@ -2,6 +2,7 @@ package co.soft.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
+import co.soft.domain.LocationInfoBean;
 import co.soft.domain.UserInfoBean;
 import co.soft.persistence.UserRepository;
 import co.soft.service.UserService;
@@ -99,7 +101,16 @@ public class UserController {
 		return "/userinfo/userinfo_modify_Success";
 	}
 	
-	
+	/*
+	 * @GetMapping("/modifyuserinfo") public String modifyuserinfoView(UserInfoBean
+	 * user, Model model, HttpServletRequest request) { String userId =
+	 * request.getParameter("userId"); model.addAttribute("user", userId); return
+	 * "/userinfo/userinfo_modify_pass"; }
+	 * 
+	 * @PostMapping("/modifyuserinfo") public String modifyUser(UserInfoBean user,
+	 * HttpServletRequest request,Model model) { String userId =
+	 * request.getParameter("userId"); return "redirect:modifyMap?userId="+userId; }
+	 */
 	@Autowired
 	private UserRepository userRepo;
 	
