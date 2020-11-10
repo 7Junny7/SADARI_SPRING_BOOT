@@ -7,6 +7,42 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>
+	function sub() {
+		 var nick = $("#userNickName").val();
+		 var pw = $("#userPassword").val();
+		 var phone = $("#userPhone").val();
+		 
+		 if(nick==''){
+			 alert("닉네임을 입력해주세요.");
+			 return false;
+		 }
+		 if(nick.length > 10 || nick.length < 2){
+			 alert("닉네임은 2~10글자로 입력해주세요.");
+			 return false;
+		 } 
+		 
+		 if(pw==''){
+			 alert("비밀번호를 입력해주세요.");
+			 return false;
+		 }
+		 if(pw.length <= 4 || pw.length > 20){
+			 alert("비밀번호는 4~20자리로 입력해주세요.");
+			 return false;
+		 }
+		 
+		 
+		 if(phone==''){
+			 alert("전화번호를 입력해주세요.");
+			 return false;
+		 }
+		 if(phone.length != 11){
+			 alert("잘못된 전화번호 입니다.");
+			 return false;
+		 }
+		   return true;
+	}
+</script>	
 <style type="text/css">
     h1{
     text-align: center;
@@ -21,7 +57,7 @@
       <div class="table-responsive">
     <h1 style="color: #f97d66;">회원정보 수정</h1>
     <br>
-   <form action="/userUpdate" method="post">
+   <form action="/userUpdate" method="post"  th:onsubmit="return sub()">
    <table th:align="center" th:cellpadding="0" th:cellspacing="0" style="border: 0; border-radius: 10px; width: 400px;">
       <tr>
          <td th:text="닉네임" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">닉네임</td>
