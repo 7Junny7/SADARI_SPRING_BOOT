@@ -390,6 +390,12 @@ body {
         </table>
     </div><!-- inf-company -->
     </div>
+    <!-- 파일 업로드 테스트용 -->
+     <form th:action="@{/fileUpload}" id="upload" name="upload" enctype="multipart/form-data" method="post">
+    		<input th:hidden="100" id="boardidx" name="boardidx" value="100">
+         	<input id="filename" name="filename" type="file">
+         	<input type="submit" value="등록">
+    </form>
 
 </body>
 <script type="text/javascript"

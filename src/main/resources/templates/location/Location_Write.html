@@ -160,6 +160,11 @@ function tempsb(){
                </tr>
             </table>
          </form>
+         <form th:action="@{/fileUpload}" id="upload" name="upload" enctype="multipart/form-data" method="post">
+    		<input th:hidden="${map.boardidx}" id="boardidx" name="boardidx" value="${map.boardidx}">
+         	<input id="filename" name="filename" type="file">
+         	<input type="submit" value="등록">
+    	</form>
          </div>
       </div>
    </div>
