@@ -259,7 +259,7 @@ body {
                aria-expanded="false"> 일식 </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/topmenu?menu=사시미">사시미</a> 
-                  <a class="dropdown-item" href="/topmenu?menu=면류">면류</a>
+                  <a class="dropdown-item" href="/topmenu?menu=일본면류">면류</a>
                   <a class="dropdown-item" href="/topmenu?menu=일본가정식">일본가정식</a>
                   <a class="dropdown-item" href="/topmenu?menu=튀김">튀김</a>
                   <a class="dropdown-item" href="/topmenu?menu=꼬치">꼬치</a>
@@ -366,7 +366,7 @@ body {
                    <input type="button" class="btn btn-danger" style="background-color: #f97d66; width: 100%; border: 0;" onclick="goSubmit()" value="글쓰기">
             </form>
             <form>
-            <div style="margin-top:11%"><img src="./foodpic/chicken.png" id="banner"></div>
+            <div style="margin-top:11%"><a href="/topmenu?menu=치킨" id="banner_href"><img src="./foodpic/chicken.png" id="banner"></a></div>
             
             </form>
          </div>
@@ -407,15 +407,19 @@ body {
    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d8f60004496cc3864b4652c1723cc364&libraries=services"></script>
 <script type="text/javascript">
 var banner=document.getElementById("banner");
+var href=document.getElementById("banner_href");
 var imageArray=["./foodpic/chicken.png","./foodpic/gukbab.png","./foodpic/hambug.png","./foodpic/jajang.png","./foodpic/jbab.png","./foodpic/kal.png","./foodpic/kbab.png","./foodpic/kochi.png","./foodpic/mara.png","./foodpic/pasta.png","./foodpic/pizza.png","./foodpic/sam.png","./foodpic/sushi.png","./foodpic/tikim.png","./foodpic/tuck.png","./foodpic/udong.png","./foodpic/yang.png"];
+var hrefArray= ["/topmenu?menu=치킨","/topmenu?menu=탕류","/topmenu?menu=햄버거","/topmenu?menu=일반중식","/topmenu?menu=일본가정식","/topmenu?menu=면류","/topmenu?menu=일반한식","/topmenu?menu=꼬치","/topmenu?menu=마라","/topmenu?menu=양식","/topmenu?menu=피자","/topmenu?menu=육류","/topmenu?menu=사시미","/topmenu?menu=튀김","/topmenu?menu=분식","/topmenu?menu=일본면류","/topmenu?menu=양꼬치",]
 var imageIndex=0;
 
 function changeImage(){
    banner.setAttribute("src",imageArray[imageIndex]);
+   href.setAttribute("href",hrefArray[imageIndex]);
    imageIndex++;
    if(imageIndex>=imageArray.length){
       imageIndex=0;
    }
+   
 }
 
 setInterval(changeImage,1000);
