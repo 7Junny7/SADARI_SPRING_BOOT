@@ -16,7 +16,9 @@ input{text-align: center;}
 </style>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
-		<div th:align="center" style="margin:8%"><img src="./img/logo.png" alt="로고" ></div>
+<a class="navbar-brand" href="/home"><img src="./img/logo.png"
+			alt="로고" style="width: 200px;"></a>
+			<div th:align="center" style="margin:2% 8% 2% 8%;"><img src="./img/logo1.png" alt="로고"></div>
 		<div th:align="center">
 		<input type="button" onclick="location.href='/login'" class="btn btn-danger" style="background-color: #f97d66; width: 400px; height:70px; border: 0; box-shadow: 4px 4px 4px 4px gray; font-size:30px; font-weight:bold;" value="같이먹을래!"><br><br>
 		<input type="button" onclick="location.href='/join'" class="btn btn-danger" style="background-color: #f97d66; width: 400px; height:50px; border: 0; box-shadow: 4px 4px 4px 4px gray;" value="회원가입">
