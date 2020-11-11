@@ -24,6 +24,10 @@ public class LocationInfoBean {
 	@Id
 	private Long boardidx; //글번호 히든
 	
+	private String userId;
+	
+	private String likeup;//참석눌렀을때 +1
+	
 	@Column(updatable = false)
 	private String restaurant; // 음식점 명, 업데이트 불가
 	

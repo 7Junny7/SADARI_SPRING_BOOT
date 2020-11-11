@@ -109,6 +109,10 @@ table {
          <input th:value="${mapinfo.location}" name="location" th:hidden="${mapinfo.location}" id="location">
       </div>
      <input th:hidden="${session['user'].userPhone}" th:value="${session['user'].userPhone}" id="phone"/>
+     <div th:if="loc.userId.value != null">
+     <input th:hidden="${session['user'].userId}" th:value="${session['user'].userId}" id="user_userId"/>
+     <input th:value="${loc.userId}"  id="loc_userId" th:hidden="${loc.userId}">
+    </div>
    </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
