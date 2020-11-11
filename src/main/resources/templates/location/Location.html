@@ -89,8 +89,12 @@ table {
                      <td style="color: #f5f6f7;" colspan="2">.</td>
                   </tr>
                   <tr>
-                     <td th:if="${loc.boardidx != null}">
-                     <a th:href="@{'/download/' + ${loc.boardidx}}" th:text="${boardidx}"></a></td>
+                     <td>
+                     	<a th:href="@{'/download/' + ${loc.boardidx}}" th:text="${loc.boardidx} + ' - download'"></a>
+                     </td>
+                     <td>
+                     	<a th:href="@{'/show/' + ${loc.boardidx}}" th:text="${loc.boardidx} + ' - show'"></a>
+                     </td>
                   </tr>
                   <tr>
                      <td align="center" colspan="2"><input type="button"

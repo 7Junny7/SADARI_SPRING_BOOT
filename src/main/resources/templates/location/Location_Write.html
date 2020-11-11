@@ -89,7 +89,7 @@ function tempsb(){
                </tr>
                <tr>
                   <td th:text="장소"></td>
-                  <td class="text-right"><input th:value="${map.restaurant}" name="restaurant" readonly="readonly" class="form-control"></span><br>
+                  <td class="text-right"><input th:value="${map.restaurant}" name="restaurant" readonly="readonly" class="form-control"><br>
                   <!-- 음식정명 --></td>
                </tr>
                <tr>
@@ -161,8 +161,24 @@ function tempsb(){
             </table>
          </form>
          <form th:action="@{/fileUpload}" id="upload" name="upload" enctype="multipart/form-data" method="post">
-    		<input th:hidden="${map.boardidx}" id="boardidx" name="boardidx" value="${map.boardidx}">
+    		<input th:hidden="${map.boardidx}" name="boardidx" th:value="${map.boardidx}">
+    		<input th:hidden="${map.location}" name="location" th:value="${map.location}">
+    		<input th:hidden="${map.restaurant}" name="restaurant" th:value="${map.restaurant}">
+    		
          	<input id="filename" name="filename" type="file">
+         	<div class="select_img"><img src=""/></div>
+         	
+         	<script>
+         		$("#filename").change(function(){
+         			if(this.files && this.files[0]){
+         				var reader = new FileReader;
+         				reader.onload = function(data){
+         					$(".select_img img").attr("src", data.target.result).width(300);
+         				}
+         				reader.readAsDataURL(this.files[0]);
+         			}
+         		})
+         	</script>
          	<input type="submit" value="등록">
     	</form>
          </div>

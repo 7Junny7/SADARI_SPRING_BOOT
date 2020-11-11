@@ -48,7 +48,7 @@ public class MapController {
 
 		mapService.insertMap(map);
 		model.addAttribute("map", map);
-		return "/location/Location_Write"; // 맵 작성 페이지 지정할 것
+		return "/location/Location_Write"; 
 	}
 
 	@PostMapping("/insertMap")
@@ -86,7 +86,7 @@ public class MapController {
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
 		List<MapInfoBean> mapidx = mapService.locList(boardidx);
 		mapService.deleteMap(mapidx.get(0));
-		return "/location/LocationList_Modify_Success";
+		return "redirect:deleteFile?boardidx="+boardidx;
 	}
 	
 	@RequestMapping("/getMarker")

@@ -72,7 +72,7 @@ public class LocationController {
 //      }
 
 		model.addAttribute("location", locationService.getLocation(loc));
-		return "/location/Location"; // 파일 있음?
+		return "/location/Location"; 
 	}
 
 	@GetMapping("/updateLocation")
