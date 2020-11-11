@@ -232,49 +232,49 @@ body {
          <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto"> 
             <li class="nav-item dropdown"><a
                class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                role="button" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false"> 한식 </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/topmenu?menu=면류" onclick="on()">면류</a> 
-                  <a class="dropdown-item" href="/topmenu?menu=육류">육류</a>
-                  <a class="dropdown-item" href="/topmenu?menu=탕류">탕류</a>
-                  <a class="dropdown-item" href="/topmenu?menu=일반한식">일반한식</a>
+                  <a class="dropdown-item" href="/getMarker?menu=면류" onclick="on()">면류</a> 
+                  <a class="dropdown-item" href="/getMarker?menu=육류">육류</a>
+                  <a class="dropdown-item" href="/getMarker?menu=탕류">탕류</a>
+                  <a class="dropdown-item" href="/getMarker?menu=일반한식">일반한식</a>
                </div></li>
          <li class="nav-item dropdown"><a
                class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                role="button" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false"> 중식 </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/topmenu?menu=일반중식">일반중식</a> 
-                  <a class="dropdown-item" href="/topmenu?menu=마라">마라</a>
-                  <a class="dropdown-item" href="/topmenu?menu=양꼬치">양꼬치</a>
+                  <a class="dropdown-item" href="/getMarker?menu=일반중식">일반중식</a> 
+                  <a class="dropdown-item" href="/getMarker?menu=마라">마라</a>
+                  <a class="dropdown-item" href="/getMarker?menu=양꼬치">양꼬치</a>
                </div></li>
                <li class="nav-item dropdown"><a
                class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                role="button" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false"> 일식 </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/topmenu?menu=사시미">사시미</a> 
-                  <a class="dropdown-item" href="/topmenu?menu=일본면류">면류</a>
-                  <a class="dropdown-item" href="/topmenu?menu=일본가정식">일본가정식</a>
-                  <a class="dropdown-item" href="/topmenu?menu=튀김">튀김</a>
-                  <a class="dropdown-item" href="/topmenu?menu=꼬치">꼬치</a>
+                  <a class="dropdown-item" href="/getMarker?menu=사시미">사시미</a> 
+                  <a class="dropdown-item" href="/getMarker?menu=면류">면류</a>
+                  <a class="dropdown-item" href="/getMarker?menu=일본가정식">일본가정식</a>
+                  <a class="dropdown-item" href="/getMarker?menu=튀김">튀김</a>
+                  <a class="dropdown-item" href="/getMarker?menu=꼬치">꼬치</a>
                </div></li>
-            <li class="nav-item"><a class="nav-link" href="/topmenu?menu=분식">분식</a></li>
+            <li class="nav-item"><a class="nav-link" href="/getMarker?menu=분식">분식</a></li>
             
-            <li class="nav-item"><a class="nav-link" href="/topmenu?menu=양식">양식</a></li>
+            <li class="nav-item"><a class="nav-link" href="/getMarker?menu=양식">양식</a></li>
             <li class="nav-item dropdown"><a
                class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                role="button" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false"> 패스트푸드 </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/topmenu?menu=피자">피자</a> <a
-                     class="dropdown-item" href="/topmenu?menu=치킨">치킨</a>
-                  <a class="dropdown-item" href="/topmenu?menu=햄버거">햄버거</a>
+                  <a class="dropdown-item" href="/getMarker?menu=피자">피자</a> <a
+                     class="dropdown-item" href="/getMarker?menu=치킨">치킨</a>
+                  <a class="dropdown-item" href="/getMarker?menu=햄버거">햄버거</a>
                </div></li>
          </ul>
          
@@ -366,7 +366,7 @@ body {
                    <input type="button" class="btn btn-danger" style="background-color: #f97d66; width: 100%; border: 0;" onclick="goSubmit()" value="글쓰기">
             </form>
             <form>
-            <div style="margin-top:11%"><a href="/topmenu?menu=치킨" id="banner_href"><img src="./foodpic/chicken.png" id="banner"></a></div>
+            <div style="margin-top:11%"><a href="/getMarker?menu=치킨" id="banner_href"><img src="./foodpic/chicken.png" id="banner"></a></div>
             
             </form>
          </div>
@@ -409,7 +409,7 @@ body {
 var banner=document.getElementById("banner");
 var href=document.getElementById("banner_href");
 var imageArray=["./foodpic/chicken.png","./foodpic/gukbab.png","./foodpic/hambug.png","./foodpic/jajang.png","./foodpic/jbab.png","./foodpic/kal.png","./foodpic/kbab.png","./foodpic/kochi.png","./foodpic/mara.png","./foodpic/pasta.png","./foodpic/pizza.png","./foodpic/sam.png","./foodpic/sushi.png","./foodpic/tikim.png","./foodpic/tuck.png","./foodpic/udong.png","./foodpic/yang.png"];
-var hrefArray= ["/topmenu?menu=치킨","/topmenu?menu=탕류","/topmenu?menu=햄버거","/topmenu?menu=일반중식","/topmenu?menu=일본가정식","/topmenu?menu=면류","/topmenu?menu=일반한식","/topmenu?menu=꼬치","/topmenu?menu=마라","/topmenu?menu=양식","/topmenu?menu=피자","/topmenu?menu=육류","/topmenu?menu=사시미","/topmenu?menu=튀김","/topmenu?menu=분식","/topmenu?menu=일본면류","/topmenu?menu=양꼬치",]
+var hrefArray= ["/getMarker?menu=치킨","/getMarker?menu=탕류","/getMarker?menu=햄버거","/getMarker?menu=일반중식","/getMarker?menu=일본가정식","/getMarker?menu=면류","/getMarker?menu=일반한식","/getMarker?menu=꼬치","/getMarker?menu=마라","/getMarker?menu=양식","/getMarker?menu=피자","/getMarker?menu=육류","/getMarker?menu=사시미","/getMarker?menu=튀김","/getMarker?menu=분식","/getMarker?menu=면류","/getMarker?menu=양꼬치",]
 var imageIndex=0;
 
 function changeImage(){
@@ -480,12 +480,166 @@ setInterval(changeImage,1000);
    
       var markers = [];
 function onl(){
-   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-   mapOption = {
-      center : new kakao.maps.LatLng(37.56931205456954, 126.98603181926016), // 지도의 중심좌표
-      level : 2
-   // 지도의 확대 레벨
-   };
+	var keyXY = document.getElementById("keyword").value;
+	   if(keyXY == "강남구"){
+	      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	      mapOption = {
+	       center : new kakao.maps.LatLng(37.509172, 127.043951), // 지도의 중심좌표
+	       level : 5
+	       }
+	    }else if(keyXY == "강동구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.550969, 127.144327), // 지도의 중심좌표
+	          level : 5
+	            }
+	       
+	    }else if(keyXY == "강북구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.639338, 127.025390), // 지도의 중심좌표
+	          level : 5
+	            }
+	       
+	    }else if(keyXY == "강서구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.567656, 126.810948), // 지도의 중심좌표
+	          level : 5
+	            }
+	       
+	    }else if(keyXY == "관악구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.471302, 126.936865), // 지도의 중심좌표
+	          level : 5
+	            }
+	       
+	    }else if(keyXY == "광진구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.567656, 126.810948), // 지도의 중심좌표
+	          level : 5
+	            }
+	       
+	    }else if(keyXY == "금천구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.484445, 126.896007), // 지도의 중심좌표
+	          level : 5
+	            }
+	       
+	    }else if(keyXY == "구로구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.501431, 126.859896), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }
+	    else if(keyXY == "노원구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.655418, 127.061363), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "도봉구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.671636, 127.043201), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "동대문구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.589527, 127.057835), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "동작구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.502977, 126.947897), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "마포구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.550045, 126.914816), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "서대문구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.573851, 126.935629), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "서초구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.492133, 127.008726), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "성동구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.547492, 127.047179), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "성북구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.592894, 127.016138), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "송파구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.514351, 127.104646), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "양천구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.526376, 126.864614), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "영등포구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.517743, 126.907514), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "용산구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.535324, 126.995667), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "은평구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.611682, 126.917683), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "중구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.566122, 126.982691), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }else if(keyXY == "중랑구"){
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.595759, 127.086154), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }
+	    else{
+	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.56931205456954, 126.98603181926016), // 지도의 중심좌표
+	          level : 5
+	            }
+	    }
 
    //지도를 생성합니다    
    var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -601,7 +755,7 @@ if(x.length != 0){
          menuEl.scrollTop = 0;
 
          // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-         map.setBounds(plcaes);
+         map.setBounds(bounds);
       }
    }
    //검색결과 항목을 Element로 반환하는 함수입니다
