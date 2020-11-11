@@ -43,7 +43,8 @@ function subj(){
    var userNickName = $("#userNickName").val();
    var userBirth = $("#userBirth").val();
    var userPhone =$("#userPhone").val();
-   
+   var certiNum = $("#certiNum").val();
+   var phoneTrue = document.getElementById("phoneTrue").value;
    //아이디 빈칸 확인
    if(userId.length == 0){
       alert("아이디를 입력해 주세요!");
@@ -69,9 +70,19 @@ function subj(){
       return false;
    }
    //폰번호 확인
-   if(userPhone.length == 0){
-      alert("핸드폰 번호를 입력해 주세요!");
+   if(userPhone.length != 11){
+      alert("핸드폰 번호를 확인해주세요");
       return false;
+   }
+   //인증번호 확인
+   if(certiNum.length == 0){
+	   alert("인증번호 4자리를 입력해주세요");
+	   return false;
+   }
+   //인증성공 안눌렀을때
+   if(phoneTrue != "true"){
+	   alert("인증번호 확인을 해주세요");
+	   return false;
    }
    return true;
 }
@@ -158,7 +169,8 @@ function subj(){
 						class="form-control" placeholder="숫자 4자리" style="display: inline; width: 250px">
 						<input type="button" id="certiBtn" class="btn btn-danger"
 							style="display: inline; width: 140px; background-color: #f97d66; border: 0;"
-							onclick="" th:value="인증번호확인"></button>
+							th:value="인증번호확인"></button>
+							<input type="text" id="phoneTrue">
 						<br><br>
 						</td>
 				</tr>
@@ -239,10 +251,9 @@ function checkUserIdExist(){
 function resetUserIdExist(){
    $("#userIdExist").val('false')
 }
-
+var phoneTrue = document.getElementById("phoneTrue");
 $('#PhoneBtn').click(function(){
     let phoneNumber = $('#userPhone').val();
-    alert('인증번호 발송 완료!')
     $.ajax({
         type: "get",
         url: "/sendSMS",
@@ -251,7 +262,8 @@ $('#PhoneBtn').click(function(){
         },
         success: function(res){
             $('#certiBtn').click(function(){
-                if($.trim(res) ==$('#certiNum').val()){
+                 if($.trim(res) ==$('#certiNum').val()){
+                	 phoneTrue.value="true",
                     alert(
                         '인증성공!',
                         '휴대폰 인증이 정상적으로 완료되었습니다.',
@@ -264,7 +276,7 @@ $('#PhoneBtn').click(function(){
                         text: '인증번호가 올바르지 않습니다!',
                     })
                 }
-            })
+            }) 
         }
     })
 });
