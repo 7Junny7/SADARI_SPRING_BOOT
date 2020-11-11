@@ -304,7 +304,7 @@ body {
                               <option th:each="key,i: ${key}" th:text="${key}" th:selected="${key} == ${keyword}"></option>
                            </select>
                            <input type="hidden" th:value="${menu}" name="menu">
-                           <button type="submit" class="btn btn-danger"
+                           <button type="submit" class="btn btn-danger" onclick="ser()"
                               style="background-color: #f97d66; width: 30%; border: 0;">검색하기</button>
                         </form>
 
@@ -479,8 +479,8 @@ setInterval(changeImage,1000);
    
    
       var markers = [];
-function onl(){
 	var keyXY = document.getElementById("keyword").value;
+	   function onl(){
 	   if(keyXY == "강남구"){
 	      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	      mapOption = {
@@ -633,12 +633,18 @@ function onl(){
 	          level : 5
 	            }
 	    }
-	    else{
+	    else if(keyXY == "중로구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.56931205456954, 126.98603181926016), // 지도의 중심좌표
 	          level : 5
 	            }
+	    }else{
+	    	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	         mapOption = {
+	          center : new kakao.maps.LatLng(37.56931205456954, 126.98603181926016), // 지도의 중심좌표
+	          level : 5
+	    }
 	    }
 
    //지도를 생성합니다    

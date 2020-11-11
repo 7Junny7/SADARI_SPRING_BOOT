@@ -162,15 +162,16 @@ td {
 			</tr>
 			<tr>
 				<td>참가인원</td>
-				<!-- <td th:text="${loca.wantWho}" name="wantWho" id="wantWho" value="${loca.wantWho}"></td> -->
+				<input th:value="${loca.wantWho}" id="want" th:hidden="${loca.wantWho}">
 				<td class="text-right"><select name="wantWho" id="wantWho"
-					th:value="${loca.wantWho}" class="form-control">
-						<option value="2" th:text="2"></option>
-						<option value="3" th:text="3"></option>
-						<option value="4" th:text="4"></option>
-						<option value="5" th:text="5"></option>
-						<option value="6" th:text="6"></option>
-				</select> <br></td>
+					class="form-control">
+						<option th:value="2" th:text="2"></option>
+						<option th:value="3" th:text="3"></option>
+						<option th:value="4" th:text="4"></option>
+						<option th:value="5" th:text="5"></option>
+						<option th:value="6" th:text="6"></option>
+				</select>
+				 <br></td>
 			</tr>
 			<tr>
 				<td>글 내용</td>
@@ -196,4 +197,7 @@ td {
 	</div>
 	</div>
 </body>
+<script type="text/javascript">
+$("#wantWho").val($("#want").val());
+</script>
 </html>
