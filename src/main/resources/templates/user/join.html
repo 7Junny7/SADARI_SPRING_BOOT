@@ -44,6 +44,7 @@ function subj(){
    var userBirth = $("#userBirth").val();
    var userPhone =$("#userPhone").val();
    var certiNum = $("#certiNum").val();
+   var checkMsg = $("checkMsg").val();
    var phoneTrue = document.getElementById("phoneTrue").value;
    //아이디 빈칸 확인
    if(userId.length == 0){
@@ -84,6 +85,10 @@ function subj(){
 	   alert("인증번호 확인을 해주세요");
 	   return false;
    }
+   if(checkMsg != "true"){
+	   alert("아이디 중복확인을 해주세요");
+	   return false;
+   }
    return true;
 }
 </script>
@@ -106,7 +111,7 @@ function subj(){
 						class="form-control" onkeypress="resetUserIdExist()"
 						placeholder="아이디를 입력하세요" style="display: inline; width: 300px">
 						<input type="button" id="temp" name="temp" class="btn btn-danger" style="display: inline; width: 90px; background-color: #f97d66; border: 0;" th:value="중복확인">
-						<div class="text-center small mt-2" id="checkMsg">　</div></td>
+						<div class="text-center small mt-2" id="checkMsg"></div></td>
 				</tr>
 				<tr>
 					<td th:text="비밀번호"></td>
@@ -170,7 +175,7 @@ function subj(){
 						<input type="button" id="certiBtn" class="btn btn-danger"
 							style="display: inline; width: 140px; background-color: #f97d66; border: 0;"
 							th:value="인증번호확인"></button>
-							<input type="text" id="phoneTrue">
+							<input type="hidden" id="phoneTrue">
 						<br><br>
 						</td>
 				</tr>
@@ -215,6 +220,7 @@ function subj(){
 	                   			 } 
 	                		else{
 	                        	$('#checkMsg').html('<span style="color:blue">사용가능한 ID 입니다!</span>');
+	                        	$('#checkMsg').val('true');
 	                			}
 	            		 }
 	            		}
@@ -263,12 +269,8 @@ $('#PhoneBtn').click(function(){
         success: function(res){
             $('#certiBtn').click(function(){
                  if($.trim(res) ==$('#certiNum').val()){
-                	 phoneTrue.value="true",
-                    alert(
-                        '인증성공!',
-                        '휴대폰 인증이 정상적으로 완료되었습니다.',
-                        'success'
-                    )
+                    alert('인증성공!');
+                	phoneTrue.value="true";
                 }else{
                    alert({
                         icon: 'error',
