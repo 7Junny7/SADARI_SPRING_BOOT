@@ -39,7 +39,7 @@ public class certificationService {
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("to", phoneNumber);    // 수신전화번호
         params.put("from", "01071399170");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
-        params.put("type", "SMS");
+        params.put("type", "LMS");
         params.put("text","우리 같이 먹을까?\n"+"장소: "+restaurant+"\n"+"음식: "+foodType+"\n"+"주소: "+location+"\n"+"시간:"+str);
  
 //        params.put("app_version", "test app 1.2"); // application name and version

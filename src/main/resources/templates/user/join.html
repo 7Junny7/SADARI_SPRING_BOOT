@@ -44,7 +44,7 @@ function subj(){
    var userBirth = $("#userBirth").val();
    var userPhone =$("#userPhone").val();
    var certiNum = $("#certiNum").val();
-   var checkMsg = $("checkMsg").val();
+   var checkMsg = $("#checkMsg").val();
    var phoneTrue = document.getElementById("phoneTrue").value;
    //아이디 빈칸 확인
    if(userId.length == 0){
@@ -71,7 +71,7 @@ function subj(){
       return false;
    }
    //폰번호 확인
-   if(userPhone.length != 11){
+   if(userPhone.length != '11'){
       alert("핸드폰 번호를 확인해주세요");
       return false;
    }
@@ -259,6 +259,7 @@ function resetUserIdExist(){
 }
 var phoneTrue = document.getElementById("phoneTrue");
 $('#PhoneBtn').click(function(){
+	alert("인증번호전송");
     let phoneNumber = $('#userPhone').val();
     $.ajax({
         type: "get",
