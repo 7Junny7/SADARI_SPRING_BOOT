@@ -6,10 +6,6 @@
 <title>파일 업로드 완료</title>
 </head>
 <body>
-<img th:src="@{'./imgs/' + ${file.filename}}">
-<img src="./imgs/279imgac8.jpg">
-<label><img src="./img/logo.png"></label>
-<a class="navbar-brand" href="/home"><img src="./img/logo.png"
-			alt="로고" style="width: 200px;"></a>
+<img th:src="@{'/imgs/' + ${file.filename}}"/>
 </body>
 </html>
