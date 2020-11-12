@@ -25,9 +25,8 @@ public class LocationInfoBean {
 	@Id
 	private Long boardidx; //글번호 히든
 	
-	@ElementCollection
 	@Column(nullable = false)
-	private List<String> userId = new ArrayList<String>(); // 참석자 아이디 확인용
+	private String userId;// 참석자 아이디 확인용
 	
 	@Column(nullable = false)
 	private String likeup;//참석눌렀을때 +1

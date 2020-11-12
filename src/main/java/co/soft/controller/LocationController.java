@@ -1,6 +1,7 @@
 package co.soft.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -94,18 +95,24 @@ public class LocationController {
 		locationService.updateLocation(loc);
 		return "/location/LocationList_Modify_Success";
 	}
-	
-//	@GetMapping("/updateApply")
-//	public String updateApply(LocationInfoBean loc,HttpServletRequest request) {
-//		List<String> userId =List. request.getParameterValues("loc_userId");
-//		userId.add(request.getParameter("userId"));
-//		String likeup = request.getParameter("likeup");
-//		loc.setUserId(userId);
-//		loc.setLikeup(likeup);
-//		
-//		
-//		return "/home";
-//	}
+	//참석 + 
+	@GetMapping("/updateApply")
+	public String updateApply(LocationInfoBean loc,HttpServletRequest request) {
+		String userId = request.getParameter("userId");//현재접속중인유저
+		String loc_userId= request.getParameter("loc_userId");
+		String likeup = request.getParameter("likeup");
+		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+		
+		LocationInfoBean idx = locationService.getLocation(boardidx);
+		idx.setLikeup(likeup);
+		idx.setUserId(userId.concat(","+loc_userId));
+		System.out.println(idx);
+		
+		
+		locationService.updateLocationApply(idx);
+		
+		return "redirect:home";
+	}
 
 	@GetMapping("/deleteLocation")
 	public String deleteLocationView(UserInfoBean user, LocationInfoBean loc, Model model, HttpServletRequest request) {

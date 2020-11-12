@@ -22,4 +22,7 @@ public interface LocationService {
 	void deleteLocation(LocationInfoBean locinfo);
 	//boardidx값으로 리스트불러오기
 	LocationInfoBean getLocation(Long idx);
+	//참석+
+	void updateLocationApply(LocationInfoBean locinfo);
+	
 }
