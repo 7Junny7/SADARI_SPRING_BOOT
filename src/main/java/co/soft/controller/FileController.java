@@ -128,6 +128,7 @@ public class FileController {
 	@GetMapping("/show/{boardidx}")
 	public String fileShow(@PathVariable("boardidx") Long fileId, Model model) throws IOException {
 		FileInfoBean fileDto = fileService.getFile(fileId); // boardidx 기준으로 파일정보 빈에 저장
+		if(fileDto != null) {
 		Path path = Paths.get(fileDto.getFilePath()); // 파일 경로
 		Resource resource = new InputStreamResource(Files.newInputStream(path)); // 파일 불러옴
 		
@@ -135,6 +136,11 @@ public class FileController {
 		model.addAttribute("file",fileDto);
 		model.addAttribute("re",resource);
 		System.out.println(fileDto);
+		}else if(fileDto ==null || fileDto.getFilename()==""){
+			System.out.println("111");
+			model.addAttribute("name","noimg.gif");
+		}
+
 		return "location/upload_Check";
 	}
 
