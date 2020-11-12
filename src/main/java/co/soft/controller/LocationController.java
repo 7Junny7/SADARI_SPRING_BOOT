@@ -97,7 +97,7 @@ public class LocationController {
 	
 //	@GetMapping("/updateApply")
 //	public String updateApply(LocationInfoBean loc,HttpServletRequest request) {
-//		List<String> userId;
+//		List<String> userId =List. request.getParameterValues("loc_userId");
 //		userId.add(request.getParameter("userId"));
 //		String likeup = request.getParameter("likeup");
 //		loc.setUserId(userId);

@@ -5,7 +5,18 @@
 <meta charset="UTF-8">
 <title>파일 업로드 완료</title>
 </head>
-<body>
-<!-- <div th:if="${file.filename != null}"><img th:src="@{'/imgs/' + ${file.filename}}"/></div> -->
+<body th:onclick="cl()">
+	<div th:if="@{${file.filename} != null}">
+		<img th:src="@{'/imgs/' + ${file.filename}}" />
+	</div>
+	<div th:unless="@{${file.filename} != null}">
+		<img th:src="@{/imgs/NoIMG.gif}" />
+	</div>
+	<input type="button" onclick="cl()" value="확인">
+<script>
+	function cl() {
+		self.close();
+	}
+</script>
 </body>
 </html>

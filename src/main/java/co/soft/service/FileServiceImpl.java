@@ -1,5 +1,7 @@
 package co.soft.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +23,24 @@ public class FileServiceImpl implements FileService{
 	}
 	
 	public FileInfoBean getFile(Long boardidx) {
-		FileInfoBean file=fileRepo.findById(boardidx).get();
-		
-		FileInfoBean fileDto=FileInfoBean.builder()
-				.boardidx(boardidx)
-				.origFilename(file.getOrigFilename())
-				.filename(file.getFilename())
-				.filePath(file.getFilePath())
-				.build();
+		FileInfoBean fileDto = new FileInfoBean();
+		Optional<FileInfoBean> filel = Optional.ofNullable(fileRepo.findById(boardidx).orElse(null));
+		if(filel.isPresent()) {
+			FileInfoBean file = fileRepo.findById(boardidx).get();
+			fileDto=FileInfoBean.builder()
+					.boardidx(boardidx)
+					.origFilename(file.getOrigFilename())
+					.filename(file.getFilename())
+					.filePath(file.getFilePath())
+					.build();
+		}else {
+			fileDto=FileInfoBean.builder()
+					.boardidx(boardidx)
+					.origFilename(null)
+					.filename(null)
+					.filePath(null)
+					.build();
+		}
 		return fileDto;
 	}
 }
