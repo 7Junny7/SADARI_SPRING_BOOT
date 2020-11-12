@@ -34,9 +34,8 @@ public class LocationServiceImpl implements LocationService {
 		
 				locBoard.setDate(locinfo.getDate()); //원하는 날짜 수정
 				locBoard.setTime(locinfo.getTime()); //원하는 시간 수정
-				locBoard.setWantWho(locinfo.getWantWho()); //같이 먹고 싶은 사람 수정
+				locBoard.setWantWho(locinfo.getWantWho()); //참석 인원 수정
 				locBoard.setFoodComment(locinfo.getFoodComment()); //글 내용 수정
-//				locBoard.setFoodPicture(locinfo.getFoodPicture()); //음식 사진 수정
 				locRepo.save(locBoard);		
 	}
 	//게시물 좋아요/투표인원수 수정
@@ -47,6 +46,15 @@ public class LocationServiceImpl implements LocationService {
 		locBoard.setFoodLikePerson(locinfo.getFoodLikePerson()); //투표 인원수 수정
 //		locRepo.save(locBoard);		
 	}
+	//참석 수정
+	public void updateLocationApply(LocationInfoBean locinfo) {
+		LocationInfoBean locBoard = locRepo.findById(locinfo.getBoardidx()).get();
+		
+		locBoard.setLikeup(locinfo.getLikeup()); //참여자수
+		locBoard.setUserId(locinfo.getUserId()); //참여자id
+		locRepo.save(locBoard);
+	}
+	
 	//게시물 삭제
 	public void deleteLocation(LocationInfoBean locinfo) {
 		locRepo.deleteById(locinfo.getBoardidx());

@@ -1,11 +1,12 @@
 package co.soft.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -24,8 +25,11 @@ public class LocationInfoBean {
 	@Id
 	private Long boardidx; //글번호 히든
 	
-	private String userId;
+	@ElementCollection
+	@Column(nullable = false)
+	private List<String> userId = new ArrayList<String>(); // 참석자 아이디 확인용
 	
+	@Column(nullable = false)
 	private String likeup;//참석눌렀을때 +1
 	
 	@Column(updatable = false)

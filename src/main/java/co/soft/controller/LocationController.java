@@ -94,6 +94,18 @@ public class LocationController {
 		locationService.updateLocation(loc);
 		return "/location/LocationList_Modify_Success";
 	}
+	
+//	@GetMapping("/updateApply")
+//	public String updateApply(LocationInfoBean loc,HttpServletRequest request) {
+//		List<String> userId;
+//		userId.add(request.getParameter("userId"));
+//		String likeup = request.getParameter("likeup");
+//		loc.setUserId(userId);
+//		loc.setLikeup(likeup);
+//		
+//		
+//		return "/home";
+//	}
 
 	@GetMapping("/deleteLocation")
 	public String deleteLocationView(UserInfoBean user, LocationInfoBean loc, Model model, HttpServletRequest request) {
@@ -131,17 +143,6 @@ public class LocationController {
 
 	
 
-//   @PostMapping("/uploadPicture")
-//   public @ResponseBody String uploadPicture(@RequestParam("pic") MultipartFile files) {
-//	   try {
-//		   String baseDir = FileSystemView.getFileSystemView().getHomeDirectory().toString();
-//		   String filePath = baseDir + "/Eat_Together/" + files.getOriginalFilename();
-//		   files.transferTo(new File(filePath));
-//	   }catch(Exception e) {
-//		   e.printStackTrace();
-//	   }
-//	   return "/user/join_success";
-//   }
 	
 	
 }

@@ -23,7 +23,7 @@ public class PhoneController extends certificationService{
 
 	        System.out.println("수신자 번호 : " + phoneNumber);
 	        System.out.println("인증번호 : " + numStr);
-	        certifiedPhoneNumber(phoneNumber, numStr);
+	        certifiedPhoneNumber(phoneNumber, numStr); //인증번호 핸드폰 전송
 	        return numStr;
 	    }
 	@GetMapping("/sendSMS2")
