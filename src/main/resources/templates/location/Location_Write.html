@@ -3,20 +3,20 @@
 <head> 
 <meta charset="UTF-8">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
+   href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+   crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-	crossorigin="anonymous"></script>
+   integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+   crossorigin="anonymous"></script>
 <script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-	crossorigin="anonymous"></script>
+   src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+   crossorigin="anonymous"></script>
 <script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-	crossorigin="anonymous"></script>
+   src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+   integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+   crossorigin="anonymous"></script>
 
 <title>게시글 쓰기</title>
 
@@ -35,34 +35,34 @@ input[type="number"]::-webkit-inner-spin-button {
 </style>
 <script>
 function tempsb(){
-	   var Subject = $("#subject").val();
-	   var Password = $("#password").val();
-	   var Time = $("#time").val();
-	   var Date = $("#date").val();
-	   var foodcomment = $("#foodComment").val();
-	   //아이디 빈칸 확인
-	   		if (Subject == '') {
-		      alert("제목을 입력해주세요.");
-			return false;
-		}
-	   		if (Password.length != 4 || Password ==null) {
-		      alert("숫자 4자리로 입력해주세요.");
-			return false;
-		}
-	   		if (Date == '') {
-		      alert("날짜를 선택해주세요.");
-			return false;
-		}
-	   		if (Time == '') {
-		      alert("시간을 선택해주세요.");
-			return false;
-		}
-	   		if (foodcomment == '') {
-		      alert("간단히 소개해주세요.");
-			return false;
-		}
-	   return true;
-	   }
+      var Subject = $("#subject").val();
+      var Password = $("#password").val();
+      var Time = $("#time").val();
+      var Date = $("#date").val();
+      var foodcomment = $("#foodComment").val();
+      //아이디 빈칸 확인
+            if (Subject == '') {
+            alert("제목을 입력해주세요.");
+         return false;
+      }
+            if (Password.length != 4 || Password ==null) {
+            alert("숫자 4자리로 입력해주세요.");
+         return false;
+      }
+            if (Date == '') {
+            alert("날짜를 선택해주세요.");
+         return false;
+      }
+            if (Time == '') {
+            alert("시간을 선택해주세요.");
+         return false;
+      }
+            if (foodcomment == '') {
+            alert("간단히 소개해주세요.");
+         return false;
+      }
+      return true;
+      }
 </script>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
@@ -71,9 +71,35 @@ function tempsb(){
       <div class="table-responsive">
        <h3 th:text="글쓰기" style="color: #f97d66; margin-top:7%;"></h3>
       <br>
+           <form th:action="@{/fileUpload}" id="upload" name="upload" enctype="multipart/form-data" method="post">
+         <table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px;">
+          <tr style="width: 50px; height:10px;">
+          <td  colspan="2">사진을 선택해주세요.</td>
+          </tr>
+          
+            <tr>
+            <td colspan="2">
+            <div class="select_img"><img src="" style="width: 300px; height: 300px; border: 1px solid #f97d66;"/></div>
+            </td>
+            </tr>
+            
+			<tr>
+          <td class="text-right">
+          <input th:hidden="${map.boardidx}" name="boardidx" th:value="${map.boardidx}">
+          <input th:hidden="${map.location}" name="location" th:value="${map.location}">
+          <input th:hidden="${map.restaurant}" name="restaurant" th:value="${map.restaurant}">
+          <input id="filename" name="filename" type="file" style="width: 300px; border: 1px solid #f97d66;" value="aa">
+          </td>
+          <td>
+            <input type="submit" value="등록" class="btn btn-danger" style="background-color: #f97d66; width: 100px; border: 0;">
+            </td>
+            </tr>
+            </table>
+            <br>
+       </form>
        <form th:action="@{/insertLocation}" method="post" th:onsubmit="return tempsb(this)">
-       		<input th:hidden="${session['user'].userId}" id="userId" name="userId" th:value="${session['user'].userId}">
-       		<input th:hidden="1" id="likeup" name="likeup" th:value="1">
+             <input th:hidden="${session['user'].userId}" id="userId" name="userId" th:value="${session['user'].userId}">
+             <input th:hidden="1" id="likeup" name="likeup" th:value="1">
             <table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px;">
                <tr>
                   <td th:text="제목"></td>
@@ -165,29 +191,20 @@ function tempsb(){
                </tr>
             </table>
          </form>
-         <form th:action="@{/fileUpload}" id="upload" name="upload" enctype="multipart/form-data" method="post">
-    		<input th:hidden="${map.boardidx}" name="boardidx" th:value="${map.boardidx}">
-    		<input th:hidden="${map.location}" name="location" th:value="${map.location}">
-    		<input th:hidden="${map.restaurant}" name="restaurant" th:value="${map.restaurant}">
-    		
-         	<input id="filename" name="filename" type="file">
-         	<div class="select_img"><img src=""/></div>
-         	
-         	<script>
-         		$("#filename").change(function(){
-         			if(this.files && this.files[0]){
-         				var reader = new FileReader;
-         				reader.onload = function(data){
-         					$(".select_img img").attr("src", data.target.result).width(300);
-         				}
-         				reader.readAsDataURL(this.files[0]);
-         			}
-         		})
-         	</script>
-         	<input type="submit" value="등록">
-    	</form>
+    
          </div>
       </div>
    </div>
+            <script>
+               $("#filename").change(function(){
+                  if(this.files && this.files[0]){
+                     var reader = new FileReader;
+                     reader.onload = function(data){
+                        $(".select_img img").attr("src", data.target.result).width(300);
+                     }
+                     reader.readAsDataURL(this.files[0]);
+                  }
+               })
+            </script>
  </body>
 </html>

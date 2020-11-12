@@ -10,9 +10,8 @@
 	<div class="container" th:align="center">
 		<div class="row" th:align="center">
 			<div class="table-responsive">
-				<br>
 	<div th:if="@{${file.filename} != null}">
-		<img th:src="@{'/imgs/' + ${file.filename}}" style="width: 700px;" />
+		<img th:src="@{'/imgs/' + ${file.filename}}" style="width: 400px;" />
 	</div>
 	<div th:unless="@{${file.filename} != null}">
 		<img th:src="@{/imgs/NoIMG.gif}" style="width: 700px;"/>
