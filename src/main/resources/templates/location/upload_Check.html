@@ -3,16 +3,24 @@
 	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
-<title>파일 업로드 완료</title>
+<title>같이먹을랭?</title>
 </head>
-<body th:onclick="cl()">
+<body th:onclick="cl()" th:align="center" style="background-color: #f5f6f7" >
+	<a class="navbar-brand" href="/home"><img src="../img/logo1.png" alt="로고" style="width: 350px;"></a>
+	<div class="container" th:align="center">
+		<div class="row" th:align="center">
+			<div class="table-responsive">
+				<br>
 	<div th:if="@{${file.filename} != null}">
-		<img th:src="@{'/imgs/' + ${file.filename}}" />
+		<img th:src="@{'/imgs/' + ${file.filename}}" style="width: 700px;" />
 	</div>
 	<div th:unless="@{${file.filename} != null}">
-		<img th:src="@{/imgs/NoIMG.gif}" />
+		<img th:src="@{/imgs/NoIMG.gif}" style="width: 700px;"/>
 	</div>
-	<input type="button" onclick="cl()" value="확인">
+	<input type="button" class="btn btn-danger" style="background-color: #f97d66; width: 300px; height:50px; border: 0; color: white; text-align: center;" onclick="cl()" value="확인">
+	</div>
+	</div>
+	</div>
 <script>
 	function cl() {
 		self.close();
