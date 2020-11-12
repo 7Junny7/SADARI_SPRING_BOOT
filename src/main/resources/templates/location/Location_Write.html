@@ -205,6 +205,7 @@ function tempsb(){
                      reader.readAsDataURL(this.files[0]);
                   }
                })
+               document.getElementById('date').value = new Date().toISOString().slice(0,10);
             </script>
  </body>
 </html>
