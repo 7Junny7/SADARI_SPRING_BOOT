@@ -10,6 +10,7 @@ import co.soft.service.certificationService;
 
 @Controller
 public class PhoneController extends certificationService{
+	//인증번호
 	@GetMapping("/sendSMS")
 	 public @ResponseBody
 	    String sendSMS(String phoneNumber) {
@@ -23,14 +24,15 @@ public class PhoneController extends certificationService{
 
 	        System.out.println("수신자 번호 : " + phoneNumber);
 	        System.out.println("인증번호 : " + numStr);
-	        certifiedPhoneNumber(phoneNumber, numStr); //인증번호 핸드폰 전송
+//	        certifiedPhoneNumber(phoneNumber, numStr); //인증번호 핸드폰 전송
 	        return numStr;
 	    }
+	//게시글정보
 	@GetMapping("/sendSMS2")
 	 public @ResponseBody
 	    String sendSMS(String phoneNumber,String restaurant,String foodType,String date, String time,String location) {
 			String str=(date+" "+time);
-	        certifiedPhoneNumber2(phoneNumber, restaurant, foodType, str, location);
+//	        certifiedPhoneNumber2(phoneNumber, restaurant, foodType, str, location);
 	        return str;
 	    }
 }
