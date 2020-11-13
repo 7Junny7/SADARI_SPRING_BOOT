@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -33,4 +34,7 @@ public class MapInfoBean {
 
 	@Column(updatable = false)
 	private String location; // 지역, 업데이트 불가
+	
+	@Transient
+	private String origFilename; // 원 파일 이름
 }

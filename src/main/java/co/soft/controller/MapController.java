@@ -45,6 +45,7 @@ public class MapController {
 		map.setR_location_x(x);
 		map.setR_location_y(y);
 		map.setLocation(loc);
+		map.setOrigFilename("");
 
 		mapService.insertMap(map);
 		model.addAttribute("map", map);
