@@ -72,17 +72,18 @@ function tempsb(){
        <h3 th:text="글쓰기" style="color: #f97d66; margin-top:7%;"></h3>
       <br>
            <form th:action="@{/fileUpload}" id="upload" name="upload" enctype="multipart/form-data" method="post">
+  	     <div th:if="${map.filename != null}">
+         	<span th:text="${map.filename}" id="filename"></span>
+         </div>
          <table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px;">
+
           <tr style="width: 50px; height:10px;">
-          <td  colspan="2">사진을 선택해주세요.</td>
-          </tr>
-          
+	          </tr>
             <tr>
-            <td colspan="2">
-            <div class="select_img"><img src="" style="width: 300px; height: 300px; border: 1px solid #f97d66;"/></div>
+            <td colspan="2" >
+            	<div class="select_img"><img src="/imgs/NoIMG.png" style="width: 300px; height: 300px; border: 1px solid #f97d66;" id="imgg"/></div>
             </td>
             </tr>
-            
 			<tr>
           <td class="text-right">
           <input th:hidden="${map.boardidx}" name="boardidx" th:value="${map.boardidx}">
@@ -195,7 +196,7 @@ function tempsb(){
          </div>
       </div>
    </div>
-            <script>
+         <script>
                $("#filename").change(function(){
                   if(this.files && this.files[0]){
                      var reader = new FileReader;
@@ -206,6 +207,15 @@ function tempsb(){
                   }
                })
                document.getElementById('date').value = new Date().toISOString().slice(0,10);
-            </script>
+               
+       	       var filename = document.getElementById("filename").value;
+   	   	       if(filename != null){
+   	   	    	   alert("asd");
+	       	   $('#imgg').attr('src',filename);
+       	       }else{
+       	    	   alert("없")
+       	       }
+       	    	   
+         </script>
  </body>
 </html>

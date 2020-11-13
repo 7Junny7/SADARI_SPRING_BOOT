@@ -36,5 +36,5 @@ public class MapInfoBean {
 	private String location; // 지역, 업데이트 불가
 	
 	@Transient
-	private String origFilename; // 원 파일 이름
+	private String filename; // 원 파일 이름
 }

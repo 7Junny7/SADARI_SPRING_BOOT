@@ -76,7 +76,7 @@ public class FileController {
 			String restaurant = request.getParameter("restaurant");
 			fileinfo.setLocation(location);
 			fileinfo.setRestaurant(restaurant);
-
+			
 			model.addAttribute("map", fileinfo);
 
 		} catch (Exception e) {
@@ -92,10 +92,19 @@ public class FileController {
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
 		String location = request.getParameter("location");
 		String restaurant = request.getParameter("restaurant");
+		String origFilename = request.getParameter("origFilename");
+		String filename = request.getParameter("filename");
+		
 		fileinfo.setBoardidx(boardidx);
 		fileinfo.setLocation(location);
 		fileinfo.setRestaurant(restaurant);
+		fileinfo.setFilename(filename);
+		fileinfo.setOrigFilename(origFilename);
 		
+		FileInfoBean bean =fileService.getFile(boardidx);
+		System.out.println(bean);
+		
+		System.out.println(fileinfo+"파일인포");
 		model.addAttribute("map",fileinfo);
 		return "/location/Location_Write";
 	}

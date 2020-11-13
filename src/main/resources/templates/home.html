@@ -473,161 +473,160 @@ setInterval(changeImage,1000);
    
    
       var markers = [];
-	var keyXY = document.getElementById("keyword").value;
 	   function onl(){
-	   if(keyXY == "강남구"){
+	   if(keyword.value == "강남구"){
 	      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	      mapOption = {
 	       center : new kakao.maps.LatLng(37.509172, 127.043951), // 지도의 중심좌표
 	       level : 5
 	       }
-	    }else if(keyXY == "강동구"){
+	    }else if(keyword.value == "강동구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.550969, 127.144327), // 지도의 중심좌표
 	          level : 5
 	            }
 	       
-	    }else if(keyXY == "강북구"){
+	    }else if(keyword.value == "강북구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.639338, 127.025390), // 지도의 중심좌표
 	          level : 5
 	            }
 	       
-	    }else if(keyXY == "강서구"){
+	    }else if(keyword.value == "강서구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.567656, 126.810948), // 지도의 중심좌표
 	          level : 5
 	            }
 	       
-	    }else if(keyXY == "관악구"){
+	    }else if(keyword.value == "관악구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.471302, 126.936865), // 지도의 중심좌표
 	          level : 5
 	            }
 	       
-	    }else if(keyXY == "광진구"){
+	    }else if(keyword.value == "광진구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.567656, 126.810948), // 지도의 중심좌표
 	          level : 5
 	            }
 	       
-	    }else if(keyXY == "금천구"){
+	    }else if(keyword.value == "금천구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.484445, 126.896007), // 지도의 중심좌표
 	          level : 5
 	            }
 	       
-	    }else if(keyXY == "구로구"){
+	    }else if(keyword.value == "구로구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.501431, 126.859896), // 지도의 중심좌표
 	          level : 5
 	            }
 	    }
-	    else if(keyXY == "노원구"){
+	    else if(keyword.value == "노원구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.655418, 127.061363), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "도봉구"){
+	    }else if(keyword.value == "도봉구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.671636, 127.043201), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "동대문구"){
+	    }else if(keyword.value == "동대문구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.589527, 127.057835), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "동작구"){
+	    }else if(keyword.value == "동작구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.502977, 126.947897), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "마포구"){
+	    }else if(keyword.value == "마포구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.550045, 126.914816), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "서대문구"){
+	    }else if(keyword.value == "서대문구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.573851, 126.935629), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "서초구"){
+	    }else if(keyword.value == "서초구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.492133, 127.008726), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "성동구"){
+	    }else if(keyword.value == "성동구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.547492, 127.047179), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "성북구"){
+	    }else if(keyword.value == "성북구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.592894, 127.016138), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "송파구"){
+	    }else if(keyword.value == "송파구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.514351, 127.104646), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "양천구"){
+	    }else if(keyword.value == "양천구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.526376, 126.864614), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "영등포구"){
+	    }else if(keyword.value == "영등포구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.517743, 126.907514), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "용산구"){
+	    }else if(keyword.value == "용산구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.535324, 126.995667), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "은평구"){
+	    }else if(keyword.value == "은평구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.611682, 126.917683), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "중구"){
+	    }else if(keyword.value == "중구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.566122, 126.982691), // 지도의 중심좌표
 	          level : 5
 	            }
-	    }else if(keyXY == "중랑구"){
+	    }else if(keyword.value == "중랑구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.595759, 127.086154), // 지도의 중심좌표
 	          level : 5
 	            }
 	    }
-	    else if(keyXY == "중로구"){
+	    else if(keyword.value == "중로구"){
 	       var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	         mapOption = {
 	          center : new kakao.maps.LatLng(37.56931205456954, 126.98603181926016), // 지도의 중심좌표

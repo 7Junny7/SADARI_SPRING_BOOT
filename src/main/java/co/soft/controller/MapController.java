@@ -45,10 +45,10 @@ public class MapController {
 		map.setR_location_x(x);
 		map.setR_location_y(y);
 		map.setLocation(loc);
-		map.setOrigFilename("");
-
+		map.setFilename("null");
 		mapService.insertMap(map);
 		model.addAttribute("map", map);
+		
 		return "/location/Location_Write"; 
 	}
 
@@ -57,6 +57,7 @@ public class MapController {
 //      if (user.getUserId() == null) { //로그인 안하면 작성 못함
 //         return "redirect:login";
 //      }
+		map.setFilename("null");
 		mapService.insertMap(map);
 		model.addAttribute("map", map);
 		return "/location/Location_Write";

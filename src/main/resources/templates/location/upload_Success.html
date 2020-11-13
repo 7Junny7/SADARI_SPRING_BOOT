@@ -8,14 +8,20 @@
 <input th:hidden="${map.boardidx}" id="boardidx" name="boardidx" th:value="${map.boardidx}">
 <input th:hidden="${map.location}" id="location" name="location" th:value="${map.location}">
 <input th:hidden="${map.restaurant}" id="restaurant" name="restaurant" th:value="${map.restaurant}">
+<input th:hidden="${map.origFilename}" id="origFilename" name="origFilename" th:value="${map.origFilename}">
+<input th:hidden="${map.filename}" id="filename" name="filename" th:value="${map.filename}">
+<input th:hidden="${map.filePath}" id="filePath" name="filePath" th:value="${map.filePath}">
 <script>
+
 	window.onload=function(){
 		var boardidx = document.getElementById("boardidx").value;
 		var location = document.getElementById("location").value;
 		var restaurant = document.getElementById("restaurant").value;
+		var origFilename = document.getElementById("origFilename").value;
+		var filename = document.getElementById("filename").value;
+		var filePath = document.getElementById("filePath").value;
 		alert("파일 업로드 완료!!");
-		window.location.href="/fileUploadSuccess?boardidx="+boardidx+"&location="+location+"&restaurant="+restaurant;
-		
+		window.location.href="/fileUploadSuccess?boardidx="+boardidx+"&location="+location+"&restaurant="+restaurant+"&origFilename="+origFilename+"&filename="+filename;
 	}
 </script>
 </body>
