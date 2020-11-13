@@ -78,11 +78,25 @@ public class FileController {
 			fileinfo.setRestaurant(restaurant);
 
 			model.addAttribute("map", fileinfo);
-			System.out.println(fileinfo);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return "/location/upload_Success";
+	}
+	
+	@GetMapping("/fileUploadSuccess")
+	public String fileUploadSuccess(HttpServletRequest request, Model model) {
+		System.out.println("start");
+		FileInfoBean fileinfo = new FileInfoBean();
+		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+		String location = request.getParameter("location");
+		String restaurant = request.getParameter("restaurant");
+		fileinfo.setBoardidx(boardidx);
+		fileinfo.setLocation(location);
+		fileinfo.setRestaurant(restaurant);
+		
+		model.addAttribute("map",fileinfo);
 		return "/location/Location_Write";
 	}
 
