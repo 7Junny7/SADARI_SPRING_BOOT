@@ -3,6 +3,7 @@ package co.soft.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -140,12 +141,19 @@ public class LocationController {
 	@RequestMapping("/location")
 	public String location(Model model, LocationInfoBean loc, HttpServletRequest request,UserInfoBean user) {
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+//		Optional<LocationInfoBean> optLoc = Optional.ofNullable(locationService.getLocation(boardidx));
 		LocationInfoBean idx = locationService.getLocation(boardidx);
-		List<MapInfoBean> mapinfo= mapService.locList(boardidx);
-		model.addAttribute("user");
-		model.addAttribute("mapinfo",mapinfo.get(0));
-		model.addAttribute("loc", idx);
-		return "/location/Location";
+		if(idx != null) {
+			List<MapInfoBean> mapinfo= mapService.locList(boardidx);
+			model.addAttribute("user");
+			model.addAttribute("mapinfo",mapinfo.get(0));
+			model.addAttribute("loc", idx);
+			return "/location/Location";
+		}else {
+			System.out.println("fail");
+			model.addAttribute("boardidx",boardidx);
+			return "/location/Map_Error";
+		}
 	}
 
 	
