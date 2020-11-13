@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>파일 업로드 OK!!</title>
+</head>
+<body>
+<input th:hidden="${map.boardidx}" id="boardidx" name="boardidx" th:value="${map.boardidx}">
+<input th:hidden="${map.location}" id="location" name="location" th:value="${map.location}">
+<input th:hidden="${map.restaurant}" id="restaurant" name="restaurant" th:value="${map.restaurant}">
+<script>
+	window.onload=function(){
+		var boardidx = document.getElementById("boardidx").value;
+		var location = document.getElementById("location").value;
+		var restaurant = document.getElementById("restaurant").value;
+		alert("파일 업로드 완료!!");
+		window.location.href="/fileUploadSuccess?boardidx="+boardidx+"&location="+location+"&restaurant="+restaurant;
+		
+	}
+</script>
+</body>
+</html>
