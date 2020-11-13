@@ -1,10 +1,12 @@
 package co.soft.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.soft.domain.FileInfoBean;
 import co.soft.domain.LocationInfoBean;
 import co.soft.persistence.LocationRepository;
 
@@ -68,6 +70,13 @@ public class LocationServiceImpl implements LocationService {
 	
 	//게시물 리스트 boardidx로 불러오기
 	public LocationInfoBean getLocation(Long idx) {
-		return (LocationInfoBean)locRepo.findByBoardidx(idx);
+		LocationInfoBean locinfo = new LocationInfoBean();
+		Optional<LocationInfoBean> loc = Optional.ofNullable(locRepo.findById(idx).orElse(null));
+		if(loc.isPresent()) {
+			locinfo = locRepo.findById(idx).get();
+		}else {
+			locinfo = null;
+		}
+		return locinfo;
 	}
 }

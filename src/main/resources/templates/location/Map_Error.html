@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input th:hidden="${boardidx}" id="boardidx" name="boardidx" th:value="${boardidx}">
+<script>
+	window.onload=function(){
+		var boardidx = document.getElementById("boardidx").value;
+		alert("Map DB 오류!!");
+		window.location.href="/errorMap?boardidx="+boardidx;
+	}
+</script>
+</body>
+</html>

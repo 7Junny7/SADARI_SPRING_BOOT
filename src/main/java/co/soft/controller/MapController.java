@@ -90,6 +90,14 @@ public class MapController {
 		return "redirect:deleteFile?boardidx="+boardidx;
 	}
 	
+	@GetMapping("/errorMap")
+	public String errorMap(HttpServletRequest request) {
+		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+		List<MapInfoBean> mapidx = mapService.locList(boardidx);
+		mapService.deleteMap(mapidx.get(0));
+		return "redirect:logout";
+	}
+	
 	@RequestMapping("/getMarker")
 	public String getMarker(HttpServletRequest request, Model model, MapInfoBean mapinfo) {
 		String menu = request.getParameter("menu");
