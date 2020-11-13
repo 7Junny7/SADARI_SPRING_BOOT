@@ -59,6 +59,8 @@
     <br>
    <form action="/userUpdate" method="post"  th:onsubmit="return sub()">
    <input th:hidden="${session['user'].userId}" id="userId" name="userId" th:value="${session['user'].userId}">
+   <input th:hidden="${session['user'].userGender}" id="userGender" name="userGender" th:value="${session['user'].userGender}">
+   <input th:hidden="${session['user'].userBirth}" id="userBirth" name="userBirth" th:value="${session['user'].userBirth}">
    <table th:align="center" th:cellpadding="0" th:cellspacing="0" style="border: 0; border-radius: 10px; width: 400px;">
       <tr>
          <td th:text="닉네임" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">닉네임</td>
@@ -68,13 +70,11 @@
       <tr>
          <td th:text="생년월일" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">생년월일</td>
          <td th:text="${session['user'].userBirth}">
-         	<input th:hidden="${session['user'].userBirth}" id="userBirth" name="userBirth" th:value="${session['user'].userBirth}">
          </td>
       </tr>
       <tr>    
          <td th:text="아이디" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">아이디</td>
          <td th:text="${session['user'].userId}">
-         	<input th:hidden="${session['user'].userId}" id="userId" name="userId" th:value="${session['user'].userId}">
          </td>
       </tr>
       
@@ -86,7 +86,6 @@
       <tr>
          <td th:text="성별" style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">성별</td>
          <td th:text="${session['user'].userGender}">
-         	<input th:hidden="${session['user'].userGender}" id="userGender" name="userGender" th:value="${session['user'].userGender}">
          </td>
       </tr>
       <tr>
