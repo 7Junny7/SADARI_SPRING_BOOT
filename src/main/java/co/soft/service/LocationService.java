@@ -24,5 +24,4 @@ public interface LocationService {
 	LocationInfoBean getLocation(Long idx);
 	//참석+
 	void updateLocationApply(LocationInfoBean locinfo);
-	
 }

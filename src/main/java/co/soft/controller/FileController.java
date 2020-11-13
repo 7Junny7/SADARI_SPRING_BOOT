@@ -95,17 +95,13 @@ public class FileController {
 		String origFilename = request.getParameter("origFilename");
 		String filename = request.getParameter("filename");
 		
-		fileinfo.setBoardidx(boardidx);
-		fileinfo.setLocation(location);
-		fileinfo.setRestaurant(restaurant);
-		fileinfo.setFilename(filename);
-		fileinfo.setOrigFilename(origFilename);
-		
 		FileInfoBean bean =fileService.getFile(boardidx);
+		bean.setLocation(location);
+		bean.setRestaurant(restaurant);
+		bean.setOrigFilename(origFilename);
 		System.out.println(bean);
 		
-		System.out.println(fileinfo+"파일인포");
-		model.addAttribute("map",fileinfo);
+		model.addAttribute("map",bean);
 		return "/location/Location_Write";
 	}
 

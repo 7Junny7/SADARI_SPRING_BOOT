@@ -72,19 +72,26 @@ function tempsb(){
        <h3 th:text="글쓰기" style="color: #f97d66; margin-top:7%;"></h3>
       <br>
            <form th:action="@{/fileUpload}" id="upload" name="upload" enctype="multipart/form-data" method="post">
-  	     <div th:if="${map.filename != null}">
-         	<span th:text="${map.filename}" id="filename"></span>
-         </div>
-         <table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px;">
-
+       <table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px;">
           <tr style="width: 50px; height:10px;">
-	          </tr>
+          <td  colspan="2">사진을 선택해주세요.</td>
+          </tr>
+          <tr style="width: 50px; height:10px;">
+             </tr>
             <tr>
             <td colspan="2" >
-            	<div class="select_img"><img src="/imgs/NoIMG.png" style="width: 300px; height: 300px; border: 1px solid #f97d66;" id="imgg"/></div>
+               <div class="select_img">
+          <div th:if="${map.filename != null}">
+            <input th:text="${map.filename}" id="filename1" th:value="${map.filename}">
+               <img src="/imgs/NoIMG.png" style="width: 300px; height: 300px; border: 1px solid #f97d66;" id="imgg"/>
+         </div>
+         <div th:unless="${map.filename != null}">
+               <img src="/imgs/NoIMG.png" style="width: 300px; height: 300px; border: 1px solid #f97d66;" id="imgg"/>
+               </div>
+         </div>
             </td>
             </tr>
-			<tr>
+         <tr>
           <td class="text-right">
           <input th:hidden="${map.boardidx}" name="boardidx" th:value="${map.boardidx}">
           <input th:hidden="${map.location}" name="location" th:value="${map.location}">
@@ -208,14 +215,12 @@ function tempsb(){
                })
                document.getElementById('date').value = new Date().toISOString().slice(0,10);
                
-       	       var filename = document.getElementById("filename").value;
-   	   	       if(filename != null){
-   	   	    	   alert("asd");
-	       	   $('#imgg').attr('src',filename);
-       	       }else{
-       	    	   alert("없")
-       	       }
-       	    	   
+                 var filename1 = document.getElementById("filename1").value;
+                   if(filename1 != "null"){
+                $('#imgg').replaceWith('<img src="/imgs/'+filename1+'"'+' style="width: 300px; height: 300px; border: 1px solid #f97d66;" id="imgg"/>');
+                 }else{
+                 }
+                    
          </script>
  </body>
 </html>

@@ -1,6 +1,10 @@
 package co.soft.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -62,10 +66,6 @@ public class LocationInfoBean {
 	private int foodLikeScore; // 좋아요 점수 히든
 
 	private int foodLikePerson; // 투표 인원수 -> 두개 조합으로 좋아요 rate(별점) 계산 히든
-	
-//	@Column(nullable = true)  // 에러남 확인 요
-//	private MultipartFile foodPicture; //음식사진, 업로드
-	
 
 
 	
