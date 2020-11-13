@@ -95,7 +95,8 @@ table {
                   </tr>
                   <tr>
                      <td>
-                     	<a th:text="${loc.boardidx} + ' - show'" onclick="goSubmit()"></a>
+                	<td style="height: 50px;">
+                     	<input type="button" onclick="goSubmit()" class="btn btn-danger" style="background-color: #f97d66; width: 200px; border: 0; color: white; text-align: center;" value="게시된 사진보기">
                      	<input th:hidden="${loc.boardidx}" th:value="${loc.boardidx}" id="imgIdx">
                      </td>
                   </tr>
@@ -133,7 +134,7 @@ table {
    
     function del(){
       var idx=document.getElementById("boardidx").value;
-      location.href="/deleteLocation?boardidx="+idx;
+      window.location.href="/deleteLocation?boardidx="+idx;
    } 
 
 
@@ -165,7 +166,7 @@ table {
             return false;
          }else if(ary2 == true){
             alert("약속 시간을 잘 지킵시다!! 문자로 정보를 전송해 드립니다.")
-            location.href="/updateApply?userId="+userId+"&likeup="+likeup+"&loc_userId="+loc_userId+"&boardidx="+idx;
+            window.location.href="/updateApply?userId="+userId+"&likeup="+likeup+"&loc_userId="+loc_userId+"&boardidx="+idx;
          }
       }
  		var location = document.getElementById("location").value;
@@ -174,7 +175,7 @@ table {
  		var date  = document.getElementById("date").innerHTML;//날짜
  		var time  = document.getElementById("time").innerHTML;//시간
  		var phone = document.getElementById("phone").value;
- 		alert("게시글의 정보가 보내집니다."+phone);
+ 		alert("게시글의 정보가 보내집니다.");
  		 $.ajax({
  			type:"get",
  			url :"sendSMS2",
@@ -192,9 +193,6 @@ table {
  			}
  		}) 
  	});
-
-	
-	
-	</script>
+</script>
 </body>
 </html>
