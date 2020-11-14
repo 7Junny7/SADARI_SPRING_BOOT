@@ -30,9 +30,10 @@ public class PhoneController extends certificationService{
 	
 	//게시글정보
 	@GetMapping("/sendSMS2")
-	 public @ResponseBody String sendSMS(String phoneNumber,String restaurant,String foodType,String date, String time,String location) {
+	 public @ResponseBody String sendSMS(String phoneNumber,String restaurant,String foodType,String date, String time,String location, String loc_userPhone) {
 			String str=(date+" "+time);
-	        certifiedPhoneNumber2(phoneNumber, restaurant, foodType, str, location);
+//	        certifiedPhoneNumber2(phoneNumber, restaurant, foodType, str, location, loc_userPhone);
+//	        certifiedPhoneNumber3(phoneNumber, restaurant, foodType, str, location, loc_userPhone);
 	        return str;
 	    }
 }

@@ -77,7 +77,7 @@ public class LocationController {
 	@GetMapping("/updateApply")
 	public String updateApply(LocationInfoBean loc,HttpServletRequest request) {
 		String userId = request.getParameter("userId");//현재접속중인유저
-		String loc_userId= request.getParameter("loc_userId");
+		String loc_userId = request.getParameter("loc_userId");
 		String likeup = request.getParameter("likeup");
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
 		

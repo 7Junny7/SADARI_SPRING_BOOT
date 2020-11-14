@@ -24,7 +24,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
+  
 	//회원가입 페이지로 이동
 	@RequestMapping("/join")
 	public String joinView(UserInfoBean user) {

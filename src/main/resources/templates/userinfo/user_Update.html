@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<style type="text/css">
+    h1{ 
+    text-align: center;
+    margin : 3%;
+    }
+    table{text-align: center;} 
+    </style> 
+<meta charset="UTF-8">
+<title>회원정보 수정</title>
+<script>
+	function sub() {
+		var pw = document.getElementById("password").value;
+		var pw2 = document.getElementById("password2").value;
+
+		if (pw != pw2) {
+			alert("암호가 일치하지 않습니다.");
+			return false;
+		}
+		return true;
+	}
+	function cancel() {
+		location.href="/home";
+	}
+</script>
+</head>
+<body th:align="center" style="background-color: #f5f6f7">
+	<div class="container" th:align="center">
+		<div class="row" th:align="center">
+			<div class="table-responsive">
+				<h1 style="color: #f97d66; margin-top:20%">회원정보 수정</h1>
+				<br>
+				<form th:action="@{/userUpdate2}" th:onsubmit="return sub()" method="post">
+					<input th:hidden="${user.userNickName}" name="userNickName" id="userNickName" th:value="${user.userNickName}">
+					<input th:hidden="${user.userBirth}" name="userBirth" id="userBirth" th:value="${user.userBirth}">
+					<input th:hidden="${user.userGender}" name="userGender" id="userGender" th:value="${user.userGender}">
+					<input th:hidden="${user.userId}" name="userId" id="userId" th:value="${user.userId}">
+					<input th:hidden="${user.userPhone}" name="userPhone" id="userPhone" th:value="${user.userPhone}">
+					<table th:align="center" th:cellpadding="0" th:cellspacing="0"
+						style="border: 0; border-radius: 10px; width: 400px;">
+						<tr>
+							<td style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">암호 확인</td>
+							<td><input name="password" id="password" type="password" size="20" placeholder="암호를 입력해 주세요">
+							<input th:hidden="${user.userPassword}" name="password2" id="password2" th:value="${user.userPassword}"></td>
+							<!-- 기존 비밀번호 -->
+						</tr>
+						<tr>
+						<td colspan="2" style="color:#f5f6f7; height:10px;">-</td>
+						</tr>
+						<tr>
+							<td style="background-color: #f97d66; width: 200px; height: 50px; border: 0; color: white; text-align: center;">글을 삭제 하시겠습니까?</td>
+								<td><input type="submit" class="btn btn-danger"  style="background-color: #f97d66; width: 90px; height: 50px; border: 0; color: white; text-align: center;" value="예"/>
+								<input type="button" value="아니오" class="btn btn-danger"  style="background-color: #f97d66; width: 90px; height: 50px; border: 0; color: white; text-align: center;" onclick="cancel()"></td>
+						</tr>
+					</table>
+				</form>
+				</div>
+				</div>
+				</div>
+</body>
+</html>
