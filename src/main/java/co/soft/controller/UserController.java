@@ -21,7 +21,7 @@ import co.soft.service.UserService;
 @SessionAttributes("user")
 @Controller
 public class UserController {
-
+ 
 	@Autowired
 	private UserService userService;
   
