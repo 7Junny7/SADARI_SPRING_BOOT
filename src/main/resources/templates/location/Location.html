@@ -121,6 +121,7 @@ table {
      <div th:if="loc.userId.value != null">
      <input th:hidden="${session['user'].userId}" th:value="${session['user'].userId}" id="userId" name="userId"/>
      <input th:hidden="${loc.userId}" th:value="${loc.userId}"  id="loc_userId" >
+     <input th:hidden="${loc.userPhone}" th:value="${loc.userPhone}" id="loc_userPhone">
     </div>
    </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -169,6 +170,8 @@ table {
             window.location.href="/updateApply?userId="+userId+"&likeup="+likeup+"&loc_userId="+loc_userId+"&boardidx="+idx;
          }
       }
+      
+		var loc_userPhone = document.getElementById("loc_userPhone").value //host 전화번호
  		var location = document.getElementById("location").value;
  		var restaurant = document.getElementById("restaurant").innerHTML;//식당이름
  		var foodType = document.getElementById("foodType").innerHTML;//음식종류
@@ -185,7 +188,8 @@ table {
  				"foodType" : foodType,
  				"date" : date,
  				"time" : time,
- 				"location" : location
+ 				"location" : location,
+ 				"loc_userPhone" : loc_userPhone
  			},
  			success:function(res){
  				alert("정상적으로 보내졌습니다.")

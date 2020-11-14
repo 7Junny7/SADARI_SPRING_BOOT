@@ -108,6 +108,7 @@ function tempsb(){
        <form th:action="@{/insertLocation}" method="post" th:onsubmit="return tempsb(this)">
              <input th:hidden="${session['user'].userId}" id="userId" name="userId" th:value="${session['user'].userId}">
              <input th:hidden="1" id="likeup" name="likeup" th:value="1">
+             <input th:hidden="${session['user'].userPhone}" id="userPhone" name="userPhone" th:value="${session['user'].userPhone}">
             <table th:align="center" border="0" th:cellpadding="0" th:cellspacing="0" style="width: 400px;">
                <tr>
                   <td th:text="제목"></td>

@@ -24,6 +24,9 @@ public class LocationInfoBean {
 	@Column(nullable = false)
 	private String userId;// 참석자 아이디 확인용
 	
+	@Size(min = 11,max = 11)
+	private String userPhone; // host 전화번호
+	
 	@Column(nullable = false)
 	private String likeup;//참석눌렀을때 +1
 	
