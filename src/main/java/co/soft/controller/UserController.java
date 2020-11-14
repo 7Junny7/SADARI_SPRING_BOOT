@@ -84,21 +84,6 @@ public class UserController {
 		return "redirect:login";		
 	}
 	
-	// userinfo_modify 페이지로 이동
-	@RequestMapping("/userUpdate")
-	public String userUpdateView(Model model) {
-		model.getAttribute("user");
-		return "/userinfo/userinfo_modify";
-	}
-	
-	// user 정보 DB에 업데이트 후  modify_success 페이지로 이동
-	@PostMapping("/userUpdate")
-	public String userUpdate(Model model,UserInfoBean user) {
-		userService.updateUser(user);
-		model.addAttribute("user",user);
-		return "/userinfo/userinfo_modify_Success";
-	}
-	
 	@Autowired
 	private UserRepository userRepo;
 	
@@ -116,4 +101,24 @@ public class UserController {
 	        model.addAttribute("str", str);
 	        return str;
 	    }
+	
+	@RequestMapping("user_Update")
+	public String userDelete(Model model) {
+		model.getAttribute("user");
+		return "/userinfo/user_Update";
+	}
+	 //userinfo_modify 페이지로 이동
+	@RequestMapping("/userUpdate2")
+	public String userUpdateView(Model model) {
+		model.getAttribute("user");
+		return "/userinfo/userinfo_modify";
+	}
+	
+	// user 정보 DB에 업데이트 후  modify_success 페이지로 이동
+	@PostMapping("/userUpdate")
+	public String userUpdate(Model model,UserInfoBean user) {
+		userService.updateUser(user);
+		model.addAttribute("user",user);
+		return "/userinfo/userinfo_modify_Success";
+	}
 } 

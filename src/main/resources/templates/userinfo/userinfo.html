@@ -15,7 +15,7 @@
     table{text-align: center;}  
     </style>
 	<script>
-	$(function(){
+	/* $(function(){
 			var password1=$("#password1").val();
 		$("#pass").click(function(){
 			var password2= prompt("비밀번호를 입력해주세요.");
@@ -30,7 +30,7 @@
 					return false;
 			}
 		});
-	});
+	}); */
     </script>
 </head>
 <body  th:align="center" style="background-color: #f5f6f7">
@@ -73,7 +73,7 @@
       <tr>
          <td><a onclick="javascript:self.close();"
                class="btn btn-danger"  style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">확인</a></td>
-         <td><a href="/userUpdate" onclick="return pass(this);"
+         <td><a href="/user_Update"
                class="btn btn-danger" id="pass" style="background-color: #f97d66; width: 190px; border: 0; color: white; text-align: center;">정보수정</a></td>
       </tr>
     </table>
