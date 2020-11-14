@@ -1,10 +1,6 @@
 package co.soft.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -50,15 +46,11 @@ public class LocationInfoBean {
 	@Column(updatable = false)
 	private String writer; //작성자, 업데이트 불가
 	
-//	@Temporal(TemporalType.TIMESTAMP)
-//	@Column(updatable = false)
-//	private Date writingTime; //글 작성 시간
-	
 	@Column(updatable = false)
 	private String foodType; // 음식종류, 업데이트 불가
 	
 	@Column(nullable = true)
-	private String wantWho; //같이 먹고 싶은 사람, 빈칸 가능
+	private String wantWho; // 참여인원
 	
 	@Column(nullable = true)
 	private String foodComment; //글 내용, 빈칸 가능
@@ -67,6 +59,4 @@ public class LocationInfoBean {
 
 	private int foodLikePerson; // 투표 인원수 -> 두개 조합으로 좋아요 rate(별점) 계산 히든
 
-
-	
 }

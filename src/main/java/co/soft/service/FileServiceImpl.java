@@ -14,14 +14,17 @@ public class FileServiceImpl implements FileService{
 	@Autowired
 	private FileRepository fileRepo;
 	
+	//파일정보 DB 저장용
 	public void insertFile(FileInfoBean fileinfo) {
 		fileRepo.save(fileinfo);
 	}
 	
+	//파일정보 DB 삭제용
 	public void deleteFile(FileInfoBean fileinfo) {
 		fileRepo.deleteById(fileinfo.getBoardidx());
 	}
 	
+	//파일정보 확인용 (idx 기준) 파일정보 없을 경우 null 값 return
 	public FileInfoBean getFile(Long boardidx) {
 		FileInfoBean fileDto = new FileInfoBean();
 		Optional<FileInfoBean> filel = Optional.ofNullable(fileRepo.findById(boardidx).orElse(null));

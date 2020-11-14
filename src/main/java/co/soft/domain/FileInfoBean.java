@@ -30,18 +30,10 @@ public class FileInfoBean {
 	@Column(nullable = false)
 	private String filePath; // 파일 경로
 	
-//	@Column(nullable = false)
-//	private String img; //사진
-//	
-//	@Column(nullable = false)
-//	private String thumbImg; //썸네일
-	
 	@Transient
 	private String location;
 	@Transient
 	private String restaurant;
-	
-	
 	
 	public FileInfoBean toEntity() {
 		FileInfoBean build=FileInfoBean.builder()

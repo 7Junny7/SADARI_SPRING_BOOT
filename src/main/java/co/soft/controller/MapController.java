@@ -31,27 +31,7 @@ public class MapController {
 	@Autowired
 	private LocationService locationService;
 
-	@GetMapping("/insertMap")
-	public String insertMapView(UserInfoBean user, HttpServletRequest request, Model model) {
-//	  if (user.getUserId() == null) { //로그인 안하면 작성 못함
-//		   return "redirect:login";
-//	  }
-		String res = request.getParameter("w_res");
-		String x = request.getParameter("w_x");
-		String y = request.getParameter("w_y");
-		String loc = request.getParameter("w_loc");
-		MapInfoBean map = new MapInfoBean();
-		map.setRestaurant(res);
-		map.setR_location_x(x);
-		map.setR_location_y(y);
-		map.setLocation(loc);
-		map.setFilename("null");
-		mapService.insertMap(map);
-		model.addAttribute("map", map);
-		
-		return "/location/Location_Write"; 
-	}
-
+	// Map에서 좌표 입력 받아서 마커 DB에 저장 후 location 입력을 위하여 location_write 페이지로 이동
 	@PostMapping("/insertMap")
 	public String insertMap(UserInfoBean user, MapInfoBean map, Model model, HttpServletRequest request) {
 //      if (user.getUserId() == null) { //로그인 안하면 작성 못함
@@ -63,23 +43,7 @@ public class MapController {
 		return "/location/Location_Write";
 	}
 
-	@RequestMapping("/mapList")
-	public String getMapList(MapInfoBean map, Model model) { // 리스트는 로그인 없어도 뜸
-		List<MapInfoBean> mapList = mapService.getMapList(map);
-		model.addAttribute("mapList", mapList);
-		return "/map/MapList"; // 맵 리스트 페이지 지정할 것
-	}
-
-//   @GetMapping("/getMap")
-//   public String getMap(UserInfoBean user, MapInfoBean map, Model model) {
-////      if (user.getUserId() == null) { //로그인 안하면 못 봄
-////         return "redirect:login";
-////      }
-//      model.addAttribute("map", mapService.getMap(map));
-//      return "/map/"; //맵 정보 띄울 페이지 지정할 것
-//      // 맵 페이지에서 location page로 연동
-//   }
-
+	//Map 삭제 후, File 삭제를 위하여 deleteFile 페이지로 이동
 	@GetMapping("/deleteMap")
 	public String deleteMap(UserInfoBean user, MapInfoBean map, Model model, HttpServletRequest request) {
 //      if (user.getUserId() == null) { //로그인 안하면 실행 불가
@@ -91,6 +55,7 @@ public class MapController {
 		return "redirect:deleteFile?boardidx="+boardidx;
 	}
 	
+	// 빈 마커의 경우 확인하여 삭제 후 오류 방지를 위하여 logout 후, login 페이지로 이동
 	@GetMapping("/errorMap")
 	public String errorMap(HttpServletRequest request) {
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
@@ -99,6 +64,7 @@ public class MapController {
 		return "redirect:logout";
 	}
 	
+	// 마커를 검색하여 페이지에 띄우기 용
 	@RequestMapping("/getMarker")
 	public String getMarker(HttpServletRequest request, Model model, MapInfoBean mapinfo) {
 		String menu = request.getParameter("menu");

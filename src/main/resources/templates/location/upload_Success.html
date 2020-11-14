@@ -20,7 +20,10 @@
 		var origFilename = document.getElementById("origFilename").value;
 		var filename = document.getElementById("filename").value;
 		var filePath = document.getElementById("filePath").value;
+		//사진 업로드 딜레이 타임 주입 1.5초
+		setTimeout(function(){
 		window.location.href="/fileUploadSuccess?boardidx="+boardidx+"&location="+location+"&restaurant="+restaurant+"&origFilename="+origFilename+"&filename="+filename;
+		},1500);
 	}
 </script>
 </body>

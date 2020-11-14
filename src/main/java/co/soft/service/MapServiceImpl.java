@@ -14,19 +14,21 @@ public class MapServiceImpl implements MapService{
 	@Autowired
 	private MapRepository mapRepo;
 
+	//모든 Map정보 불러오기
 	public List<MapInfoBean> getMapList(MapInfoBean mapinfo) {
 		return (List<MapInfoBean>) mapRepo.findAll();
 	}
 
+	//Map 정보 DB에 저장
 	public void insertMap(MapInfoBean mapinfo) {
 		mapRepo.save(mapinfo);
 	}
 
+	//boardidx기준으로 검색하여 일치하는 Map 정보 불러오기
 	public MapInfoBean getMap(Long boardidx) {
 		return (MapInfoBean) mapRepo.findByBoardidx(boardidx);
 	}
 
-	@Override
 	public void updateMap(MapInfoBean mapinfo) { //미사용
 		// TODO Auto-generated method stub
 		
@@ -41,7 +43,7 @@ public class MapServiceImpl implements MapService{
 		
 	}
 
-	
+	// Map 삭제
 	public void deleteMap(MapInfoBean mapinfo) {
 		mapRepo.deleteById(mapinfo.getBoardidx());
 	}

@@ -3,15 +3,11 @@ package co.soft.domain;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import org.springframework.context.annotation.Scope;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,16 +20,6 @@ import lombok.ToString;
 @Table(name = "USER_INFO_TABLE")
 public class UserInfoBean {
 	 
-	
-//	@GeneratedValue
-//	private Long useridx;
-//	@Transient	
-//	private boolean userIdExist;
-	
-//	@Size(min = 4, max = 10)
-//	@Pattern(regexp = "[가-힣]*")
-//	private String userName; // 이름
-
 	@Size(min = 2, max = 20)
 	@Pattern(regexp = "[가-힣a-zA-Z0-9]*")
 	private String userNickName; // 닉네임
@@ -53,12 +39,7 @@ public class UserInfoBean {
 	@Transient
 	private String userPassword2; // 비밀번호확인
 
-	
 	private String userGender; // 성별
-
-//	@Size(min=4, max=30)
-//	@Email
-//	private String userEmail; // 이메일
 
 	@Size(min = 11,max = 11)
 	private String userPhone; // 전화번호

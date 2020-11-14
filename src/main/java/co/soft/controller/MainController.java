@@ -19,13 +19,14 @@ public class MainController {
 	@Autowired
 	private MapService mapService;
  
-	@RequestMapping("/") // OK
+	//페이지 구동 시 start 화면으로 이동
+	@RequestMapping("/")
 	public String start() {
 		return "start";
 	} 
 	
-	
-	@RequestMapping("/home") // OK
+	// start페이지에서 로그인 성공 시 home 화면으로 이동
+	@RequestMapping("/home")
 	public String getMenuList(Model model, MapInfoBean mapinfo, UserInfoBean user) {
 //	   if (user.getUserId() == null) { //로그인 안하면 작성 못함
 //	         return "redirect:login";

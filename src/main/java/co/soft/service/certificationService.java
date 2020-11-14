@@ -1,7 +1,7 @@
 package co.soft.service;
 
-
 import java.util.HashMap;
+
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +9,8 @@ import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 @Service
 public class certificationService {
+	
+	// 인증번호 생성 용
 	public void certifiedPhoneNumber(String phoneNumber, String cerNum) {
         String api_key = "NCSDHS4SD7DTVQO4";
         String api_secret = "Z2MNXCR4WWBAOTQHXVSM98G1U4SBRTDO";
@@ -30,6 +32,8 @@ public class certificationService {
             System.out.println(e.getCode());
         }
     }
+	
+	//참석자 문자 정보 전송 용
 	public void certifiedPhoneNumber2(String phoneNumber,String restaurant,String foodType,String str,String location) {
         String api_key = "NCSDHS4SD7DTVQO4";
         String api_secret = "Z2MNXCR4WWBAOTQHXVSM98G1U4SBRTDO";

@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import co.soft.domain.LocationInfoBean;
-import co.soft.domain.UserInfoBean;
 
 public interface LocationRepository extends JpaRepository<LocationInfoBean, Long>{
+	
 	//푸드 타입 기반으로 리스트불러오기
 	List<LocationInfoBean> findAllByFoodType(String foodtype);
 	

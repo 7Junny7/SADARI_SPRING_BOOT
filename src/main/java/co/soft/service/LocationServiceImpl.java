@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.soft.domain.FileInfoBean;
 import co.soft.domain.LocationInfoBean;
 import co.soft.persistence.LocationRepository;
 
@@ -40,6 +39,7 @@ public class LocationServiceImpl implements LocationService {
 				locBoard.setFoodComment(locinfo.getFoodComment()); //글 내용 수정
 				locRepo.save(locBoard);		
 	}
+	
 	//게시물 좋아요/투표인원수 수정
 	public void updateLocationLike(LocationInfoBean locinfo) { // 좋아요 수정
 		LocationInfoBean locBoard = locRepo.findById(locinfo.getBoardidx()).get();
