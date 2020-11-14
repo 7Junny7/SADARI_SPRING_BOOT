@@ -95,8 +95,11 @@ public class LocationController {
 //         return "redirect:login";
 //      }
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
+		String loc_userPhone = request.getParameter("loc_userPhone"); // host
+		String userPhone = request.getParameter("userPhone"); // gest
 		LocationInfoBean idx = locationService.getLocation(boardidx);
 		model.addAttribute("loca", idx);
+		model.addAttribute("userPhone",userPhone);
 		return "/location/LocationList_Delete";
 	}
 

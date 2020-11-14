@@ -28,6 +28,36 @@
 	function cancel() {
 		location.href="/home";
 	}
+	
+	 $('#delete').click(function(){
+			//삭제시 문자 전송
+	
+			var loc_userPhone = document.getElementById("loc_userPhone").value //host 전화번호
+	 		var location = document.getElementById("location").value;
+	 		var restaurant = document.getElementById("restaurant").innerHTML;//식당이름
+	 		var foodType = document.getElementById("foodType").innerHTML;//음식종류
+	 		var date  = document.getElementById("date").innerHTML;//날짜
+	 		var time  = document.getElementById("time").innerHTML;//시간
+	 		var phone = document.getElementById("phone").value;
+	 		alert("게시글의 정보가 보내집니다.");
+	 		 $.ajax({
+	 			type:"get",
+	 			url :"sendSMS2",
+	 			data:{
+	 				"phoneNumber" : phone,
+	 				"restaurant" : restaurant,
+	 				"foodType" : foodType,
+	 				"date" : date,
+	 				"time" : time,
+	 				"location" : location,
+	 				"loc_userPhone" : loc_userPhone
+	 			},
+	 			success:function(res){
+	 				alert("정상적으로 보내졌습니다.")
+	 				location.history(-1);
+	 			}
+	 		}) 
+	 	});
 </script>
 </head>
 <body th:align="center" style="background-color: #f5f6f7">
@@ -39,6 +69,8 @@
 				<form th:action="@{/deleteLocation}" th:onsubmit="return sub()" method="post">
 					<input th:value="${location}" type="text" id="loca" hidden="true" />
 					<input th:hidden="${loca.boardidx}" name="boardidx" id="boardidx" th:value="${loca.boardidx}">
+					<input th:text="${loca.userPhone}" name="loc_userPhone" id="loc_userPhone" th:value="${loca.userPhone}">
+					<input th:text="${userPhone}" name="phoneNumber" id="phoneNumber" th:value="$userPhone}">
 					<table th:align="center" th:cellpadding="0" th:cellspacing="0"
 						style="border: 0; border-radius: 10px; width: 400px;">
 						<tr>
