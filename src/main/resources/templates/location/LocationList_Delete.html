@@ -80,13 +80,10 @@ table {
 				<form th:action="@{/deleteLocation}" th:onsubmit="return sub()"
 					method="post">
 					<input th:value="${location}" type="text" id="loca" hidden="true" />
-					<input th:hidden="${loca.boardidx}" name="boardidx" id="boardidx"
-						th:value="${loca.boardidx}"> <input
-						th:text="${loca.userPhone}" name="loc_userPhone"
-						id="loc_userPhone" th:value="${loca.userPhone}"> <input
-						th:text="${session['user'].userPhone}" name="phone" id="phone"
-						th:value="${session['user'].userPhone}"> <input th:text="${loca.subject}"
-						name="subject" id="subject" th:value="${loca.subject}">
+					<input th:hidden="${loca.boardidx}" name="boardidx" id="boardidx" th:value="${loca.boardidx}">
+					<input th:hidden="${loca.userPhone}" name="loc_userPhone" id="loc_userPhone" th:value="${loca.userPhone}">
+					<input th:hidden="${session['user'].userPhone}" name="phone" id="phone" th:value="${session['user'].userPhone}">
+					<input th:hidden="${loca.subject}" name="subject" id="subject" th:value="${loca.subject}">
 					<table th:align="center" th:cellpadding="0" th:cellspacing="0"
 						style="border: 0; border-radius: 10px; width: 400px;">
 						<tr>
