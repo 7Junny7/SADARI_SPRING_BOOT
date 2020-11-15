@@ -39,7 +39,9 @@ public class FileController {
 	public String deleteFile(Model model, HttpServletRequest request) {
 		Long boardidx = Long.parseLong(request.getParameter("boardidx"));
 		FileInfoBean fileidx= fileService.getFile(boardidx);
-		fileService.deleteFile(fileidx);
+		if(fileidx != null) {
+			fileService.deleteFile(fileidx);
+		}
 		return "/location/Location_Delete_Success";
 	}
 

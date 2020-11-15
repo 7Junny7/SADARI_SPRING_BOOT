@@ -32,8 +32,22 @@ public class PhoneController extends certificationService{
 	@GetMapping("/sendSMS2")
 	 public @ResponseBody String sendSMS(String phoneNumber,String restaurant,String foodType,String date, String time,String location, String loc_userPhone) {
 			String str=(date+" "+time);
-//	        certifiedPhoneNumber2(phoneNumber, restaurant, foodType, str, location, loc_userPhone);
-//	        certifiedPhoneNumber3(phoneNumber, restaurant, foodType, str, location, loc_userPhone);
+	        certifiedPhoneNumber2(phoneNumber, restaurant, foodType, str, location, loc_userPhone);
+	        certifiedPhoneNumber3(phoneNumber, restaurant, foodType, str, location, loc_userPhone);
+	        return str;
+	    }
+	
+	// 글 삭제
+		@GetMapping("/sendSMS3")
+		public @ResponseBody String sendSMS(String phoneNumber,String loc_userPhone, String subject) {
+	        String str = subject;
+	        System.out.println(phoneNumber+":"+loc_userPhone+":"+str+" - sendSMS3");
+	        if(phoneNumber.equals(loc_userPhone)) { //host가 지울때
+	        	certifiedPhoneNumber4(phoneNumber, loc_userPhone, str);
+	        }else {									//guest가 지울때
+	        	certifiedPhoneNumber4(phoneNumber, loc_userPhone, str);
+	        	certifiedPhoneNumber5(phoneNumber, loc_userPhone, str);
+	        }
 	        return str;
 	    }
 }

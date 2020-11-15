@@ -80,4 +80,53 @@ public class certificationService {
 			System.out.println(e.getCode());
 		}
 	}
+	
+	//삭제 문자 정보 전송 용 - host에게
+	public void certifiedPhoneNumber4(String phoneNumber, String loc_userPhone, String str) {
+		String api_key = "NCSDHS4SD7DTVQO4";
+		String api_secret = "Z2MNXCR4WWBAOTQHXVSM98G1U4SBRTDO";
+		Message coolsms = new Message(api_key, api_secret);
+		// 4 params(to, from, type, text) are mandatory. must be filled
+		System.out.println(str);
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("to", phoneNumber);    // 수신전화번호
+		params.put("from", "01071399170");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
+		params.put("type", "LMS");
+		params.put("text","참여하셨던"+str+"모임이 취소가 되었습니다. 다음에 더 맛있는 곳에서 만나요!");
+		
+//        params.put("app_version", "test app 1.2"); // application name and version
+		
+		try {
+			JSONObject obj = (JSONObject) coolsms.send(params);
+			System.out.println(obj.toString());
+		} catch (CoolsmsException e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getCode());
+		}
+	}
+	
+	//삭제 문자 정보 전송 용 - guest에게
+	public void certifiedPhoneNumber5(String phoneNumber, String loc_userPhone, String str) {
+		String api_key = "NCSDHS4SD7DTVQO4";
+		String api_secret = "Z2MNXCR4WWBAOTQHXVSM98G1U4SBRTDO";
+		Message coolsms = new Message(api_key, api_secret);
+		// 4 params(to, from, type, text) are mandatory. must be filled
+		System.out.println(str);
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("to", loc_userPhone);    // 수신전화번호
+		params.put("from", "01071399170");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
+		params.put("type", "LMS");
+		params.put("text","참여하셨던"+str+"모임이 취소가 되었습니다. 다음에 더 맛있는 곳에서 만나요!");
+		
+//        params.put("app_version", "test app 1.2"); // application name and version
+		
+		try {
+			JSONObject obj = (JSONObject) coolsms.send(params);
+			System.out.println(obj.toString());
+		} catch (CoolsmsException e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getCode());
+		}
+	}
+	
 }
